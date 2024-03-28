@@ -24,6 +24,10 @@ The overview of the scaler algorithm module.
 
 interpolation coefficient calculation
 
+![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/fill_blank.png)
+
+When users choose 'scaling down' mode, the empty area in the screen would be filled with 'black'
+
 
 
 
