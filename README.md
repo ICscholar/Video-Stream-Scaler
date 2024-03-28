@@ -20,6 +20,11 @@ The overview of the scaler algorithm module.
 
 (English Version)Bilinear interpolation and nearest neighbor interpolation both require reading two rows to perform calculations. For example, the first row is input to the scaling module, then cached, and after the second row is input, the calculation can be performed. But when the third line is inputted, use the second and third lines. That is to say, only one row of data was actually used to output two rows of data. Amplification requires reading one line and writing two lines, so the amplification module requires twice the clock. Shrinking can be done with a clock that is 1 or even 0.5 times smaller.Therefore, after selecting the enlarged area (reduced area) in image_cut, the asynchronous FIFO in the process of transferring data within the specified area to the specific implementation module streamScaler for scaling uses double clock writing and double clock reading.
 
+![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/Interpolation%20coefficient%20calculation.png)
+
+interpolation coefficient calculation
+
+
 
 
 
