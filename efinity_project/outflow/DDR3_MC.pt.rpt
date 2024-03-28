@@ -1,0 +1,1007 @@
+
+Efinity Interface Designer Report
+Version: 2023.1.150.5.11
+Date: 2023-11-14 13:01
+
+Copyright (C) 2017 - 2023 Efinix Inc. All rights reserved.
+
+Device: Ti60F225
+Project: DDR3_MC
+
+Package: 225-ball FBGA (final)
+Timing Model: C4 (final)
+Configuration Mode: active (x1)
+
+---------- Table of Contents (begin) ----------
+   1. Periphery Usage Summary
+   2. Generated Output Files
+   3. I/O Banks Summary
+   4. Global Connection Summary
+   5. Clock Region Usage Summary
+   6. Dual-Function Configuration Pin Usage
+   7. GPIO Usage Summary
+   8. PLL Usage Summary
+   9. Oscillator Usage Summary
+   10. Clock Mux Usage Summary
+   11. Configuration Control Usage Summary
+   12. Configuration SEU Detection Usage Summary
+   13. JTAG Usage Summary
+   14. LVDS Rx Usage Summary
+   15. LVDS Tx Usage Summary
+   16. Bidirectional LVDS Usage Summary
+   17. MIPI RX Lane Usage Summary
+   18. MIPI TX Lane Usage Summary
+   19. Design Issues
+---------- Table of Contents (end) ------------
+
+---------- 1. Periphery Usage Summary (begin) ----------
+clkmux: 4 / 4 (100.0%)
+control: 0 / 1 (0.0%)
+gpio: 9 / 23 (39.13%)
+hsio: 54.0 / 70 (77.14%)
+	gpio: 90
+	lvds or mipi dphy: 9
+hsio_bg: 0 / 8 (0.0%)
+hvio_poc: 0 / 4 (0.0%)
+jtag: 1 / 4 (25.0%)
+osc: 1 / 1 (100.0%)
+pll: 4 / 4 (100.0%)
+seu: 0 / 1 (0.0%)
+---------- Periphery Usage Summary (end) ----------
+
+---------- 2. Generated Output Files (begin) ----------
+Interface Configuration: DDR3_MC.interface.csv
+Peripheral Block Configuration: DDR3_MC.lpf
+Pinout Report: DDR3_MC.pinout.rpt
+Pinout CSV: DDR3_MC.pinout.csv
+Timing Report: DDR3_MC.pt_timing.rpt
+Timing SDC Template: DDR3_MC.pt.sdc
+Verilog Template: DDR3_MC_template.v
+Option Register File: DDR3_MC_or.ini
+---------- Generated Output Files (end) ----------
+
+---------- 3. I/O Banks Summary (begin) ----------
+
++----------+-------------+
+| I/O Bank | I/O Voltage |
++----------+-------------+
+|    1A    |    1.8 V    |
+|    1B    |    1.8 V    |
+|    2A    |    1.2 V    |
+|    2B    |    1.2 V    |
+|    3A    |    1.8 V    |
+|    3B    |    1.5 V    |
+|    4A    |    1.5 V    |
+|    4B    |    1.5 V    |
+|    BL    |    3.3 V    |
+|    BR    |    3.3 V    |
+|    TL    |    3.3 V    |
+|    TR    |    3.3 V    |
++----------+-------------+
+
+---------- I/O Banks Summary (end) ----------
+
+---------- 4. Global Connection Summary (begin) ----------
+
++---------------------+-----------------+------+
+|       Pin Name      |     Resource    | Type |
++---------------------+-----------------+------+
+|       clk_10m       | PLL_TL0.CLKOUT2 | GCLK |
+|       clk_25m       |  GPIOL_P_08.ALT | GCLK |
+|       clk_125m      | PLL_TL0.CLKOUT1 | GCLK |
+|       core_clk      | PLL_BL0.CLKOUT1 | GCLK |
+|   DDR3_PLL_CLKOUT4  | PLL_BL0.CLKOUT4 | GCLK |
+|   hdmi_rx_fast_clk  | PLL_TR0.CLKOUT1 | GCLK |
+|   hdmi_rx_slow_clk  | PLL_TR0.CLKOUT3 | GCLK |
+| hdmi_rx_slow_clk_2x | PLL_TR0.CLKOUT0 | GCLK |
+|   hdmi_tx_fast_clk  | PLL_TR0.CLKOUT2 | GCLK |
+|    i_mipi_tx_pclk   | PLL_BR0.CLKOUT3 | GCLK |
+|   i_mipi_txc_sclk   | PLL_BR0.CLKOUT1 | GCLK |
+|   i_mipi_txd_sclk   | PLL_BR0.CLKOUT2 | GCLK |
+|    i_sysclk_div_2   | PLL_TL0.CLKOUT3 | GCLK |
+|       mipi_fb       | PLL_BR0.CLKOUT0 | GCLK |
+|       osc_clk       |   OSC_0.CLKOUT  | GCLK |
+|         rxc1        |  GPIOL_P_10.ALT | GCLK |
+|         rxc         |  GPIOL_P_09.ALT | GCLK |
+|       sys_clk       | PLL_TL0.CLKOUT0 | GCLK |
+|       tac_clk       | PLL_BL0.CLKOUT2 | GCLK |
+|      tdqss_clk      | PLL_BL0.CLKOUT0 | GCLK |
+|       twd_clk       | PLL_BL0.CLKOUT3 | GCLK |
+|        vref1        |  GPIOB_P_04.ALT | VREF |
++---------------------+-----------------+------+
+
+---------- Global Connection Summary (end) ----------
+
+---------- 5. Clock Region Usage Summary (begin) ----------
+
++--------------+----------------+
+| Clock Region | Used/Available |
++--------------+----------------+
+|      B0      |      5/14      |
+|      B1      |      5/14      |
+|      L0      |      2/4       |
+|      L1      |      0/4       |
+|      L2      |      2/4       |
+|      L3      |      2/4       |
+|      L4      |      2/4       |
+|      L5      |      2/4       |
+|      L6      |      2/4       |
+|      L7      |      1/4       |
+|      R0      |      1/4       |
+|      R1      |      1/4       |
+|      R2      |      1/4       |
+|      R3      |      1/4       |
+|      R4      |      1/4       |
+|      R5      |      1/4       |
+|      R6      |      2/4       |
+|      R7      |      2/4       |
+|      T0      |      4/14      |
+|      T1      |      3/14      |
++--------------+----------------+
+
+---------- Clock Region Usage Summary (end) ----------
+
+---------- 6. Dual-Function Configuration Pin Usage (begin) ----------
+
++---------------+----------------+
+| Instance Name |    Function    |
++---------------+----------------+
+|    addr[0]    |     CDI31      |
+|    addr[1]    |     CDI23      |
+|    addr[2]    |     CDI28      |
+|    addr[5]    |     CDI10      |
+|    addr[6]    |     CDI26      |
+|    addr[7]    |     CDI21      |
+|    addr[8]    |     CDI22      |
+|    addr[11]   |     CDI27      |
+|    addr[13]   |     CDI29      |
+|    addr[14]   |     CDI20      |
+|    addr[15]   |     CDI11      |
+|     ba[0]     |      CDI9      |
+|      cas      |     CDI25      |
+|     dq[0]     |     CDI12      |
+|     dq[1]     |     CDI15      |
+|     dq[2]     |     CDI16      |
+|     dq[3]     |     CDI13      |
+|     dq[5]     |     CDI14      |
+|     dq[6]     |     CDI17      |
+|     dq[9]     |      CDI7      |
+|     dq[13]    |      CDI6      |
+|     dqs[0]    |     CDI18      |
+|     dqs[1]    |      CDI4      |
+|    mdio_io1   |      CSO       |
+|      odt      |      CDI8      |
+|      ras      |     CDI24      |
+|     rx_dv     | EXT_CONFIG_CLK |
+|      rxc1     |  PCR_READBACK  |
+|    rxd1[3]    |     CBSEL1     |
+|    tx_en_o1   |     CBSEL0     |
+|    txd1[0]    |    NSTATUS     |
+|     verf0     |  READBACK_ERR  |
+|     vref1     |     SSU_N      |
+|       we      |     CDI30      |
++---------------+----------------+
+
+---------- Dual-Function Configuration Pin Usage (end) ----------
+
+---------- 7. GPIO Usage Summary (begin) ----------
+
+Global Unused Setting: input with weak pullup
+
++-------------------+------------+--------+-----------------+--------------+----------+-------------------------+--------------------+-------------+
+|   Instance Name   |  Resource  |  Mode  |     Register    | Clock Region | I/O Bank |       I/O Standard      |      Pad Name      | Package Pin |
++-------------------+------------+--------+-----------------+--------------+----------+-------------------------+--------------------+-------------+
+|      addr[0]      | GPIOR_N_05 | output |       O(R)      |      R2      |    3B    |        1.5 V SSTL       |  GPIOR_N_05_CDI31  |     K15     |
+|      addr[1]      | GPIOR_N_01 | output |       O(R)      |      R0      |    3B    |        1.5 V SSTL       |  GPIOR_N_01_CDI23  |     L13     |
+|      addr[2]      | GPIOR_P_04 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_P_04_CDI28  |     K12     |
+|      addr[3]      | GPIOB_N_04 | output |       O(R)      |      B0      |    4B    |        1.5 V SSTL       |     GPIOB_N_04     |      K6     |
+|      addr[4]      | GPIOR_P_00 | output |       O(R)      |      R0      |    3B    |        1.5 V SSTL       | GPIOR_P_00_PLLIN0  |     L11     |
+|      addr[5]      | GPIOB_P_11 | output |       O(R)      |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_P_11_CDI10  |      K8     |
+|      addr[6]      | GPIOR_P_03 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_P_03_CDI26  |     K10     |
+|      addr[7]      | GPIOR_N_06 | output |       O(R)      |      R2      |    3B    |        1.5 V SSTL       |  GPIOR_N_06_CDI21  |     J13     |
+|      addr[8]      | GPIOR_N_00 | output |       O(R)      |      R0      |    3B    |        1.5 V SSTL       |  GPIOR_N_00_CDI22  |     K11     |
+|      addr[9]      | GPIOR_N_07 | output |       O(R)      |      R3      |    3B    |        1.5 V SSTL       |     GPIOR_N_07     |     J14     |
+|      addr[10]     | GPIOR_P_08 | output |       O(R)      |      R3      |    3B    |        1.5 V SSTL       | GPIOR_P_08_CLK11_P |     H10     |
+|      addr[11]     | GPIOR_N_03 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_N_03_CDI27  |     J10     |
+|      addr[12]     | GPIOR_P_01 | output |       O(R)      |      R0      |    3B    |        1.5 V SSTL       |  GPIOR_P_01_EXTFB  |     L12     |
+|      addr[13]     | GPIOR_N_04 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_N_04_CDI29  |     J12     |
+|      addr[14]     | GPIOR_P_06 | output |       O(R)      |      R2      |    3B    |        1.5 V SSTL       |  GPIOR_P_06_CDI20  |     K13     |
+|      addr[15]     | GPIOB_N_11 | output |       O(R)      |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_N_11_CDI11  |      K9     |
+|      b_led[0]     |  GPIOR_21  | output |                 |              |    BR    |       3.3 V LVCMOS      |      GPIOR_21      |     N14     |
+|      b_led[1]     |  GPIOR_22  | output |                 |              |    BR    |       3.3 V LVCMOS      |      GPIOR_22      |     P14     |
+|       ba[0]       | GPIOB_N_06 | output |       O(R)      |      B0      |    4B    |        1.5 V SSTL       |  GPIOB_N_06_CDI9   |      L7     |
+|       ba[1]       | GPIOB_N_10 | output |       O(R)      |      B1      |    4A    |        1.5 V SSTL       | GPIOB_N_10_CLK12_N |      L9     |
+|       ba[2]       | GPIOR_P_07 | output |       O(R)      |      R3      |    3B    |        1.5 V SSTL       |     GPIOR_P_07     |     K14     |
+|        cas        | GPIOR_N_02 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_N_02_CDI25  |     M15     |
+|        cke        | GPIOB_N_09 | output |       O(R)      |      B1      |    4A    |        1.5 V SSTL       | GPIOB_N_09_CLK13_N |      L8     |
+|      clk_25m      | GPIOL_P_08 | input  |                 |              |    1A    |       1.8 V LVCMOS      | GPIOL_P_08_CLK1_P  |      J2     |
+|       clk_p       | GPIOR_P_09 | clkout |                 |      R3      |    3B    | 1.5 V Differential SSTL | GPIOR_P_09_CLK10_P |     J15     |
+|         cs        | GPIOB_N_08 | output |       O(R)      |      B0      |    4B    |        1.5 V SSTL       | GPIOB_N_08_CLK14_N |      M8     |
+|       dm[0]       | GPIOB_P_10 | output |       O(R)      |      B1      |    4A    |        1.5 V SSTL       | GPIOB_P_10_CLK12_P |      M9     |
+|       dm[1]       | GPIOB_P_07 | output |       O(R)      |      B0      |    4B    |        1.5 V SSTL       | GPIOB_P_07_CLK15_P |      R8     |
+|       dq[0]       | GPIOB_P_12 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_P_12_CDI12  |      R9     |
+|       dq[1]       | GPIOB_N_13 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_N_13_CDI15  |     M10     |
+|       dq[2]       | GPIOB_P_14 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_P_14_CDI16  |     R10     |
+|       dq[3]       | GPIOB_N_12 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_N_12_CDI13  |      P9     |
+|       dq[4]       | GPIOB_N_17 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |     GPIOB_N_17     |     P12     |
+|       dq[5]       | GPIOB_P_13 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_P_13_CDI14  |     N10     |
+|       dq[6]       | GPIOB_N_14 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       |  GPIOB_N_14_CDI17  |     P10     |
+|       dq[7]       | GPIOB_P_17 | inout  | I(R),O(R),OE(R) |      B1      |    4A    |        1.5 V SSTL       | GPIOB_P_17_PLLIN1  |     P11     |
+|       dq[8]       | GPIOB_N_07 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       | GPIOB_N_07_CLK15_N |      P8     |
+|       dq[9]       | GPIOB_N_03 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       |  GPIOB_N_03_CDI7   |      M6     |
+|       dq[10]      | GPIOB_P_01 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       |  GPIOB_P_01_EXTFB  |      R6     |
+|       dq[11]      | GPIOB_P_08 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       | GPIOB_P_08_CLK14_P |      N8     |
+|       dq[12]      | GPIOB_N_01 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       |     GPIOB_N_01     |      P6     |
+|       dq[13]      | GPIOB_P_03 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       |  GPIOB_P_03_CDI6   |      N6     |
+|       dq[14]      | GPIOB_P_00 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       | GPIOB_P_00_PLLIN1  |      R5     |
+|       dq[15]      | GPIOB_N_00 | inout  | I(R),O(R),OE(R) |      B0      |    4B    |        1.5 V SSTL       |     GPIOB_N_00     |      P5     |
+|       dqs[0]      | GPIOB_P_15 | inout  | I(R),O(R),OE(R) |      B1      |    4A    | 1.5 V Differential SSTL |  GPIOB_P_15_CDI18  |     R12     |
+|       dqs[1]      | GPIOB_P_02 | inout  | I(R),O(R),OE(R) |      B0      |    4B    | 1.5 V Differential SSTL |  GPIOB_P_02_CDI4   |      R7     |
+|   FPGA_HDMI_SCL   | GPIOR_P_14 | inout  |                 |              |    3A    |       1.8 V LVCMOS      |     GPIOR_P_14     |     G11     |
+|   FPGA_HDMI_SDA   | GPIOR_N_14 | inout  |                 |              |    3A    |       1.8 V LVCMOS      |     GPIOR_N_14     |     F11     |
+|     HDMI_5V_N     | GPIOR_P_15 | input  |                 |              |    3A    |       1.8 V LVCMOS      |     GPIOR_P_15     |     F12     |
+|   hdmi_tx_clk_n   | GPIOR_P_10 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      | GPIOR_P_10_CLK9_P  |     H13     |
+|   hdmi_tx_clk_p   | GPIOR_N_10 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      | GPIOR_N_10_CLK9_N  |     H12     |
+| hdmi_tx_data_n[0] | GPIOR_P_13 | output |       O(R)      |      R5      |    3A    |       1.8 V LVCMOS      |     GPIOR_P_13     |     G15     |
+| hdmi_tx_data_n[1] | GPIOR_P_11 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      | GPIOR_P_11_CLK8_P  |     H14     |
+| hdmi_tx_data_n[2] | GPIOR_P_12 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      |     GPIOR_P_12     |     G13     |
+| hdmi_tx_data_p[0] | GPIOR_N_13 | output |       O(R)      |      R5      |    3A    |       1.8 V LVCMOS      |     GPIOR_N_13     |     F15     |
+| hdmi_tx_data_p[1] | GPIOR_N_11 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      | GPIOR_N_11_CLK8_N  |     G14     |
+| hdmi_tx_data_p[2] | GPIOR_N_12 | output |       O(R)      |      R4      |    3A    |       1.8 V LVCMOS      |     GPIOR_N_12     |     F13     |
+|       HPD_N       | GPIOR_N_15 | output |                 |              |    3A    |       1.8 V LVCMOS      |     GPIOR_N_15     |     E12     |
+|     LCD_POWER     |  GPIOR_20  | output |                 |              |    TR    |       3.3 V LVCMOS      |      GPIOR_20      |     D12     |
+|       mdc_o       | GPIOL_N_11 | output |       O(R)      |      L4      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_11     |      F5     |
+|       mdc_o1      | GPIOL_N_10 | output |       O(R)      |      L4      |    1B    |       1.8 V LVCMOS      | GPIOL_N_10_CLK3_N  |      G2     |
+|      mdio_io      | GPIOL_P_11 | inout  |                 |              |    1B    |       1.8 V LVCMOS      |     GPIOL_P_11     |      G5     |
+|      mdio_io1     | GPIOL_N_02 | inout  |                 |              |    1A    |       1.8 V LVCMOS      |   GPIOL_N_02_CSO   |      M2     |
+|        nrst       |  GPIOR_27  | input  |                 |              |    BR    |       3.3 V LVCMOS      |      GPIOR_27      |     P13     |
+|     o_lcd_rstn    |  GPIOR_18  | output |                 |              |    TR    |       3.3 V LVCMOS      |      GPIOR_18      |     B14     |
+|        odt        | GPIOB_P_06 | output |       O(R)      |      B0      |    4B    |        1.5 V SSTL       |  GPIOB_P_06_CDI8   |      M7     |
+|     phy_rst_n     |  GPIOL_01  | output |                 |              |    BL    |       3.3 V LVCMOS      |      GPIOL_01      |      R3     |
+|     phy_rst_n1    |  GPIOL_02  | output |                 |              |    BL    |       3.3 V LVCMOS      |      GPIOL_02      |      R4     |
+|        ras        | GPIOR_P_02 | output |       O(R)      |      R1      |    3B    |        1.5 V SSTL       |  GPIOR_P_02_CDI24  |     M14     |
+|       reset       | GPIOR_N_08 | output |       O(R)      |      R3      |    3B    |        1.5 V SSTL       | GPIOR_N_08_CLK11_N |     H11     |
+|       rx_dv       | GPIOL_N_08 | input  |       I(R)      |      L3      |    1A    |       1.8 V LVCMOS      | GPIOL_N_08_CLK1_N  |      H3     |
+|       rx_dv1      | GPIOL_N_18 | input  |       I(R)      |      L7      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_18     |      A2     |
+|        rxc        | GPIOL_P_09 | input  |                 |              |    1B    |       1.8 V LVCMOS      | GPIOL_P_09_CLK2_P  |      H1     |
+|        rxc1       | GPIOL_P_10 | input  |                 |              |    1B    |       1.8 V LVCMOS      | GPIOL_P_10_CLK3_P  |      H2     |
+|      rxd1[0]      | GPIOL_P_17 | input  |       I(R)      |    L6,L7     |    1B    |       1.8 V LVCMOS      |  GPIOL_P_17_EXTFB  |      B1     |
+|      rxd1[1]      | GPIOL_N_17 | input  |       I(R)      |      L6      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_17     |      C2     |
+|      rxd1[2]      | GPIOL_N_16 | input  |       I(R)      |      L6      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_16     |      C1     |
+|      rxd1[3]      | GPIOL_N_13 | input  |       I(R)      |      L5      |    1B    |       1.8 V LVCMOS      | GPIOL_N_13_CBSEL1  |      E3     |
+|       rxd[0]      | GPIOL_N_07 | input  |       I(R)      |      L3      |    1A    |       1.8 V LVCMOS      | GPIOL_N_07_CLK0_N  |      J1     |
+|       rxd[1]      | GPIOL_N_06 | input  |       I(R)      |      L2      |    1A    |       1.8 V LVCMOS      |     GPIOL_N_06     |      K2     |
+|       rxd[2]      | GPIOL_P_00 | input  |       I(R)      |      L0      |    1A    |       1.8 V LVCMOS      | GPIOL_P_00_PLLIN0  |      P2     |
+|       rxd[3]      | GPIOL_N_05 | input  |       I(R)      |      L2      |    1A    |       1.8 V LVCMOS      |     GPIOL_N_05     |      J3     |
+|      tx_en_o      | GPIOL_N_00 | output |       O(R)      |      L0      |    1A    |       1.8 V LVCMOS      |     GPIOL_N_00     |      R2     |
+|      tx_en_o1     | GPIOL_P_13 | output |       O(R)      |      L5      |    1B    |       1.8 V LVCMOS      | GPIOL_P_13_CBSEL0  |      F3     |
+|        txc        | GPIOL_P_07 | output |       O(R)      |      L3      |    1A    |       1.8 V LVCMOS      | GPIOL_P_07_CLK0_P  |      K1     |
+|        txc1       | GPIOL_P_16 | output |       O(R)      |      L6      |    1B    |       1.8 V LVCMOS      |     GPIOL_P_16     |      D1     |
+|      txd1[0]      | GPIOL_P_15 | output |       O(R)      |      L6      |    1B    |       1.8 V LVCMOS      | GPIOL_P_15_NSTATUS |      E1     |
+|      txd1[1]      | GPIOL_P_14 | output |       O(R)      |      L6      |    1B    |       1.8 V LVCMOS      |     GPIOL_P_14     |      F1     |
+|      txd1[2]      | GPIOL_N_14 | output |       O(R)      |      L6      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_14     |      F2     |
+|      txd1[3]      | GPIOL_N_09 | output |       O(R)      |      L4      |    1B    |       1.8 V LVCMOS      | GPIOL_N_09_CLK2_N  |      G1     |
+|       txd[0]      | GPIOL_P_06 | output |       O(R)      |      L2      |    1A    |       1.8 V LVCMOS      |     GPIOL_P_06     |      K3     |
+|       txd[1]      | GPIOL_P_05 | output |       O(R)      |      L2      |    1A    |       1.8 V LVCMOS      |     GPIOL_P_05     |      K4     |
+|       txd[2]      | GPIOL_P_12 | output |       O(R)      |      L5      |    1B    |       1.8 V LVCMOS      |     GPIOL_P_12     |      G3     |
+|       txd[3]      | GPIOL_N_12 | output |       O(R)      |      L5      |    1B    |       1.8 V LVCMOS      |     GPIOL_N_12     |      G4     |
+|      uart_rx      |  GPIOR_15  | input  |                 |              |    TR    |       3.3 V LVCMOS      |      GPIOR_15      |     B12     |
+|      uart_tx      |  GPIOR_12  | output |                 |              |    TR    |       3.3 V LVCMOS      |      GPIOR_12      |     A13     |
+|       verf0       | GPIOB_P_09 | input  |                 |              |    4A    |        1.5 V SSTL       | GPIOB_P_09_CLK13_P |      K7     |
+|       vref1       | GPIOB_P_04 | input  |                 |              |    4B    |        1.5 V SSTL       |  GPIOB_P_04_SSU_N  |      L6     |
+|         we        | GPIOR_P_05 | output |       O(R)      |      R2      |    3B    |        1.5 V SSTL       |  GPIOR_P_05_CDI30  |     L15     |
++-------------------+------------+--------+-----------------+--------------+----------+-------------------------+--------------------+-------------+
+
+*NOTE
+R: Register Path
+
+
+Clkout GPIO Configuration:
+==========================
+
++---------------+------------+----------------+
+| Instance Name | Clock Pin  | Drive Strength |
++---------------+------------+----------------+
+|     clk_p     | ~tdqss_clk |       12       |
++---------------+------------+----------------+
+
+Input GPIO Configuration:
+=========================
+
++---------------+-------------------------+---------------------+-----------------+--------+-----------------+--------------+---------------------+-----------------+----------+------------+-------+
+| Instance Name |        Input Pin        | Alternate Input Pin | Input Clock Pin |  DDIO  | Deserialization | Pull Up/Down | Dynamic Pull Up Pin | Schmitt Trigger | Bus Hold | Delay Mode | Delay |
++---------------+-------------------------+---------------------+-----------------+--------+-----------------+--------------+---------------------+-----------------+----------+------------+-------+
+|    clk_25m    |                         |       clk_25m       |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|   HDMI_5V_N   |        HDMI_5V_N        |                     |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|      nrst     |           nrst          |                     |                 |        |     Disable     | weak pullup  |                     |     Disable     | Disable  |  Disable   |   0   |
+|     rx_dv     |    rx_dv_LO,rx_dv_HI    |                     |       rxc       | resync |     Disable     |     none     |                     |      Enable     | Disable  |  Disable   |   0   |
+|     rx_dv1    |   rx_dv1_LO,rx_dv1_HI   |                     |       rxc1      | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|      rxc      |                         |         rxc         |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   15  |
+|      rxc1     |                         |         rxc1        |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   15  |
+|    rxd1[0]    |  rxd1_LO[0],rxd1_HI[0]  |                     |       rxc1      | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|    rxd1[1]    |  rxd1_LO[1],rxd1_HI[1]  |                     |       rxc1      | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|    rxd1[2]    |  rxd1_LO[2],rxd1_HI[2]  |                     |       rxc1      | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|    rxd1[3]    |  rxd1_LO[3],rxd1_HI[3]  |                     |       rxc1      | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     rxd[0]    | rxd_lo_i[0],rxd_hi_i[0] |                     |       rxc       | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     rxd[1]    | rxd_lo_i[1],rxd_hi_i[1] |                     |       rxc       | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     rxd[2]    | rxd_lo_i[2],rxd_hi_i[2] |                     |       rxc       | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     rxd[3]    | rxd_lo_i[3],rxd_hi_i[3] |                     |       rxc       | resync |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|    uart_rx    |         uart_rx         |                     |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     verf0     |                         |        verf0        |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
+|     vref1     |                         |        vref1        |                 |        |     Disable     |     none     |                     |     Disable     | Disable  |  Disable   |   0   |
++---------------+-------------------------+---------------------+-----------------+--------+-----------------+--------------+---------------------+-----------------+----------+------------+-------+
+
+Output GPIO Configuration:
+==========================
+
++-------------------+-------------------------------------------+------------------+--------+---------------+----------------+-----------+-------+
+|   Instance Name   |                 Output Pin                | Output Clock Pin |  DDIO  | Serialization | Drive Strength | Slew Rate | Delay |
++-------------------+-------------------------------------------+------------------+--------+---------------+----------------+-----------+-------+
+|      addr[0]      |                  addr[0]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[1]      |                  addr[1]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[2]      |                  addr[2]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[3]      |                  addr[3]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[4]      |                  addr[4]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[5]      |                  addr[5]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[6]      |                  addr[6]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[7]      |                  addr[7]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[8]      |                  addr[8]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[9]      |                  addr[9]                  |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[10]     |                  addr[10]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[11]     |                  addr[11]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[12]     |                  addr[12]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[13]     |                  addr[13]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[14]     |                  addr[14]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      addr[15]     |                  addr[15]                 |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      b_led[0]     |                  b_led[0]                 |                  |        |    Disable    |       4        |  Disable  |   0   |
+|      b_led[1]     |                  b_led[1]                 |                  |        |    Disable    |       4        |  Disable  |   0   |
+|       ba[0]       |                   ba[0]                   |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|       ba[1]       |                   ba[1]                   |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|       ba[2]       |                   ba[2]                   |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|        cas        |                    cas                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|        cke        |                    cke                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|         cs        |                     cs                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|       dm[0]       |           o_dm_lo[0],o_dm_hi[0]           |     twd_clk      | resync |    Disable    |       10       |  Disable  |   0   |
+|       dm[1]       |           o_dm_lo[1],o_dm_hi[1]           |     twd_clk      | resync |    Disable    |       10       |  Disable  |   0   |
+|   hdmi_tx_clk_n   |     hdmi_tx_clk_n_LO,hdmi_tx_clk_n_HI     | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+|   hdmi_tx_clk_p   |     hdmi_tx_clk_p_LO,hdmi_tx_clk_p_HI     | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_n[0] | hdmi_tx_data_n_LO[0],hdmi_tx_data_n_HI[0] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_n[1] | hdmi_tx_data_n_LO[1],hdmi_tx_data_n_HI[1] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_n[2] | hdmi_tx_data_n_LO[2],hdmi_tx_data_n_HI[2] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_p[0] | hdmi_tx_data_p_LO[0],hdmi_tx_data_p_HI[0] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_p[1] | hdmi_tx_data_p_LO[1],hdmi_tx_data_p_HI[1] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+| hdmi_tx_data_p[2] | hdmi_tx_data_p_LO[2],hdmi_tx_data_p_HI[2] | hdmi_tx_fast_clk | resync |    Disable    |       4        |  Disable  |   0   |
+|       HPD_N       |                   HPD_N                   |                  |        |    Disable    |       4        |  Disable  |   0   |
+|     LCD_POWER     |                 LCD_POWER                 |                  |        |    Disable    |       2        |  Disable  |   0   |
+|       mdc_o       |             mdc_o_LO,mdc_o_HI             |     clk_10m      | resync |    Disable    |       4        |  Disable  |   0   |
+|       mdc_o1      |            mdc_o1_LO,mdc_o1_HI            |     clk_10m      | resync |    Disable    |       4        |  Disable  |   0   |
+|     o_lcd_rstn    |                 o_lcd_rstn                |                  |        |    Disable    |       2        |  Disable  |   0   |
+|        odt        |                    odt                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|     phy_rst_n     |                 phy_rst_n                 |                  |        |    Disable    |       2        |  Disable  |   0   |
+|     phy_rst_n1    |                 phy_rst_n1                |                  |        |    Disable    |       2        |  Disable  |   0   |
+|        ras        |                    ras                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|       reset       |                   reset                   |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
+|      tx_en_o      |           tx_en_o_LO,tx_en_o_HI           |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      tx_en_o1     |          tx_en_o1_LO,tx_en_o1_HI          |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|        txc        |             txc_lo_o,txc_hi_o             |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|        txc1       |              txc1_LO,txc1_HI              |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      txd1[0]      |           txd1_LO[0],txd1_HI[0]           |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      txd1[1]      |           txd1_LO[1],txd1_HI[1]           |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      txd1[2]      |           txd1_LO[2],txd1_HI[2]           |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      txd1[3]      |           txd1_LO[3],txd1_HI[3]           |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|       txd[0]      |          txd_lo_o[0],txd_hi_o[0]          |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|       txd[1]      |          txd_lo_o[1],txd_hi_o[1]          |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|       txd[2]      |          txd_lo_o[2],txd_hi_o[2]          |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|       txd[3]      |          txd_lo_o[3],txd_hi_o[3]          |     clk_125m     | resync |    Disable    |       4        |  Disable  |   0   |
+|      uart_tx      |                  uart_tx                  |                  |        |    Disable    |       2        |  Disable  |   0   |
+|         we        |                     we                    |    tdqss_clk     |        |    Disable    |       8        |  Disable  |   0   |
++-------------------+-------------------------------------------+------------------+--------+---------------+----------------+-----------+-------+
+
+Inout GPIO Configuration:
+=========================
+
++---------------+-------------------------+---------------------+-----------------+------------+-----------------+--------------+---------------------+-----------------+----------+------------------+-------------+-------------------------+------------------+------------------+-------------+---------------+----------------+-----------+--------------+
+| Instance Name |        Input Pin        | Alternate Input Pin | Input Clock Pin | Input DDIO | Deserialization | Pull Up/Down | Dynamic Pull Up Pin | Schmitt Trigger | Bus Hold | Input Delay Mode | Input Delay |        Output Pin       |      OE Pin      | Output Clock Pin | Output DDIO | Serialization | Drive Strength | Slew Rate | Output Delay |
++---------------+-------------------------+---------------------+-----------------+------------+-----------------+--------------+---------------------+-----------------+----------+------------------+-------------+-------------------------+------------------+------------------+-------------+---------------+----------------+-----------+--------------+
+|     dq[0]     |  i_dq_lo[0],i_dq_hi[0]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[0],o_dq_hi[0]  |    o_dq_oe[0]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[1]     |  i_dq_lo[1],i_dq_hi[1]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[1],o_dq_hi[1]  |    o_dq_oe[1]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[2]     |  i_dq_lo[2],i_dq_hi[2]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[2],o_dq_hi[2]  |    o_dq_oe[2]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[3]     |  i_dq_lo[3],i_dq_hi[3]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[3],o_dq_hi[3]  |    o_dq_oe[3]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[4]     |  i_dq_lo[4],i_dq_hi[4]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[4],o_dq_hi[4]  |    o_dq_oe[4]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[5]     |  i_dq_lo[5],i_dq_hi[5]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[5],o_dq_hi[5]  |    o_dq_oe[5]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[6]     |  i_dq_lo[6],i_dq_hi[6]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[6],o_dq_hi[6]  |    o_dq_oe[6]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[7]     |  i_dq_lo[7],i_dq_hi[7]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[7],o_dq_hi[7]  |    o_dq_oe[7]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[8]     |  i_dq_lo[8],i_dq_hi[8]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[8],o_dq_hi[8]  |    o_dq_oe[8]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[9]     |  i_dq_lo[9],i_dq_hi[9]  |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |  o_dq_lo[9],o_dq_hi[9]  |    o_dq_oe[9]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[10]    | i_dq_lo[10],i_dq_hi[10] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dq_lo[10],o_dq_hi[10] |   o_dq_oe[10]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[11]    | i_dq_lo[11],i_dq_hi[11] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dq_lo[11],o_dq_hi[11] |   o_dq_oe[11]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[12]    | i_dq_lo[12],i_dq_hi[12] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dq_lo[12],o_dq_hi[12] |   o_dq_oe[12]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[13]    | i_dq_lo[13],i_dq_hi[13] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dq_lo[13],o_dq_hi[13] |   o_dq_oe[13]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[14]    | i_dq_lo[14],i_dq_hi[14] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dq_lo[14],o_dq_hi[14] |   o_dq_oe[14]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dq[15]    | i_dq_lo[15],i_dq_hi[15] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      1      | o_dq_lo[15],o_dq_hi[15] |   o_dq_oe[15]    |     twd_clk      |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dqs[0]    | i_dqs_lo[0],i_dqs_hi[0] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dqs_lo[0],o_dqs_hi[0] |   o_dqs_oe[0]    |    tdqss_clk     |    resync   |    Disable    |       10       |  Disable  |      0       |
+|     dqs[1]    | i_dqs_lo[1],i_dqs_hi[1] |                     |     tac_clk     |   resync   |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      | o_dqs_lo[1],o_dqs_hi[1] |   o_dqs_oe[1]    |    tdqss_clk     |    resync   |    Disable    |       10       |  Disable  |      0       |
+| FPGA_HDMI_SCL |     FPGA_HDMI_SCL_IN    |                     |                 |            |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |    FPGA_HDMI_SCL_OUT    | FPGA_HDMI_SCL_OE |                  |             |    Disable    |       4        |  Disable  |      0       |
+| FPGA_HDMI_SDA |     FPGA_HDMI_SDA_IN    |                     |                 |            |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |    FPGA_HDMI_SDA_OUT    | FPGA_HDMI_SDA_OE |                  |             |    Disable    |       4        |  Disable  |      0       |
+|    mdio_io    |          mdio_i         |                     |                 |            |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |          mdio_o         |     mdio_oe      |                  |             |    Disable    |       4        |  Disable  |      0       |
+|    mdio_io1   |       mdio_io1_IN       |                     |                 |            |     Disable     |     none     |                     |     Disable     | Disable  |     Disable      |      0      |       mdio_io1_OUT      |   mdio_io1_OE    |                  |             |    Disable    |       4        |  Disable  |      0       |
++---------------+-------------------------+---------------------+-----------------+------------+-----------------+--------------+---------------------+-----------------+----------+------------------+-------------+-------------------------+------------------+------------------+-------------+---------------+----------------+-----------+--------------+
+
+---------- GPIO Usage Summary (end) ----------
+
+---------- 8. PLL Usage Summary (begin) ----------
+
++---------------+----------+--------------+--------------+---------------------+---------------+---------------------+---------------------+------------------+------------------+------------------+------------------+
+| Instance Name | Resource | Clock Region | Clock Source |   Reference Clock   | Feedback Mode |    Feedback Clock   |       Clkout0       |     Clkout1      |     Clkout2      |     Clkout3      |     Clkout4      |
++---------------+----------+--------------+--------------+---------------------+---------------+---------------------+---------------------+------------------+------------------+------------------+------------------+
+|    DDR3_PLL   | PLL_BL0  |    B0,L1     |     core     |       clk_25m       |      core     |   DDR3_PLL_CLKOUT4  |      tdqss_clk      |     core_clk     |     tac_clk      |     twd_clk      | DDR3_PLL_CLKOUT4 |
+|    SYS_PLL    | PLL_TL0  |    L7,T0     |     core     |       clk_25m       |      core     |       sys_clk       |       sys_clk       |     clk_125m     |     clk_10m      |  i_sysclk_div_2  |                  |
+|  hdmi_rx_pll  | PLL_TR0  |    R7,T1     |   external   | hdmi_rx_clk_RX_DATA |      core     | hdmi_rx_slow_clk_2x | hdmi_rx_slow_clk_2x | hdmi_rx_fast_clk | hdmi_tx_fast_clk | hdmi_rx_slow_clk |                  |
+|  mipi_tx_pll  | PLL_BR0  |    B1,R0     |     core     |       clk_25m       |      core     |       mipi_fb       |       mipi_fb       | i_mipi_txc_sclk  | i_mipi_txd_sclk  |  i_mipi_tx_pclk  |                  |
++---------------+----------+--------------+--------------+---------------------+---------------+---------------------+---------------------+------------------+------------------+------------------+------------------+
+
+***** PLL 0 *****
+
+Instance Name                 : DDR3_PLL
+Resource                      : PLL_BL0
+Reset Pin Name                : DDR3_PLL_RSTN
+Locked Pin Name               : DDR3_PLL_LOCK
+Phase Shift Enable Pin Name   : shift_ena
+Phase Shift Select [4:0] Bus Name: shift_sel
+Phase Shift [2:0] Bus Name    : shift
+Clock Source                  : core
+Reference Clock               : clk_25m
+Feedback Mode                 : core
+Feedback Clock                : DDR3_PLL_CLKOUT4
+
+Reference Clock Frequency     : 25.0000 MHz
+Reference Clock Period        : 40.0000 ns
+Multiplier (M)                : 4
+Pre-Divider (N)               : 1
+VCO Frequency                 : 3200.0000 MHz
+Post-Divider (O)              : 2
+PLL Frequency                 : 1600.0000 MHz
+
+Output Clock 0
+Clock Pin Name                : tdqss_clk
+Output Divider                : 4
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 400.0000 MHz
+Output Period                 : 2.5000 ns
+
+Output Clock 1
+Clock Pin Name                : core_clk
+Output Divider                : 8
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 200.0000 MHz
+Output Period                 : 5.0000 ns
+
+Output Clock 2
+Clock Pin Name                : tac_clk
+Output Divider                : 4
+Dynamic Phase Shift           : Enable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 400.0000 MHz
+Output Period                 : 2.5000 ns
+
+Output Clock 3
+Clock Pin Name                : twd_clk
+Output Divider                : 4
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 2
+Phase Degree                  : 90.0000
+Invert Output                 : false
+Output Frequency              : 400.0000 MHz
+Output Period                 : 2.5000 ns
+
+Output Clock 4
+Clock Pin Name                : DDR3_PLL_CLKOUT4
+Output Divider                : 16
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 100.0000 MHz
+Output Period                 : 10.0000 ns
+
+Frequency calculations:
+	VCO = REFCLK * ((M * FBK) /N)
+	    = 25.0000 MHz * ((4*32) /1)
+	    = 3200.0000 MHz
+	PLL = VCO / O
+	    = 3200.0000 MHz / 2
+	    = 1600.0000 MHz
+
+	CLKOUT0 = PLL / CLKOUT0_DIV
+	        = 1600.0000 MHz / 4
+	        = 400.0000 MHz
+	CLKOUT1 = PLL / CLKOUT1_DIV
+	        = 1600.0000 MHz / 8
+	        = 200.0000 MHz
+	CLKOUT2 = PLL / CLKOUT2_DIV
+	        = 1600.0000 MHz / 4
+	        = 400.0000 MHz
+	CLKOUT3 = PLL / CLKOUT3_DIV
+	        = 1600.0000 MHz / 4
+	        = 400.0000 MHz
+	CLKOUT4 = PLL / CLKOUT4_DIV
+	        = 1600.0000 MHz / 16
+	        = 100.0000 MHz
+
+SDC Constraints:
+	create_clock -period 2.50 tdqss_clk
+	create_clock -period 5.00 core_clk
+	create_clock -period 2.50 tac_clk
+	create_clock -waveform {0.6250 1.8750} -period 2.50 twd_clk
+	create_clock -period 10.00 DDR3_PLL_CLKOUT4
+
+***** PLL 1 *****
+
+Instance Name                 : SYS_PLL
+Resource                      : PLL_TL0
+Reset Pin Name                : SYS_PLL_RSTN
+Locked Pin Name               : SYS_PLL_LOCK
+Clock Source                  : core
+Reference Clock               : clk_25m
+Feedback Mode                 : core
+Feedback Clock                : sys_clk
+
+Reference Clock Frequency     : 25.0000 MHz
+Reference Clock Period        : 40.0000 ns
+Multiplier (M)                : 4
+Pre-Divider (N)               : 1
+VCO Frequency                 : 4000.0000 MHz
+Post-Divider (O)              : 4
+PLL Frequency                 : 1000.0000 MHz
+
+Output Clock 0
+Clock Pin Name                : sys_clk
+Output Divider                : 10
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 100.0000 MHz
+Output Period                 : 10.0000 ns
+
+Output Clock 1
+Clock Pin Name                : clk_125m
+Output Divider                : 8
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 125.0000 MHz
+Output Period                 : 8.0000 ns
+
+Output Clock 2
+Clock Pin Name                : clk_10m
+Output Divider                : 100
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 10.0000 MHz
+Output Period                 : 100.0000 ns
+
+Output Clock 3
+Clock Pin Name                : i_sysclk_div_2
+Output Divider                : 17
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 58.8235 MHz
+Output Period                 : 17.0000 ns
+
+Frequency calculations:
+	VCO = REFCLK * ((M * FBK) /N)
+	    = 25.0000 MHz * ((4*40) /1)
+	    = 4000.0000 MHz
+	PLL = VCO / O
+	    = 4000.0000 MHz / 4
+	    = 1000.0000 MHz
+
+	CLKOUT0 = PLL / CLKOUT0_DIV
+	        = 1000.0000 MHz / 10
+	        = 100.0000 MHz
+	CLKOUT1 = PLL / CLKOUT1_DIV
+	        = 1000.0000 MHz / 8
+	        = 125.0000 MHz
+	CLKOUT2 = PLL / CLKOUT2_DIV
+	        = 1000.0000 MHz / 100
+	        = 10.0000 MHz
+	CLKOUT3 = PLL / CLKOUT3_DIV
+	        = 1000.0000 MHz / 17
+	        = 58.8235 MHz
+
+SDC Constraints:
+	create_clock -period 10.00 sys_clk
+	create_clock -period 8.00 clk_125m
+	create_clock -period 100.00 clk_10m
+	create_clock -period 17.00 i_sysclk_div_2
+
+***** PLL 2 *****
+
+Instance Name                 : hdmi_rx_pll
+Resource                      : PLL_TR0
+Reset Pin Name                : hdmi_rx_pll_RSTN
+Locked Pin Name               : hdmi_rx_pll_LOCKED
+Clock Source                  : external
+Reference Clock Resource      : GPIOR_PN_19
+Reference Clock               : hdmi_rx_clk_RX_DATA
+Feedback Mode                 : core
+Feedback Clock                : hdmi_rx_slow_clk_2x
+
+Reference Clock Frequency     : 148.5000 MHz
+Reference Clock Period        : 6.7340 ns
+Multiplier (M)                : 2
+Pre-Divider (N)               : 1
+VCO Frequency                 : 2970.0000 MHz
+Post-Divider (O)              : 1
+PLL Frequency                 : 2970.0000 MHz
+
+Output Clock 0
+Clock Pin Name                : hdmi_rx_slow_clk_2x
+Output Divider                : 10
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 297.0000 MHz
+Output Period                 : 3.3670 ns
+
+Output Clock 1
+Clock Pin Name                : hdmi_rx_fast_clk
+Output Divider                : 4
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 1
+Phase Degree                  : 45.0000
+Invert Output                 : false
+Output Frequency              : 742.5000 MHz
+Output Period                 : 1.3468 ns
+
+Output Clock 2
+Clock Pin Name                : hdmi_tx_fast_clk
+Output Divider                : 4
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 742.5000 MHz
+Output Period                 : 1.3468 ns
+
+Output Clock 3
+Clock Pin Name                : hdmi_rx_slow_clk
+Output Divider                : 20
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 148.5000 MHz
+Output Period                 : 6.7340 ns
+
+Frequency calculations:
+	VCO = REFCLK * ((M * FBK) /N)
+	    = 148.5000 MHz * ((2*10) /1)
+	    = 2970.0000 MHz
+	PLL = VCO / O
+	    = 2970.0000 MHz / 1
+	    = 2970.0000 MHz
+
+	CLKOUT0 = PLL / CLKOUT0_DIV
+	        = 2970.0000 MHz / 10
+	        = 297.0000 MHz
+	CLKOUT1 = PLL / CLKOUT1_DIV
+	        = 2970.0000 MHz / 4
+	        = 742.5000 MHz
+	CLKOUT2 = PLL / CLKOUT2_DIV
+	        = 2970.0000 MHz / 4
+	        = 742.5000 MHz
+	CLKOUT3 = PLL / CLKOUT3_DIV
+	        = 2970.0000 MHz / 20
+	        = 148.5000 MHz
+
+SDC Constraints:
+	create_clock -period 3.37 hdmi_rx_slow_clk_2x
+	create_clock -waveform {0.1684 0.8418} -period 1.35 hdmi_rx_fast_clk
+	create_clock -period 1.35 hdmi_tx_fast_clk
+	create_clock -period 6.73 hdmi_rx_slow_clk
+
+***** PLL 3 *****
+
+Instance Name                 : mipi_tx_pll
+Resource                      : PLL_BR0
+Reset Pin Name                : o_mipi_pll_rstn
+Locked Pin Name               : i_mipi_tx_pll_locked
+Clock Source                  : core
+Reference Clock               : clk_25m
+Feedback Mode                 : core
+Feedback Clock                : mipi_fb
+
+Reference Clock Frequency     : 25.0000 MHz
+Reference Clock Period        : 40.0000 ns
+Multiplier (M)                : 4
+Pre-Divider (N)               : 1
+VCO Frequency                 : 3200.0000 MHz
+Post-Divider (O)              : 1
+PLL Frequency                 : 3200.0000 MHz
+
+Output Clock 0
+Clock Pin Name                : mipi_fb
+Output Divider                : 32
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 100.0000 MHz
+Output Period                 : 10.0000 ns
+
+Output Clock 1
+Clock Pin Name                : i_mipi_txc_sclk
+Output Divider                : 8
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 6
+Phase Degree                  : 135.0000
+Invert Output                 : false
+Output Frequency              : 400.0000 MHz
+Output Period                 : 2.5000 ns
+
+Output Clock 2
+Clock Pin Name                : i_mipi_txd_sclk
+Output Divider                : 8
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 2
+Phase Degree                  : 45.0000
+Invert Output                 : false
+Output Frequency              : 400.0000 MHz
+Output Period                 : 2.5000 ns
+
+Output Clock 3
+Clock Pin Name                : i_mipi_tx_pclk
+Output Divider                : 32
+Dynamic Phase Shift           : Disable
+Phase Setting                 : 0
+Phase Degree                  : 0.0000
+Invert Output                 : false
+Output Frequency              : 100.0000 MHz
+Output Period                 : 10.0000 ns
+
+Frequency calculations:
+	VCO = REFCLK * ((M * FBK) /N)
+	    = 25.0000 MHz * ((4*32) /1)
+	    = 3200.0000 MHz
+	PLL = VCO / O
+	    = 3200.0000 MHz / 1
+	    = 3200.0000 MHz
+
+	CLKOUT0 = PLL / CLKOUT0_DIV
+	        = 3200.0000 MHz / 32
+	        = 100.0000 MHz
+	CLKOUT1 = PLL / CLKOUT1_DIV
+	        = 3200.0000 MHz / 8
+	        = 400.0000 MHz
+	CLKOUT2 = PLL / CLKOUT2_DIV
+	        = 3200.0000 MHz / 8
+	        = 400.0000 MHz
+	CLKOUT3 = PLL / CLKOUT3_DIV
+	        = 3200.0000 MHz / 32
+	        = 100.0000 MHz
+
+SDC Constraints:
+	create_clock -period 10.00 mipi_fb
+	create_clock -waveform {0.9375 2.1875} -period 2.50 i_mipi_txc_sclk
+	create_clock -waveform {0.3125 1.5625} -period 2.50 i_mipi_txd_sclk
+	create_clock -period 10.00 i_mipi_tx_pclk
+
+---------- PLL Usage Summary (end) ----------
+
+---------- 9. Oscillator Usage Summary (begin) ----------
+
++---------------+----------+-----------+------------+-----------+--------+
+| Instance Name | Resource | Clock Pin | Enable Pin | Frequency | Period |
++---------------+----------+-----------+------------+-----------+--------+
+|   osc_inst1   |  OSC_0   |  osc_clk  |   osc_en   |   40 MHz  | 25 ns  |
++---------------+----------+-----------+------------+-----------+--------+
+
+SDC Constraints:
+	create_clock -period 25 osc_clk
+
+
+---------- Oscillator Usage Summary (end) ----------
+
+---------- 10. Clock Mux Usage Summary (begin) ----------
+
++----------+-----------------+
+| Resource | Output Assigned |
++----------+-----------------+
+| CLKMUX_B |        6        |
+| CLKMUX_L |        5        |
+| CLKMUX_R |        6        |
+| CLKMUX_T |        3        |
++----------+-----------------+
+
+***** CLOCKMUX 0 *****
+
+Resource: CLKMUX_B
+
+Clock mux assignment:
+
++-----------------+---------+--------------+-----------------+--------+
+|      Input      | Mux Pin | Top Mux: Sel | Bottom Mux: Sel | Output |
++-----------------+---------+--------------+-----------------+--------+
+|     twd_clk     | PLL0[3] |              |     BOT_1: 1    | OUT[1] |
+|     tac_clk     | PLL0[2] |              |     BOT_2: 1    | OUT[2] |
+|    tdqss_clk    | PLL0[0] |              |     BOT_3: 1    | OUT[3] |
+|     mipi_fb     | PLL1[0] |              |     BOT_4: 2    | OUT[4] |
+| i_mipi_txd_sclk | PLL1[2] |              |     BOT_5: 2    | OUT[5] |
+|     core_clk    | PLL0[1] |              |     BOT_6: 0    | OUT[6] |
++-----------------+---------+--------------+-----------------+--------+
+
+Dynamic Muxes
+Dynamic Mux 0                       : Disable
+Dynamic Mux 7                       : Disable
+
+Regional Buffers Assignment:
+
++------+------------------+-----------------+---------------------+-----------------+
+| RBUF |    Clock Pin     |     Resource    | Global And Regional | Global Pin Name |
++------+------------------+-----------------+---------------------+-----------------+
+|  2   | DDR3_PLL_CLKOUT4 | PLL_BL0.CLKOUT4 |       Disable       |                 |
++------+------------------+-----------------+---------------------+-----------------+
+
+***** CLOCKMUX 1 *****
+
+Resource: CLKMUX_L
+
+Clock mux assignment:
+
++---------+---------+--------------+-----------------+--------+
+|  Input  | Mux Pin | Top Mux: Sel | Bottom Mux: Sel | Output |
++---------+---------+--------------+-----------------+--------+
+|   rxc1  | GPIO[3] |              |     BOT_1: 3    | OUT[1] |
+|   rxc   | GPIO[2] |              |     BOT_2: 3    | OUT[2] |
+| sys_clk | PLL1[0] |              |     BOT_4: 2    | OUT[4] |
+| clk_10m | PLL1[2] |              |     BOT_5: 2    | OUT[5] |
+| clk_25m | GPIO[1] |              |     BOT_6: 1    | OUT[6] |
++---------+---------+--------------+-----------------+--------+
+
+Dynamic Muxes
+Dynamic Mux 0                       : Disable
+Dynamic Mux 7                       : Disable
+
+***** CLOCKMUX 2 *****
+
+Resource: CLKMUX_R
+
+Clock mux assignment:
+
++---------------------+---------+--------------+-----------------+--------+
+|        Input        | Mux Pin | Top Mux: Sel | Bottom Mux: Sel | Output |
++---------------------+---------+--------------+-----------------+--------+
+|   hdmi_rx_fast_clk  | PLL1[1] |   TOP_2: 1   |     BOT_0: 2    | OUT[0] |
+|    i_mipi_tx_pclk   | PLL0[3] |              |     BOT_1: 1    | OUT[1] |
+|   hdmi_rx_slow_clk  | PLL1[3] |   TOP_4: 1   |     BOT_3: 3    | OUT[3] |
+| hdmi_rx_slow_clk_2x | PLL1[0] |              |     BOT_4: 2    | OUT[4] |
+|   hdmi_tx_fast_clk  | PLL1[2] |              |     BOT_5: 2    | OUT[5] |
+|   i_mipi_txc_sclk   | PLL0[1] |              |     BOT_6: 0    | OUT[6] |
++---------------------+---------+--------------+-----------------+--------+
+
+Dynamic Muxes
+Dynamic Mux 0                       : Disable
+Dynamic Mux 7                       : Disable
+
+***** CLOCKMUX 3 *****
+
+Resource: CLKMUX_T
+
+Clock mux assignment:
+
++----------------+-----------+--------------+-----------------+--------+
+|     Input      |  Mux Pin  | Top Mux: Sel | Bottom Mux: Sel | Output |
++----------------+-----------+--------------+-----------------+--------+
+| i_sysclk_div_2 |  PLL0[3]  |              |     BOT_1: 1    | OUT[1] |
+|    osc_clk     | MIPI_CLK3 |              |     BOT_2: 2    | OUT[2] |
+|    clk_125m    |  PLL0[1]  |              |     BOT_6: 0    | OUT[6] |
++----------------+-----------+--------------+-----------------+--------+
+
+Dynamic Muxes
+Dynamic Mux 0                       : Disable
+Dynamic Mux 7                       : Disable
+
+---------- Clock Mux Usage Summary (end) ----------
+
+---------- 11. Configuration Control Usage Summary (begin) ----------
+
+No Configuration Control was configured
+
+---------- Configuration Control Usage Summary (end) ----------
+
+---------- 12. Configuration SEU Detection Usage Summary (begin) ----------
+
+No Configuration SEU Detection was configured
+
+---------- Configuration SEU Detection Usage Summary (end) ----------
+
+---------- 13. JTAG Usage Summary (begin) ----------
+
+Instance Name                                     : jtag_inst1
+
+Resource                                          : JTAG_USER1
+
+Capture Pin Name                                  : jtag_inst1_CAPTURE
+Gated Test Clock Pin Name                         : jtag_inst1_DRCK
+Reset Pin Name                                    : jtag_inst1_RESET
+Run Test Pin Name                                 : jtag_inst1_RUNTEST
+User Instruction Active Pin Name                  : jtag_inst1_SEL
+Shift Pin Name                                    : jtag_inst1_SHIFT
+Test Clock Pin Name                               : jtag_inst1_TCK
+Test Data Pin Name                                : jtag_inst1_TDI
+Test Data Pin Name                                : jtag_inst1_TDO
+Test Mode Select Pin Name                         : jtag_inst1_TMS
+Update Pin Name                                   : jtag_inst1_UPDATE
+
+---------- JTAG Usage Summary (end) ----------
+
+---------- 14. LVDS Rx Usage Summary (begin) ----------
+
++---------------+-------------+------------------------------+--------------+--------------+--------------------+---------------------+-----------+-----------------+-----------+------------------+------------------+-------------------+--------------------+---------+-------------+-----------------+---------------+------------+-------+
+| Instance Name |   Resource  |          Pad Names           | Package Pins | Clock Region |       Input        |   Alternate Input   | Conn Type | Deserialization | Half Rate |   Serial Clock   |  Parallel Clock  |       Reset       | Common Mode Driver |   SLVS  | Termination | Termination Pin | FIFO Crossing | Delay Mode | Delay |
++---------------+-------------+------------------------------+--------------+--------------+--------------------+---------------------+-----------+-----------------+-----------+------------------+------------------+-------------------+--------------------+---------+-------------+-----------------+---------------+------------+-------+
+|  hdmi_rx_clk  | GPIOR_PN_19 | GPIOR_N_19,GPIOR_P_19_PLLIN0 |   C15,C14    |      R7      |                    | hdmi_rx_clk_RX_DATA | pll_clkin |                 |           |                  |                  |                   |       Enable       | Disable |      on     |                 |    Disable    |   static   |   0   |
+|   hdmi_rx_d0  | GPIOR_PN_16 |    GPIOR_N_16,GPIOR_P_16     |   E14,E15    |      R6      | hdmi_rx_d0_RX_DATA |                     |           |        10       |   Enable  | hdmi_rx_fast_clk | hdmi_rx_slow_clk | hdmi_rx_d0_RX_RST |       Enable       | Disable |      on     |                 |    Disable    |   static   |   16  |
+|   hdmi_rx_d1  | GPIOR_PN_18 |    GPIOR_N_18,GPIOR_P_18     |   D14,D15    |    R6,R7     | hdmi_rx_d1_RX_DATA |                     |           |        10       |   Enable  | hdmi_rx_fast_clk | hdmi_rx_slow_clk | hdmi_rx_d1_RX_RST |       Enable       | Disable |      on     |                 |    Disable    |   static   |   16  |
+|   hdmi_rx_d2  | GPIOR_PN_17 |    GPIOR_N_17,GPIOR_P_17     |   D13,C13    |      R6      | hdmi_rx_d2_RX_DATA |                     |           |        10       |   Enable  | hdmi_rx_fast_clk | hdmi_rx_slow_clk | hdmi_rx_d2_RX_RST |       Enable       | Disable |      on     |                 |    Disable    |   static   |   0   |
++---------------+-------------+------------------------------+--------------+--------------+--------------------+---------------------+-----------+-----------------+-----------+------------------+------------------+-------------------+--------------------+---------+-------------+-----------------+---------------+------------+-------+
+
+---------- LVDS Rx Usage Summary (end) ----------
+
+---------- 15. LVDS Tx Usage Summary (begin) ----------
+
+No LVDS Tx was configured
+
+---------- LVDS Tx Usage Summary (end) ----------
+
+---------- 16. Bidirectional LVDS Usage Summary (begin) ----------
+
+No Bidirectional LVDS was configured
+
+---------- Bidirectional LVDS Usage Summary (end) ----------
+
+---------- 17. MIPI RX Lane Usage Summary (begin) ----------
+
+No MIPI RX Lane was configured
+
+---------- MIPI RX Lane Usage Summary (end) ----------
+
+---------- 18. MIPI TX Lane Usage Summary (begin) ----------
+
++---------------+-------------+-------------------------------------+--------------+--------------+------------+------------+----------------+-----------------+-------+
+| Instance Name |   Resource  |              Pad Names              | Package Pins | Clock Region |    Mode    | LP Reverse | Parallel Clock |   Serial Clock  | Delay |
++---------------+-------------+-------------------------------------+--------------+--------------+------------+------------+----------------+-----------------+-------+
+|  mipi_dp_clk  | GPIOT_PN_09 | GPIOT_N_09_CLK6_N,GPIOT_P_09_CLK6_P |    D8,E8     |      T1      | clock lane |  Disable   | i_mipi_tx_pclk | i_mipi_txc_sclk |   10  |
+| mipi_dp_data0 | GPIOT_PN_10 | GPIOT_N_10_CLK7_N,GPIOT_P_10_CLK7_P |    C9,C8     |      T1      | data lane  |  Disable   | i_mipi_tx_pclk | i_mipi_txd_sclk |   0   |
+| mipi_dp_data1 | GPIOT_PN_07 | GPIOT_N_07_CLK4_N,GPIOT_P_07_CLK4_P |    A8,B8     |      T0      | data lane  |  Disable   | i_mipi_tx_pclk | i_mipi_txd_sclk |   0   |
+| mipi_dp_data2 | GPIOT_PN_11 |        GPIOT_N_11,GPIOT_P_11        |    A9,B9     |      T1      | data lane  |  Disable   | i_mipi_tx_pclk | i_mipi_txd_sclk |   0   |
+| mipi_dp_data3 | GPIOT_PN_06 |        GPIOT_N_06,GPIOT_P_06        |    A7,B7     |      T0      | data lane  |  Disable   | i_mipi_tx_pclk | i_mipi_txd_sclk |   0   |
++---------------+-------------+-------------------------------------+--------------+--------------+------------+------------+----------------+-----------------+-------+
+
+---------- MIPI TX Lane Usage Summary (end) ----------
+
+---------- 19. Design Issues (begin) ----------
+
++---------------+---------------+----------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| Instance Name | Instance Type | Severity |          Rule         |                                                                    Description                                                                     |
++---------------+---------------+----------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+|   hdmi_rx_d0  |    lvds_rx    | warning  | lvds_rule_rx_distance | These HSIO GPIO must be placed at least 1 pair away from LVDS hdmi_rx_d0 in order to avoid noise coupling from GPIO to LVDS: GPIOR_N_15,GPIOR_P_15 |
++---------------+---------------+----------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+---------- Design Issues (end) ----------

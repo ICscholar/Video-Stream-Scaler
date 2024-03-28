@@ -1,0 +1,840 @@
+
+Efinix FPGA Placement and Routing.
+Version: 2023.1.150.5.11 
+Compiled: Oct  4 2023.
+
+Copyright (C) 2013 - 2023 Efinix Inc. All rights reserved.
+
+
+The Tool Is Based on VPR of University of Toronto,
+a free open source code under MIT license.
+
+
+Running Placement and Routing for Family "Titanium", Device "Ti60F225" ...
+
+***** Beginning stage routing ... *****
+WARNING(1): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:26] No clocks matched 'jtag_inst1_TCK'
+WARNING(2): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:26] set_clock_groups: No valid clock(s) found for -group 'jtag_inst1_TCK'
+WARNING(3): No ports matched 'jtag_inst1_TCK'
+WARNING(4): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] No valid object(s) found for ''
+WARNING(5): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] No valid pin(s) found for clock
+WARNING(6): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] Unable to run 'create_clock' constraint due to warnings found
+WARNING(7): No ports matched 'jtag_inst1_DRCK'
+WARNING(8): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] No valid object(s) found for ''
+WARNING(9): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] No valid pin(s) found for clock
+WARNING(10): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] Unable to run 'create_clock' constraint due to warnings found
+WARNING(11): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] No clocks matched 'jtag_inst1_TCK'
+WARNING(12): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] set_output_delay: No valid clock found for -clock
+WARNING(13): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(14): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] No clocks matched 'jtag_inst1_TCK'
+WARNING(15): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] set_output_delay: No valid clock found for -clock
+WARNING(16): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(17): No ports matched 'jtag_inst1_CAPTURE'
+WARNING(18): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] No clocks matched 'jtag_inst1_TCK'
+WARNING(19): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] set_input_delay: No valid clock found for -clock
+WARNING(20): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(21): No ports matched 'jtag_inst1_CAPTURE'
+WARNING(22): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] No clocks matched 'jtag_inst1_TCK'
+WARNING(23): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] set_input_delay: No valid clock found for -clock
+WARNING(24): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(25): No ports matched 'jtag_inst1_RESET'
+WARNING(26): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] No clocks matched 'jtag_inst1_TCK'
+WARNING(27): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] set_input_delay: No valid clock found for -clock
+WARNING(28): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(29): No ports matched 'jtag_inst1_RESET'
+WARNING(30): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] No clocks matched 'jtag_inst1_TCK'
+WARNING(31): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] set_input_delay: No valid clock found for -clock
+WARNING(32): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(33): No ports matched 'jtag_inst1_RUNTEST'
+WARNING(34): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] No clocks matched 'jtag_inst1_TCK'
+WARNING(35): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] set_input_delay: No valid clock found for -clock
+WARNING(36): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(37): No ports matched 'jtag_inst1_RUNTEST'
+WARNING(38): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] No clocks matched 'jtag_inst1_TCK'
+WARNING(39): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] set_input_delay: No valid clock found for -clock
+WARNING(40): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(41): No ports matched 'jtag_inst1_SEL'
+WARNING(42): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] No clocks matched 'jtag_inst1_TCK'
+WARNING(43): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] set_input_delay: No valid clock found for -clock
+WARNING(44): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(45): No ports matched 'jtag_inst1_SEL'
+WARNING(46): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] No clocks matched 'jtag_inst1_TCK'
+WARNING(47): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] set_input_delay: No valid clock found for -clock
+WARNING(48): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(49): No ports matched 'jtag_inst1_UPDATE'
+WARNING(50): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] No clocks matched 'jtag_inst1_TCK'
+WARNING(51): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] set_input_delay: No valid clock found for -clock
+WARNING(52): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(53): No ports matched 'jtag_inst1_UPDATE'
+WARNING(54): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] No clocks matched 'jtag_inst1_TCK'
+WARNING(55): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] set_input_delay: No valid clock found for -clock
+WARNING(56): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(57): No ports matched 'jtag_inst1_SHIFT'
+WARNING(58): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] No clocks matched 'jtag_inst1_TCK'
+WARNING(59): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] set_input_delay: No valid clock found for -clock
+WARNING(60): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(61): No ports matched 'jtag_inst1_SHIFT'
+WARNING(62): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] No clocks matched 'jtag_inst1_TCK'
+WARNING(63): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] set_input_delay: No valid clock found for -clock
+WARNING(64): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(65): No ports matched 'rx_dv_LO'
+WARNING(66): No ports matched 'rx_dv_HI'
+WARNING(67): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] No clocks matched 'rxc'
+WARNING(68): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] set_input_delay: No valid clock found for -clock
+WARNING(69): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(70): No ports matched 'rx_dv_LO'
+WARNING(71): No ports matched 'rx_dv_HI'
+WARNING(72): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] No clocks matched 'rxc'
+WARNING(73): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] set_input_delay: No valid clock found for -clock
+WARNING(74): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(75): No ports matched 'rx_dv1_LO'
+WARNING(76): No ports matched 'rx_dv1_HI'
+WARNING(77): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] No clocks matched 'rxc1'
+WARNING(78): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] set_input_delay: No valid clock found for -clock
+WARNING(79): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(80): No ports matched 'rx_dv1_LO'
+WARNING(81): No ports matched 'rx_dv1_HI'
+WARNING(82): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] No clocks matched 'rxc1'
+WARNING(83): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] set_input_delay: No valid clock found for -clock
+WARNING(84): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(85): No ports matched 'rxd1_LO[0]'
+WARNING(86): No ports matched 'rxd1_HI[0]'
+WARNING(87): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] No valid object(s) found for ''
+WARNING(88): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] set_input_delay: No valid input port(s) found
+WARNING(89): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(90): No ports matched 'rxd1_LO[0]'
+WARNING(91): No ports matched 'rxd1_HI[0]'
+WARNING(92): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] No valid object(s) found for ''
+WARNING(93): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] set_input_delay: No valid input port(s) found
+WARNING(94): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(95): No ports matched 'rxd1_LO[1]'
+WARNING(96): No ports matched 'rxd1_HI[1]'
+WARNING(97): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] No valid object(s) found for ''
+WARNING(98): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] set_input_delay: No valid input port(s) found
+WARNING(99): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(100): No ports matched 'rxd1_LO[1]'
+WARNING(101): No ports matched 'rxd1_HI[1]'
+WARNING(102): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] No valid object(s) found for ''
+WARNING(103): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] set_input_delay: No valid input port(s) found
+WARNING(104): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(105): No ports matched 'rxd1_LO[2]'
+WARNING(106): No ports matched 'rxd1_HI[2]'
+WARNING(107): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] No valid object(s) found for ''
+WARNING(108): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] set_input_delay: No valid input port(s) found
+WARNING(109): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(110): No ports matched 'rxd1_LO[2]'
+WARNING(111): No ports matched 'rxd1_HI[2]'
+WARNING(112): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] No valid object(s) found for ''
+WARNING(113): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] set_input_delay: No valid input port(s) found
+WARNING(114): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(115): No ports matched 'rxd1_LO[3]'
+WARNING(116): No ports matched 'rxd1_HI[3]'
+WARNING(117): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] No valid object(s) found for ''
+WARNING(118): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] set_input_delay: No valid input port(s) found
+WARNING(119): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(120): No ports matched 'rxd1_LO[3]'
+WARNING(121): No ports matched 'rxd1_HI[3]'
+WARNING(122): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] No valid object(s) found for ''
+WARNING(123): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] set_input_delay: No valid input port(s) found
+WARNING(124): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(125): No ports matched 'rxd_lo_i[0]'
+WARNING(126): No ports matched 'rxd_hi_i[0]'
+WARNING(127): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] No valid object(s) found for ''
+WARNING(128): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] set_input_delay: No valid input port(s) found
+WARNING(129): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(130): No ports matched 'rxd_lo_i[0]'
+WARNING(131): No ports matched 'rxd_hi_i[0]'
+WARNING(132): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] No valid object(s) found for ''
+WARNING(133): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] set_input_delay: No valid input port(s) found
+WARNING(134): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(135): No ports matched 'rxd_lo_i[1]'
+WARNING(136): No ports matched 'rxd_hi_i[1]'
+WARNING(137): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] No valid object(s) found for ''
+WARNING(138): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] set_input_delay: No valid input port(s) found
+WARNING(139): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(140): No ports matched 'rxd_lo_i[1]'
+WARNING(141): No ports matched 'rxd_hi_i[1]'
+WARNING(142): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] No valid object(s) found for ''
+WARNING(143): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] set_input_delay: No valid input port(s) found
+WARNING(144): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(145): No ports matched 'rxd_lo_i[2]'
+WARNING(146): No ports matched 'rxd_hi_i[2]'
+WARNING(147): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] No valid object(s) found for ''
+WARNING(148): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] set_input_delay: No valid input port(s) found
+WARNING(149): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(150): No ports matched 'rxd_lo_i[2]'
+WARNING(151): No ports matched 'rxd_hi_i[2]'
+WARNING(152): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] No valid object(s) found for ''
+WARNING(153): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] set_input_delay: No valid input port(s) found
+WARNING(154): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(155): No ports matched 'rxd_lo_i[3]'
+WARNING(156): No ports matched 'rxd_hi_i[3]'
+WARNING(157): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] No valid object(s) found for ''
+WARNING(158): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] set_input_delay: No valid input port(s) found
+WARNING(159): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(160): No ports matched 'rxd_lo_i[3]'
+WARNING(161): No ports matched 'rxd_hi_i[3]'
+WARNING(162): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] No valid object(s) found for ''
+WARNING(163): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] set_input_delay: No valid input port(s) found
+WARNING(164): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(165): No ports matched 'mdc_o_LO'
+WARNING(166): No ports matched 'mdc_o_HI'
+WARNING(167): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] No clocks matched 'clk_10m'
+WARNING(168): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] set_output_delay: No valid clock found for -clock
+WARNING(169): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(170): No ports matched 'mdc_o_LO'
+WARNING(171): No ports matched 'mdc_o_HI'
+WARNING(172): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] No clocks matched 'clk_10m'
+WARNING(173): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] set_output_delay: No valid clock found for -clock
+WARNING(174): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(175): No ports matched 'mdc_o1_LO'
+WARNING(176): No ports matched 'mdc_o1_HI'
+WARNING(177): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] No clocks matched 'clk_10m'
+WARNING(178): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] set_output_delay: No valid clock found for -clock
+WARNING(179): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(180): No ports matched 'mdc_o1_LO'
+WARNING(181): No ports matched 'mdc_o1_HI'
+WARNING(182): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] No clocks matched 'clk_10m'
+WARNING(183): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] set_output_delay: No valid clock found for -clock
+WARNING(184): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(185): No ports matched 'tx_en_o_LO'
+WARNING(186): No ports matched 'tx_en_o_HI'
+WARNING(187): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] No valid object(s) found for ''
+WARNING(188): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] set_output_delay: No valid output port(s) found
+WARNING(189): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(190): No ports matched 'tx_en_o_LO'
+WARNING(191): No ports matched 'tx_en_o_HI'
+WARNING(192): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] No valid object(s) found for ''
+WARNING(193): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] set_output_delay: No valid output port(s) found
+WARNING(194): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(195): No ports matched 'tx_en_o1_LO'
+WARNING(196): No ports matched 'tx_en_o1_HI'
+WARNING(197): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] No valid object(s) found for ''
+WARNING(198): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] set_output_delay: No valid output port(s) found
+WARNING(199): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(200): No ports matched 'tx_en_o1_LO'
+WARNING(201): No ports matched 'tx_en_o1_HI'
+WARNING(202): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] No valid object(s) found for ''
+WARNING(203): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] set_output_delay: No valid output port(s) found
+WARNING(204): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(205): No ports matched 'txc_lo_o'
+WARNING(206): No ports matched 'txc_hi_o'
+WARNING(207): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] No valid object(s) found for ''
+WARNING(208): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] set_output_delay: No valid output port(s) found
+WARNING(209): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(210): No ports matched 'txc_lo_o'
+WARNING(211): No ports matched 'txc_hi_o'
+WARNING(212): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] No valid object(s) found for ''
+WARNING(213): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] set_output_delay: No valid output port(s) found
+WARNING(214): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(215): No ports matched 'txc1_LO'
+WARNING(216): No ports matched 'txc1_HI'
+WARNING(217): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] No valid object(s) found for ''
+WARNING(218): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] set_output_delay: No valid output port(s) found
+WARNING(219): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(220): No ports matched 'txc1_LO'
+WARNING(221): No ports matched 'txc1_HI'
+WARNING(222): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] No valid object(s) found for ''
+WARNING(223): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] set_output_delay: No valid output port(s) found
+WARNING(224): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(225): No ports matched 'txd1_LO[0]'
+WARNING(226): No ports matched 'txd1_HI[0]'
+WARNING(227): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] No valid object(s) found for ''
+WARNING(228): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] set_output_delay: No valid output port(s) found
+WARNING(229): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(230): No ports matched 'txd1_LO[0]'
+WARNING(231): No ports matched 'txd1_HI[0]'
+WARNING(232): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] No valid object(s) found for ''
+WARNING(233): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] set_output_delay: No valid output port(s) found
+WARNING(234): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(235): No ports matched 'txd1_LO[1]'
+WARNING(236): No ports matched 'txd1_HI[1]'
+WARNING(237): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] No valid object(s) found for ''
+WARNING(238): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] set_output_delay: No valid output port(s) found
+WARNING(239): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(240): No ports matched 'txd1_LO[1]'
+WARNING(241): No ports matched 'txd1_HI[1]'
+WARNING(242): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] No valid object(s) found for ''
+WARNING(243): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] set_output_delay: No valid output port(s) found
+WARNING(244): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(245): No ports matched 'txd1_LO[2]'
+WARNING(246): No ports matched 'txd1_HI[2]'
+WARNING(247): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] No valid object(s) found for ''
+WARNING(248): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] set_output_delay: No valid output port(s) found
+WARNING(249): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(250): No ports matched 'txd1_LO[2]'
+WARNING(251): No ports matched 'txd1_HI[2]'
+WARNING(252): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] No valid object(s) found for ''
+WARNING(253): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] set_output_delay: No valid output port(s) found
+WARNING(254): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(255): No ports matched 'txd1_LO[3]'
+WARNING(256): No ports matched 'txd1_HI[3]'
+WARNING(257): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] No valid object(s) found for ''
+WARNING(258): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] set_output_delay: No valid output port(s) found
+WARNING(259): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(260): No ports matched 'txd1_LO[3]'
+WARNING(261): No ports matched 'txd1_HI[3]'
+WARNING(262): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] No valid object(s) found for ''
+WARNING(263): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] set_output_delay: No valid output port(s) found
+WARNING(264): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(265): No ports matched 'txd_lo_o[0]'
+WARNING(266): No ports matched 'txd_hi_o[0]'
+WARNING(267): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] No valid object(s) found for ''
+WARNING(268): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] set_output_delay: No valid output port(s) found
+WARNING(269): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(270): No ports matched 'txd_lo_o[0]'
+WARNING(271): No ports matched 'txd_hi_o[0]'
+WARNING(272): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] No valid object(s) found for ''
+WARNING(273): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] set_output_delay: No valid output port(s) found
+WARNING(274): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(275): No ports matched 'txd_lo_o[1]'
+WARNING(276): No ports matched 'txd_hi_o[1]'
+WARNING(277): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] No valid object(s) found for ''
+WARNING(278): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] set_output_delay: No valid output port(s) found
+WARNING(279): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(280): No ports matched 'txd_lo_o[1]'
+WARNING(281): No ports matched 'txd_hi_o[1]'
+WARNING(282): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] No valid object(s) found for ''
+WARNING(283): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] set_output_delay: No valid output port(s) found
+WARNING(284): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(285): No ports matched 'txd_lo_o[2]'
+WARNING(286): No ports matched 'txd_hi_o[2]'
+WARNING(287): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] No valid object(s) found for ''
+WARNING(288): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] set_output_delay: No valid output port(s) found
+WARNING(289): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(290): No ports matched 'txd_lo_o[2]'
+WARNING(291): No ports matched 'txd_hi_o[2]'
+WARNING(292): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] No valid object(s) found for ''
+WARNING(293): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] set_output_delay: No valid output port(s) found
+WARNING(294): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(295): No ports matched 'txd_lo_o[3]'
+WARNING(296): No ports matched 'txd_hi_o[3]'
+WARNING(297): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] No valid object(s) found for ''
+WARNING(298): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] set_output_delay: No valid output port(s) found
+WARNING(299): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(300): No ports matched 'txd_lo_o[3]'
+WARNING(301): No ports matched 'txd_hi_o[3]'
+WARNING(302): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] No valid object(s) found for ''
+WARNING(303): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] set_output_delay: No valid output port(s) found
+WARNING(304): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] Unable to run 'set_output_delay' constraint due to warnings found
+
+SDC file 'F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc' parsed successfully.
+12 clocks (including virtual clocks), 66 inputs and 105 outputs were constrained.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Router Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Setup Parallel Routing Scheduler]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Route Circuit with 8 threads
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CSS enabled! Optimizing clock skews ... 
+Non-legalized beneficial skew improved geomean CPD by 10.11% (from 3818ps to 3432ps)
+CSS improved CPD of clock tdqss_clk by 0.00% (from 2062ps to 2062ps)
+CSS improved CPD of clock core_clk by 11.64% (from 5344ps to 4722ps)
+CSS improved CPD of clock tac_clk by 7.40% (from 3418ps to 3165ps)
+CSS improved CPD of clock twd_clk by -1.13% (from 2130ps to 2154ps)
+CSS improved CPD of clock hdmi_rx_slow_clk by 13.17% (from 7462ps to 6479ps)
+CSS improved CPD of clock hdmi_rx_slow_clk_2x by 21.45% (from 5179ps to 4068ps)
+Discretized beneficial skew improved geomean CPD by 9.09% (from 3818ps to 3471ps in 10 iterations and 1.6 sec)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Iter  1: overlap=31304   heapops=3468304    (0%) cpd=4068  frr=1.00  msec=6519
+[Setup Delay Budgets | 2204.7 ms]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hold Fixing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Total min wire delay:  19447922
+Hold fix wire delay:      19029
+Hold fix delay ratio:      0.1%
+
+Pins requiring hold fixing: 325 (0.3 %)
+Max pin hold fix delay:    490 ps (105 ps first iter)
+Median pin hold fix delay: 26 ps
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Iter  2: overlap=10835   heapops=3077714    (38%) cpd=4230  frr=1.04  msec=2011
+Iter  3: overlap=6725    heapops=2057443    (58%) cpd=4169  frr=1.02  msec=1796
+Iter  4: overlap=4919    heapops=1309584    (72%) cpd=4169  frr=1.02  msec=1339
+Iter  5: overlap=3977    heapops=998190     (75%) cpd=4169  frr=1.02  msec=1287
+Iter  6: overlap=3456    heapops=668586     (79%) cpd=4169  frr=1.02  msec=1070
+Iter  7: overlap=3022    heapops=715838     (80%) cpd=4169  frr=1.02  msec=1404
+WARNING(305): Oversized routing heap detected
+Iter  8: overlap=2650    heapops=702295     (80%) cpd=4169  frr=1.02  msec=1310
+Iter  9: overlap=2373    heapops=469143     (81%) cpd=4161  frr=1.02  msec=999
+Iter 10: overlap=2141    heapops=590285     (81%) cpd=4147  frr=1.02  msec=1131
+Iter 11: overlap=1861    heapops=1210495    (81%) cpd=4147  frr=1.02  msec=2105
+Iter 12: overlap=1564    heapops=1230972    (81%) cpd=4201  frr=1.03  msec=1983
+Iter 13: overlap=1351    heapops=897065     (81%) cpd=4201  frr=1.03  msec=1477
+Iter 14: overlap=1148    heapops=712077     (81%) cpd=4223  frr=1.04  msec=1599
+Iter 15: overlap=908     heapops=799639     (81%) cpd=4177  frr=1.03  msec=1458
+Iter 16: overlap=667     heapops=528134     (81%) cpd=4209  frr=1.03  msec=1049
+Iter 17: overlap=481     heapops=459536     (81%) cpd=4161  frr=1.02  msec=1086
+Iter 18: overlap=358     heapops=1015856    (81%) cpd=4153  frr=1.02  msec=1785
+Iter 19: overlap=270     heapops=683482     (81%) cpd=4153  frr=1.02  msec=1264
+Iter 20: overlap=192     heapops=669118     (81%) cpd=4153  frr=1.02  msec=1265
+Iter 21: overlap=136     heapops=403265     (82%) cpd=4203  frr=1.03  msec=1003
+Iter 22: overlap=92      heapops=396593     (82%) cpd=4196  frr=1.03  msec=1196
+[Rebuild Parallel Routing Scheduler]
+Iter 23: overlap=73      heapops=440051     (82%) cpd=4195  frr=1.03  msec=1334
+Iter 24: overlap=60      heapops=388602     (82%) cpd=4196  frr=1.03  msec=1180
+Iter 25: overlap=28      heapops=376646     (82%) cpd=4196  frr=1.03  msec=1251
+Iter 26: overlap=21      heapops=375347     (82%) cpd=4196  frr=1.03  msec=1293
+Iter 27: overlap=22      heapops=377288     (81%) cpd=4196  frr=1.03  msec=1199
+Iter 28: overlap=10      heapops=368934     (82%) cpd=4196  frr=1.03  msec=1149
+Iter 29: overlap=6       heapops=369786     (82%) cpd=4196  frr=1.03  msec=1152
+Iter 30: overlap=0       heapops=369190     (82%) cpd=4196  frr=1.03  msec=1358
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Routing Result
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Routing Succeeded in 47.93 seconds taking 30 iterations! 
+
+First iteration critical path delay = 4.068 ns 
+Last iteration critical path delay  = 4.196 ns (ratio = 1.03)
+Max Routing Heap Size = 100,002
+Routing trace written to file 'F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.troutingtraces' 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Routing took 55.7072 seconds.
+	Routing took 100.453 seconds (approximately) in total CPU time.
+Routing virtual memory usage: begin = 1356.54 MB, end = 1663.18 MB, delta = 306.64 MB
+	Routing peak virtual memory usage = 1819.68 MB
+Routing resident set memory usage: begin = 660.356 MB, end = 1149.35 MB, delta = 488.996 MB
+	Routing peak resident set memory usage = 1741.9 MB
+***** Ending stage routing *****
+
+***** Beginning stage final timing analysis ... *****
+WARNING(306): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:26] No clocks matched 'jtag_inst1_TCK'
+WARNING(307): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:26] set_clock_groups: No valid clock(s) found for -group 'jtag_inst1_TCK'
+WARNING(308): No ports matched 'jtag_inst1_TCK'
+WARNING(309): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] No valid object(s) found for ''
+WARNING(310): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] No valid pin(s) found for clock
+WARNING(311): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:55] Unable to run 'create_clock' constraint due to warnings found
+WARNING(312): No ports matched 'jtag_inst1_DRCK'
+WARNING(313): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] No valid object(s) found for ''
+WARNING(314): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] No valid pin(s) found for clock
+WARNING(315): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:56] Unable to run 'create_clock' constraint due to warnings found
+WARNING(316): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] No clocks matched 'jtag_inst1_TCK'
+WARNING(317): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] set_output_delay: No valid clock found for -clock
+WARNING(318): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:57] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(319): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] No clocks matched 'jtag_inst1_TCK'
+WARNING(320): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] set_output_delay: No valid clock found for -clock
+WARNING(321): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:58] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(322): No ports matched 'jtag_inst1_CAPTURE'
+WARNING(323): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] No clocks matched 'jtag_inst1_TCK'
+WARNING(324): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] set_input_delay: No valid clock found for -clock
+WARNING(325): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:59] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(326): No ports matched 'jtag_inst1_CAPTURE'
+WARNING(327): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] No clocks matched 'jtag_inst1_TCK'
+WARNING(328): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] set_input_delay: No valid clock found for -clock
+WARNING(329): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:60] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(330): No ports matched 'jtag_inst1_RESET'
+WARNING(331): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] No clocks matched 'jtag_inst1_TCK'
+WARNING(332): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] set_input_delay: No valid clock found for -clock
+WARNING(333): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:61] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(334): No ports matched 'jtag_inst1_RESET'
+WARNING(335): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] No clocks matched 'jtag_inst1_TCK'
+WARNING(336): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] set_input_delay: No valid clock found for -clock
+WARNING(337): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:62] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(338): No ports matched 'jtag_inst1_RUNTEST'
+WARNING(339): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] No clocks matched 'jtag_inst1_TCK'
+WARNING(340): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] set_input_delay: No valid clock found for -clock
+WARNING(341): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:63] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(342): No ports matched 'jtag_inst1_RUNTEST'
+WARNING(343): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] No clocks matched 'jtag_inst1_TCK'
+WARNING(344): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] set_input_delay: No valid clock found for -clock
+WARNING(345): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:64] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(346): No ports matched 'jtag_inst1_SEL'
+WARNING(347): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] No clocks matched 'jtag_inst1_TCK'
+WARNING(348): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] set_input_delay: No valid clock found for -clock
+WARNING(349): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:65] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(350): No ports matched 'jtag_inst1_SEL'
+WARNING(351): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] No clocks matched 'jtag_inst1_TCK'
+WARNING(352): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] set_input_delay: No valid clock found for -clock
+WARNING(353): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:66] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(354): No ports matched 'jtag_inst1_UPDATE'
+WARNING(355): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] No clocks matched 'jtag_inst1_TCK'
+WARNING(356): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] set_input_delay: No valid clock found for -clock
+WARNING(357): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:67] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(358): No ports matched 'jtag_inst1_UPDATE'
+WARNING(359): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] No clocks matched 'jtag_inst1_TCK'
+WARNING(360): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] set_input_delay: No valid clock found for -clock
+WARNING(361): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:68] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(362): No ports matched 'jtag_inst1_SHIFT'
+WARNING(363): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] No clocks matched 'jtag_inst1_TCK'
+WARNING(364): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] set_input_delay: No valid clock found for -clock
+WARNING(365): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:69] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(366): No ports matched 'jtag_inst1_SHIFT'
+WARNING(367): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] No clocks matched 'jtag_inst1_TCK'
+WARNING(368): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] set_input_delay: No valid clock found for -clock
+WARNING(369): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:70] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(370): No ports matched 'rx_dv_LO'
+WARNING(371): No ports matched 'rx_dv_HI'
+WARNING(372): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] No clocks matched 'rxc'
+WARNING(373): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] set_input_delay: No valid clock found for -clock
+WARNING(374): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:315] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(375): No ports matched 'rx_dv_LO'
+WARNING(376): No ports matched 'rx_dv_HI'
+WARNING(377): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] No clocks matched 'rxc'
+WARNING(378): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] set_input_delay: No valid clock found for -clock
+WARNING(379): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:316] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(380): No ports matched 'rx_dv1_LO'
+WARNING(381): No ports matched 'rx_dv1_HI'
+WARNING(382): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] No clocks matched 'rxc1'
+WARNING(383): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] set_input_delay: No valid clock found for -clock
+WARNING(384): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:317] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(385): No ports matched 'rx_dv1_LO'
+WARNING(386): No ports matched 'rx_dv1_HI'
+WARNING(387): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] No clocks matched 'rxc1'
+WARNING(388): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] set_input_delay: No valid clock found for -clock
+WARNING(389): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:318] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(390): No ports matched 'rxd1_LO[0]'
+WARNING(391): No ports matched 'rxd1_HI[0]'
+WARNING(392): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] No valid object(s) found for ''
+WARNING(393): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] set_input_delay: No valid input port(s) found
+WARNING(394): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:321] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(395): No ports matched 'rxd1_LO[0]'
+WARNING(396): No ports matched 'rxd1_HI[0]'
+WARNING(397): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] No valid object(s) found for ''
+WARNING(398): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] set_input_delay: No valid input port(s) found
+WARNING(399): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:322] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(400): No ports matched 'rxd1_LO[1]'
+WARNING(401): No ports matched 'rxd1_HI[1]'
+WARNING(402): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] No valid object(s) found for ''
+WARNING(403): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] set_input_delay: No valid input port(s) found
+WARNING(404): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:323] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(405): No ports matched 'rxd1_LO[1]'
+WARNING(406): No ports matched 'rxd1_HI[1]'
+WARNING(407): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] No valid object(s) found for ''
+WARNING(408): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] set_input_delay: No valid input port(s) found
+WARNING(409): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:324] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(410): No ports matched 'rxd1_LO[2]'
+WARNING(411): No ports matched 'rxd1_HI[2]'
+WARNING(412): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] No valid object(s) found for ''
+WARNING(413): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] set_input_delay: No valid input port(s) found
+WARNING(414): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:325] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(415): No ports matched 'rxd1_LO[2]'
+WARNING(416): No ports matched 'rxd1_HI[2]'
+WARNING(417): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] No valid object(s) found for ''
+WARNING(418): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] set_input_delay: No valid input port(s) found
+WARNING(419): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:326] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(420): No ports matched 'rxd1_LO[3]'
+WARNING(421): No ports matched 'rxd1_HI[3]'
+WARNING(422): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] No valid object(s) found for ''
+WARNING(423): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] set_input_delay: No valid input port(s) found
+WARNING(424): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:327] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(425): No ports matched 'rxd1_LO[3]'
+WARNING(426): No ports matched 'rxd1_HI[3]'
+WARNING(427): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] No valid object(s) found for ''
+WARNING(428): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] set_input_delay: No valid input port(s) found
+WARNING(429): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:328] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(430): No ports matched 'rxd_lo_i[0]'
+WARNING(431): No ports matched 'rxd_hi_i[0]'
+WARNING(432): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] No valid object(s) found for ''
+WARNING(433): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] set_input_delay: No valid input port(s) found
+WARNING(434): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:329] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(435): No ports matched 'rxd_lo_i[0]'
+WARNING(436): No ports matched 'rxd_hi_i[0]'
+WARNING(437): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] No valid object(s) found for ''
+WARNING(438): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] set_input_delay: No valid input port(s) found
+WARNING(439): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:330] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(440): No ports matched 'rxd_lo_i[1]'
+WARNING(441): No ports matched 'rxd_hi_i[1]'
+WARNING(442): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] No valid object(s) found for ''
+WARNING(443): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] set_input_delay: No valid input port(s) found
+WARNING(444): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:331] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(445): No ports matched 'rxd_lo_i[1]'
+WARNING(446): No ports matched 'rxd_hi_i[1]'
+WARNING(447): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] No valid object(s) found for ''
+WARNING(448): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] set_input_delay: No valid input port(s) found
+WARNING(449): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:332] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(450): No ports matched 'rxd_lo_i[2]'
+WARNING(451): No ports matched 'rxd_hi_i[2]'
+WARNING(452): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] No valid object(s) found for ''
+WARNING(453): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] set_input_delay: No valid input port(s) found
+WARNING(454): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:333] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(455): No ports matched 'rxd_lo_i[2]'
+WARNING(456): No ports matched 'rxd_hi_i[2]'
+WARNING(457): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] No valid object(s) found for ''
+WARNING(458): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] set_input_delay: No valid input port(s) found
+WARNING(459): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:334] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(460): No ports matched 'rxd_lo_i[3]'
+WARNING(461): No ports matched 'rxd_hi_i[3]'
+WARNING(462): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] No valid object(s) found for ''
+WARNING(463): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] set_input_delay: No valid input port(s) found
+WARNING(464): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:335] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(465): No ports matched 'rxd_lo_i[3]'
+WARNING(466): No ports matched 'rxd_hi_i[3]'
+WARNING(467): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] No valid object(s) found for ''
+WARNING(468): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] set_input_delay: No valid input port(s) found
+WARNING(469): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:336] Unable to run 'set_input_delay' constraint due to warnings found
+WARNING(470): No ports matched 'mdc_o_LO'
+WARNING(471): No ports matched 'mdc_o_HI'
+WARNING(472): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] No clocks matched 'clk_10m'
+WARNING(473): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] set_output_delay: No valid clock found for -clock
+WARNING(474): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:337] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(475): No ports matched 'mdc_o_LO'
+WARNING(476): No ports matched 'mdc_o_HI'
+WARNING(477): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] No clocks matched 'clk_10m'
+WARNING(478): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] set_output_delay: No valid clock found for -clock
+WARNING(479): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:338] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(480): No ports matched 'mdc_o1_LO'
+WARNING(481): No ports matched 'mdc_o1_HI'
+WARNING(482): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] No clocks matched 'clk_10m'
+WARNING(483): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] set_output_delay: No valid clock found for -clock
+WARNING(484): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:339] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(485): No ports matched 'mdc_o1_LO'
+WARNING(486): No ports matched 'mdc_o1_HI'
+WARNING(487): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] No clocks matched 'clk_10m'
+WARNING(488): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] set_output_delay: No valid clock found for -clock
+WARNING(489): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:340] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(490): No ports matched 'tx_en_o_LO'
+WARNING(491): No ports matched 'tx_en_o_HI'
+WARNING(492): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] No valid object(s) found for ''
+WARNING(493): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] set_output_delay: No valid output port(s) found
+WARNING(494): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:341] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(495): No ports matched 'tx_en_o_LO'
+WARNING(496): No ports matched 'tx_en_o_HI'
+WARNING(497): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] No valid object(s) found for ''
+WARNING(498): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] set_output_delay: No valid output port(s) found
+WARNING(499): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:342] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(500): No ports matched 'tx_en_o1_LO'
+WARNING(501): No ports matched 'tx_en_o1_HI'
+WARNING(502): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] No valid object(s) found for ''
+WARNING(503): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] set_output_delay: No valid output port(s) found
+WARNING(504): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:343] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(505): No ports matched 'tx_en_o1_LO'
+WARNING(506): No ports matched 'tx_en_o1_HI'
+WARNING(507): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] No valid object(s) found for ''
+WARNING(508): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] set_output_delay: No valid output port(s) found
+WARNING(509): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:344] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(510): No ports matched 'txc_lo_o'
+WARNING(511): No ports matched 'txc_hi_o'
+WARNING(512): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] No valid object(s) found for ''
+WARNING(513): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] set_output_delay: No valid output port(s) found
+WARNING(514): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:345] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(515): No ports matched 'txc_lo_o'
+WARNING(516): No ports matched 'txc_hi_o'
+WARNING(517): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] No valid object(s) found for ''
+WARNING(518): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] set_output_delay: No valid output port(s) found
+WARNING(519): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:346] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(520): No ports matched 'txc1_LO'
+WARNING(521): No ports matched 'txc1_HI'
+WARNING(522): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] No valid object(s) found for ''
+WARNING(523): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] set_output_delay: No valid output port(s) found
+WARNING(524): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:347] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(525): No ports matched 'txc1_LO'
+WARNING(526): No ports matched 'txc1_HI'
+WARNING(527): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] No valid object(s) found for ''
+WARNING(528): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] set_output_delay: No valid output port(s) found
+WARNING(529): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:348] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(530): No ports matched 'txd1_LO[0]'
+WARNING(531): No ports matched 'txd1_HI[0]'
+WARNING(532): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] No valid object(s) found for ''
+WARNING(533): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] set_output_delay: No valid output port(s) found
+WARNING(534): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:349] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(535): No ports matched 'txd1_LO[0]'
+WARNING(536): No ports matched 'txd1_HI[0]'
+WARNING(537): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] No valid object(s) found for ''
+WARNING(538): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] set_output_delay: No valid output port(s) found
+WARNING(539): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:350] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(540): No ports matched 'txd1_LO[1]'
+WARNING(541): No ports matched 'txd1_HI[1]'
+WARNING(542): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] No valid object(s) found for ''
+WARNING(543): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] set_output_delay: No valid output port(s) found
+WARNING(544): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:351] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(545): No ports matched 'txd1_LO[1]'
+WARNING(546): No ports matched 'txd1_HI[1]'
+WARNING(547): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] No valid object(s) found for ''
+WARNING(548): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] set_output_delay: No valid output port(s) found
+WARNING(549): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:352] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(550): No ports matched 'txd1_LO[2]'
+WARNING(551): No ports matched 'txd1_HI[2]'
+WARNING(552): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] No valid object(s) found for ''
+WARNING(553): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] set_output_delay: No valid output port(s) found
+WARNING(554): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:353] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(555): No ports matched 'txd1_LO[2]'
+WARNING(556): No ports matched 'txd1_HI[2]'
+WARNING(557): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] No valid object(s) found for ''
+WARNING(558): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] set_output_delay: No valid output port(s) found
+WARNING(559): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:354] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(560): No ports matched 'txd1_LO[3]'
+WARNING(561): No ports matched 'txd1_HI[3]'
+WARNING(562): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] No valid object(s) found for ''
+WARNING(563): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] set_output_delay: No valid output port(s) found
+WARNING(564): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:355] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(565): No ports matched 'txd1_LO[3]'
+WARNING(566): No ports matched 'txd1_HI[3]'
+WARNING(567): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] No valid object(s) found for ''
+WARNING(568): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] set_output_delay: No valid output port(s) found
+WARNING(569): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:356] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(570): No ports matched 'txd_lo_o[0]'
+WARNING(571): No ports matched 'txd_hi_o[0]'
+WARNING(572): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] No valid object(s) found for ''
+WARNING(573): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] set_output_delay: No valid output port(s) found
+WARNING(574): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:357] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(575): No ports matched 'txd_lo_o[0]'
+WARNING(576): No ports matched 'txd_hi_o[0]'
+WARNING(577): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] No valid object(s) found for ''
+WARNING(578): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] set_output_delay: No valid output port(s) found
+WARNING(579): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:358] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(580): No ports matched 'txd_lo_o[1]'
+WARNING(581): No ports matched 'txd_hi_o[1]'
+WARNING(582): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] No valid object(s) found for ''
+WARNING(583): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] set_output_delay: No valid output port(s) found
+WARNING(584): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:359] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(585): No ports matched 'txd_lo_o[1]'
+WARNING(586): No ports matched 'txd_hi_o[1]'
+WARNING(587): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] No valid object(s) found for ''
+WARNING(588): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] set_output_delay: No valid output port(s) found
+WARNING(589): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:360] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(590): No ports matched 'txd_lo_o[2]'
+WARNING(591): No ports matched 'txd_hi_o[2]'
+WARNING(592): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] No valid object(s) found for ''
+WARNING(593): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] set_output_delay: No valid output port(s) found
+WARNING(594): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:361] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(595): No ports matched 'txd_lo_o[2]'
+WARNING(596): No ports matched 'txd_hi_o[2]'
+WARNING(597): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] No valid object(s) found for ''
+WARNING(598): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] set_output_delay: No valid output port(s) found
+WARNING(599): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:362] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(600): No ports matched 'txd_lo_o[3]'
+WARNING(601): No ports matched 'txd_hi_o[3]'
+WARNING(602): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] No valid object(s) found for ''
+WARNING(603): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] set_output_delay: No valid output port(s) found
+WARNING(604): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:363] Unable to run 'set_output_delay' constraint due to warnings found
+WARNING(605): No ports matched 'txd_lo_o[3]'
+WARNING(606): No ports matched 'txd_hi_o[3]'
+WARNING(607): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] No valid object(s) found for ''
+WARNING(608): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] set_output_delay: No valid output port(s) found
+WARNING(609): [SDC F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc:364] Unable to run 'set_output_delay' constraint due to warnings found
+
+SDC file 'F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/DDR3_MC.pt.sdc' parsed successfully.
+12 clocks (including virtual clocks), 66 inputs and 105 outputs were constrained.
+
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1503:in[1] to i1503:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1573:in[1] to i1573:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1493:in[1] to i1493:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1393:in[0] to i1393:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1383:in[0] to i1383:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1373:in[0] to i1373:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1363:in[0] to i1363:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1353:in[0] to i1353:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1343:in[0] to i1343:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1333:in[0] to i1333:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1323:in[0] to i1323:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1313:in[0] to i1313:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1303:in[1] to i1303:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1293:in[1] to i1293:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1283:in[1] to i1283:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1273:in[1] to i1273:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1263:in[1] to i1263:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1253:in[1] to i1253:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1243:in[1] to i1243:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1233:in[1] to i1233:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1223:in[1] to i1223:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1213:in[0] to i1213:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1203:in[1] to i1203:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1193:in[1] to i1193:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1183:in[1] to i1183:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1173:in[1] to i1173:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1163:in[0] to i1163:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1153:in[0] to i1153:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1143:in[0] to i1143:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1133:in[0] to i1133:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1123:in[0] to i1123:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i873:in[1] to i873:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i943:in[1] to i943:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i863:in[1] to i863:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1113:in[0] to i1113:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1103:in[0] to i1103:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i1093:in[0] to i1093:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from i773:in[0] to i773:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i12:in[1] to algorithm/fill_brank/dlatchrs_57/i12:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i11:in[1] to algorithm/fill_brank/dlatchrs_57/i11:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i10:in[1] to algorithm/fill_brank/dlatchrs_57/i10:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i7:in[1] to algorithm/fill_brank/dlatchrs_57/i7:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i6:in[1] to algorithm/fill_brank/dlatchrs_57/i6:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i3:in[1] to algorithm/fill_brank/dlatchrs_57/i3:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i1:in[1] to algorithm/fill_brank/dlatchrs_57/i1:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i2:in[1] to algorithm/fill_brank/dlatchrs_57/i2:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i4:in[1] to algorithm/fill_brank/dlatchrs_57/i4:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i5:in[1] to algorithm/fill_brank/dlatchrs_57/i5:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i8:in[1] to algorithm/fill_brank/dlatchrs_57/i8:out 
+Timer::BuildGraph: ============ Cutting edge BACK edge from algorithm/fill_brank/dlatchrs_57/i9:in[1] to algorithm/fill_brank/dlatchrs_57/i9:out 
+Maximum possible analyzed clocks frequency
+    Clock Name      Period (ns)  Frequency (MHz)     Edge
+sys_clk                6.673        149.858         (R-R)
+tdqss_clk              2.155        464.037         (R-R)
+core_clk               4.850        206.186         (R-R)
+tac_clk                3.270        305.810         (R-R)
+twd_clk                2.267        441.112         (R-R)
+hdmi_tx_fast_clk       1.313        761.615         (R-R)
+hdmi_rx_slow_clk       6.642        150.557         (R-R)
+hdmi_rx_slow_clk_2x    4.305        232.288         (R-R)
+
+Geomean max period: 3.436
+
+Setup (Max) Clock Relationship
+   Launch Clock        Capture Clock    Constraint (ns)     Slack (ns)          Edge
+sys_clk             sys_clk                  10.000            3.327           (R-R)
+sys_clk             hdmi_rx_slow_clk_2x       0.001           -1.035           (R-R)
+tdqss_clk           tdqss_clk                 2.500            0.345           (R-R)
+core_clk            core_clk                  5.000            0.150           (R-R)
+tac_clk             tac_clk                   2.500           -0.770           (R-R)
+twd_clk             twd_clk                   2.500            0.233           (R-R)
+hdmi_tx_fast_clk    hdmi_tx_fast_clk          1.347            0.034           (R-R)
+hdmi_rx_slow_clk    hdmi_tx_fast_clk          0.001           -0.712           (R-R)
+hdmi_rx_slow_clk    hdmi_rx_slow_clk          6.734            0.092           (R-R)
+hdmi_rx_slow_clk    hdmi_rx_slow_clk_2x       3.367          -20.591           (R-R)
+hdmi_rx_slow_clk_2x sys_clk                   0.001           -1.083           (R-R)
+hdmi_rx_slow_clk_2x hdmi_rx_slow_clk          3.367            2.721           (R-R)
+hdmi_rx_slow_clk_2x hdmi_rx_slow_clk_2x       3.367           -0.938           (R-R)
+
+Hold (Min) Clock Relationship
+   Launch Clock        Capture Clock    Constraint (ns)     Slack (ns)          Edge
+sys_clk             sys_clk                  0.000            0.035            (R-R)
+sys_clk             hdmi_rx_slow_clk_2x      0.000            0.129            (R-R)
+tdqss_clk           tdqss_clk                0.000            0.097            (R-R)
+core_clk            core_clk                 0.000            0.033            (R-R)
+tac_clk             tac_clk                  0.000            0.035            (R-R)
+twd_clk             twd_clk                  0.000            0.038            (R-R)
+hdmi_tx_fast_clk    hdmi_tx_fast_clk         0.000            0.020            (R-R)
+hdmi_rx_slow_clk    hdmi_tx_fast_clk         0.000            0.011            (R-R)
+hdmi_rx_slow_clk    hdmi_rx_slow_clk         0.000            0.029            (R-R)
+hdmi_rx_slow_clk    hdmi_rx_slow_clk_2x      0.000            0.155            (R-R)
+hdmi_rx_slow_clk_2x sys_clk                  0.000            0.068            (R-R)
+hdmi_rx_slow_clk_2x hdmi_rx_slow_clk         0.000            0.084            (R-R)
+hdmi_rx_slow_clk_2x hdmi_rx_slow_clk_2x      0.000            0.021            (R-R)
+
+WARNING(610): Clock domain between sys_clk (rising) and hdmi_rx_slow_clk_2x (rising) may not meet (slack: -1.035 ns) the setup (max) timing requirement
+WARNING(611): Clock domain between tac_clk (rising) and tac_clk (rising) may not meet (slack: -0.770 ns) the setup (max) timing requirement
+WARNING(612): Clock domain between hdmi_rx_slow_clk (rising) and hdmi_tx_fast_clk (rising) may not meet (slack: -0.712 ns) the setup (max) timing requirement
+WARNING(613): Clock domain between hdmi_rx_slow_clk (rising) and hdmi_rx_slow_clk_2x (rising) may not meet (slack: -20.591 ns) the setup (max) timing requirement
+WARNING(614): Clock domain between hdmi_rx_slow_clk_2x (rising) and sys_clk (rising) may not meet (slack: -1.083 ns) the setup (max) timing requirement
+WARNING(615): Clock domain between hdmi_rx_slow_clk_2x (rising) and hdmi_rx_slow_clk_2x (rising) may not meet (slack: -0.938 ns) the setup (max) timing requirement
+
+Write Timing Report to "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow\DDR3_MC.timing.rpt" ...
+final timing analysis took 7.87964 seconds.
+	final timing analysis took 7.60938 seconds (approximately) in total CPU time.
+final timing analysis virtual memory usage: begin = 1663.19 MB, end = 1787.15 MB, delta = 123.96 MB
+	final timing analysis peak virtual memory usage = 1819.68 MB
+final timing analysis resident set memory usage: begin = 1154.56 MB, end = 1269.61 MB, delta = 115.052 MB
+	final timing analysis peak resident set memory usage = 1741.9 MB
+***** Ending stage final timing analysis *****
+
+***** Beginning stage bitstream generation ... *****
+Reading core interface constraints from 'F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.interface.csv'.
+Successfully processed interface constraints file "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.interface.csv".
+Finished writing bitstream file F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/work_pnr\DDR3_MC.lbf.
+Bitstream generation took 6.7538 seconds.
+	Bitstream generation took 6.67188 seconds (approximately) in total CPU time.
+Bitstream generation virtual memory usage: begin = 1787.15 MB, end = 1941.22 MB, delta = 154.076 MB
+	Bitstream generation peak virtual memory usage = 2003.39 MB
+Bitstream generation resident set memory usage: begin = 1269.64 MB, end = 1363.94 MB, delta = 94.3 MB
+	Bitstream generation peak resident set memory usage = 1741.9 MB
+***** Ending stage bitstream generation *****
+
+The entire flow of EFX_PNR took 627.793 seconds.
+	The entire flow of EFX_PNR took 916 seconds (approximately) in total CPU time.
+The entire flow of EFX_PNR virtual memory usage: begin = 5.556 MB, end = 760.88 MB, delta = 755.324 MB
+	The entire flow of EFX_PNR peak virtual memory usage = 2003.39 MB
+The entire flow of EFX_PNR resident set memory usage: begin = 12.524 MB, end = 695.096 MB, delta = 682.572 MB
+	The entire flow of EFX_PNR peak resident set memory usage = 1742.71 MB

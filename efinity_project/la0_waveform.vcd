@@ -1,0 +1,33 @@
+#0 $dumpon
+$date today $end
+$timescale 1 ns $end
+$scope module top $end
+$var wire 11 0 START_X $end
+$var wire 11 1 START_Y $end
+$var wire 11 2 END_X $end
+$var wire 11 3 END_Y $end
+$var wire 11 4 OUTPUT_Y_RES $end
+$var wire 11 5 OUTPUT_X_RES $end
+$var wire 1 6 rx_vsync $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b00111100000 0
+b00100001110 1
+b10110100000 2
+b01100101010 3
+b10000110111 4
+b11101111111 5
+06
+$end
+#4096
+16
+#8191
+b00111100000 0
+b00100001110 1
+b10110100000 2
+b01100101010 3
+b10000110111 4
+b11101111111 5
+16

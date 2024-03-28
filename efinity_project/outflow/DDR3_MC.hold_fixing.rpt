@@ -1,0 +1,15 @@
+Clock Domain Pair Hold Fix Requirements
+---------------------------------------
+driver_clock,	sink_clock,	excess_delay,	%_total_excess delay,	excess_delay_vs_base_min_delay,	hold_fix_requirements_are_high
+hdmi_rx_slow_clk_2x,	sys_clk,	8834,	46.4%,	33.6%,	NO
+hdmi_rx_slow_clk,	sys_clk,	6121,	32.2%,	38.4%,	NO
+hdmi_tx_fast_clk,	sys_clk,	1165,	6.1%,	128.2%,	NO
+hdmi_rx_slow_clk,	hdmi_tx_fast_clk,	985,	5.2%,	25.7%,	NO
+hdmi_rx_slow_clk_2x,	hdmi_tx_fast_clk,	933,	4.9%,	15.5%,	NO
+hdmi_tx_fast_clk,	hdmi_tx_fast_clk,	454,	2.4%,	22.9%,	NO
+hdmi_rx_slow_clk_2x,	hdmi_rx_slow_clk,	235,	1.2%,	13.3%,	NO
+hdmi_rx_slow_clk_2x,	hdmi_rx_fast_clk,	105,	0.6%,	26.4%,	NO
+core_clk,	sys_clk,	68,	0.4%,	7.2%,	NO
+sys_clk,	sys_clk,	66,	0.3%,	56.4%,	NO
+hdmi_rx_slow_clk,	twd_clk,	38,	0.2%,	6.1%,	NO
+twd_clk,	sys_clk,	9,	0.0%,	6.9%,	NO

@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<efxpt:issue_info xmlns:efxpt="http://www.efinixinc.com/peri_design_db"><efxpt:issue instance_name="hdmi_rx_d0" instance_type="lvds_rx" severity="warning" rule_name="lvds_rule_rx_distance" message="These HSIO GPIO must be placed at least 1 pair away from LVDS hdmi_rx_d0 in order to avoid noise coupling from GPIO to LVDS: GPIOR_N_15,GPIOR_P_15" /></efxpt:issue_info>

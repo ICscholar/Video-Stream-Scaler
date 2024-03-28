@@ -1,0 +1,295 @@
+
+Efinix FPGA Placement and Routing.
+Version: 2023.1.150.5.11 
+Date: Tue Nov 14 13:02:07 2023
+
+Copyright (C) 2013 - 2023 Efinix Inc. All rights reserved.
+ 
+Family: Titanium 
+Device: Ti60F225
+Top-level Entity Name: DDR3_MC
+Elapsed time for packing: 0 hours 0 minutes 0 seconds
+
+---------- Resource Summary (begin) ----------
+Inputs: 94 / 1703 (5.52%)
+Outputs: 330 / 2267 (14.56%)
+Global Clocks (GBUF): 20 / 32 (62.50%)
+Regional Clocks (RBUF): 1 / 32 (3.12%)
+	RBUF: Core: 0 / 16 (0.00%)
+	RBUF: Periphery: 1 / 8 (12.50%)
+	RBUF: Multi-Region: 0 / 8 (0.00%)
+XLRs: 15508 / 60800 (25.51%)
+	XLRs needed for Logic: 7438 / 60800 (12.23%)
+	XLRs needed for Logic + FF: 2304 / 60800 (3.79%)
+	XLRs needed for Adder: 1623 / 60800 (2.67%)
+	XLRs needed for Adder + FF: 703 / 60800 (1.16%)
+	XLRs needed for FF: 2918 / 60800 (4.80%)
+	XLRs needed for SRL8: 522 / 14720 (3.55%)
+	XLRs needed for SRL8+FF: 0 / 14720 (0.00%)
+	XLRs needed for Routing: 0 / 60800 (0.00%)
+Memory Blocks: 83 / 256 (32.42%)
+DSP Blocks: 29 / 160 (18.12%)
+---------- Resource Summary (end) ----------
+
+
+---------- DSP Packer Summary (begin) ----------
+
+	DSP48 blocks required to legally pack design: 29
+	DSP48 blocks recoverable by optimizing:
+		-> DSP24/12 control signals & parameters: 0
+	Best case scenario DSP count after optimizing: 29
+
+---------- DSP Packer Summary (end) ----------
+
+
+---------- DSP48 Block Information (begin) ----------
+
++--------------------------------------------+--------+--------+---------+-------+--------+-------+-------------+
+|                    NAME                    |  MODE  | SIGNED | SHIFTER | M_SEL | N_SEL  | W_SEL | CASCOUT_SEL |
++--------------------------------------------+--------+--------+---------+-------+--------+-------+-------------+
+|       algorithm/scaler_inst/mult_29        | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_70        | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|    algorithm/scaler_inst/mult_95_pp_0x0    | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|   algorithm/scaler_inst/mult_103_pp_0x0    | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|    algorithm/scaler_inst/mult_99_pp_0x0    | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_108       | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_156       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_157       | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_158       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_159       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      P      |
+|       algorithm/scaler_inst/mult_396       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_397       | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_398       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_399       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      P      |
+|       algorithm/scaler_inst/mult_636       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_637       | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|       algorithm/scaler_inst/mult_638       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      W      |
+|       algorithm/scaler_inst/mult_639       | NORMAL | false  |  false  |   P   | CASCIN |   X   |      P      |
+|       algorithm/scaler_inst/mult_864       | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+| u_frame_buffer_ch0/u_ddr_tx_buffer/mult_32 | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|            ycbcr_to_rgb/mult_4             | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
+|            ycbcr_to_rgb/mult_12            | NORMAL | false  |  false  |   P   |   C    |   X   |      P      |
+|            ycbcr_to_rgb/mult_16            | NORMAL | false  |  false  |   P   |   C    |   P   |      P      |
++--------------------------------------------+--------+--------+---------+-------+--------+-------+-------------+
+
+----------- DSP48 Block Information (end) ----------
+
+
+---------- DSP24 Block Information (begin) ----------
+
++----------------------+--------+---------+-------+--------+-------+-------------+----------------+------------------+
+|         NAME         | SIGNED | SHIFTER | M_SEL | N_SEL  | W_SEL | CASCOUT_SEL | CTL_SIG_SET_ID | PARAMETER_SET_ID |
++----------------------+--------+---------+-------+--------+-------+-------------+----------------+------------------+
+| rgb_to_ycbcr/mult_4  | false  |  false  |   P   | CASCIN |   X   |      P      |       0        |        0         |
+| rgb_to_ycbcr/mult_6  | false  |  false  |   P   |   C    |   P   |      P      |       0        |        1         |
+| rgb_to_ycbcr/mult_12 | false  |  false  |   P   |   C    |   P   |      P      |       0        |        2         |
+| rgb_to_ycbcr/mult_11 | false  |  false  |   P   |   C    |   P   |      P      |       0        |        2         |
+| rgb_to_ycbcr/mult_13 | false  |  false  |   P   |   C    |   P   |      P      |       0        |        2         |
+| rgb_to_ycbcr/mult_18 | false  |  false  |   P   |   C    |   P   |      P      |       0        |        1         |
+| rgb_to_ycbcr/mult_5  | false  |  false  |   P   |   C    |   P   |      P      |       0        |        2         |
+| ycbcr_to_rgb/mult_11 | false  |  false  |   P   |   C    |   P   |      P      |       1        |        3         |
+| ycbcr_to_rgb/mult_17 | false  |  false  |   P   |   C    |   P   |      P      |       1        |        3         |
++----------------------+--------+---------+-------+--------+-------+-------------+----------------+------------------+
+* DSP24/DSP12 that share a CTL_SIG_SET_ID have identical control signals (CE, CLK, etc).
+* DSP24/DSP12 that share a PARAMETER_SET_ID have identical netlist parameters (DSP mode, registers, polarity, etc).
+* If fractured DSP primitives share both CTL_SIG_SET_ID and PARAMETER_SET_ID, they can be legally packed together.
+* See output file dsp_control_sets.csv for detailed breakdown. 
+
+----------- DSP24 Block Information (end) ----------
+
+
+---------- Simple Dual Port RAM Information (begin) ----------
+
++--------------------------------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+|                                               NAME                                               | MODE | READ_WIDTH | WRITE_WIDTH |  WRITE_MODE  | OUTPUT_REG |
++--------------------------------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+|                               u_hdmi_rx/u_simple_dual_port_ram/ram                               | SDP  |     8      |      8      |  READ_FIRST  |   false    |
+|             u_dvi_decoder/u_tmds_decoder_0/u_channelbond/u_simple_dual_port_ram/ram              | SDP  |     10     |     10      |  READ_FIRST  |    true    |
+|             u_dvi_decoder/u_tmds_decoder_1/u_channelbond/u_simple_dual_port_ram/ram              | SDP  |     10     |     10      |  READ_FIRST  |    true    |
+|             u_dvi_decoder/u_tmds_decoder_2/u_channelbond/u_simple_dual_port_ram/ram              | SDP  |     10     |     10      |  READ_FIRST  |    true    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_ar/ram__D$2          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_aw/ram__D$2          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_ar/ram__D$1          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$2          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_aw/ram__D$1          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$12          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$b12         | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$c12         | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$d12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$e12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$f12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_wr/ram__D$g1          | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|            inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_ack/ram            | SDP  |     2      |      2      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$2          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$12          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$b12         | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$c12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$d12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$e12         | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/fifo_rd/ram__D$f1          | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|          inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/ac_fifo/ram__D$2          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/ac_fifo/ram__D$12          | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|         inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/ac_fifo/ram__D$b1          | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+| inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/controller_main/map_ram/ram__D$c1  | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+| inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/controller_main/map_ram/ram__D$b12 | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+| inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/controller_main/map_ram/ram__D$12  | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|  inst_ddr3_axi/inst_efx_ddr3/u_efx_ddr3_soft_controller/top_mc/controller_main/map_ram/ram__D$2  | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|                algorithm/fifo_efinity_inst/u_efx_fifo_top/xefx_fifo_ram/ram__D$2                 | SDP  |     8      |      8      | READ_UNKNOWN |   false    |
+|                algorithm/fifo_efinity_inst/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1                | SDP  |     8      |      8      | READ_UNKNOWN |   false    |
+|                algorithm/fifo_efinity_inst/u_efx_fifo_top/xefx_fifo_ram/ram__D$12                | SDP  |     8      |      8      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$m12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$p12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$o12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$l12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$n12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$12                    | SDP  |     4      |      4      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$b12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$j12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                    u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$2                    | SDP  |     4      |      4      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$i12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$h12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$g12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$f12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$e12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$d12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$c12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$k12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$q12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$r12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$s12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$t12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$u12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$v12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$w12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$x12                   | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_rx_buffer/u_wr_fifo/FifoBuff__D$y1                    | SDP  |     5      |      5      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$12                    | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$e12                   | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$b12                   | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$f1                    | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$d12                   | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|                   u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$c12                   | SDP  |     20     |     20      | READ_UNKNOWN |   false    |
+|                    u_frame_buffer_ch0/u_ddr_tx_buffer/u_wr_fifo/FifoBuff__D$2                    | SDP  |     16     |     16      | READ_UNKNOWN |   false    |
+|                 u_frame_buffer_ch0/u_ddr_tx_buffer/u_data_tx/u_rd_fifo/FifoBuff                  | SDP  |     16     |     16      |  READ_FIRST  |   false    |
++--------------------------------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+
+----------- Simple Dual Port RAM Information (end) ----------
+
+
+---------- True Dual Port RAM Information (begin) ----------
+
++-------------------------------------------------------------------+------+--------------+---------------+--------------+--------------+--------------+---------------+--------------+--------------+
+|                               NAME                                | MODE | READ_WIDTH_A | WRITE_WIDTH_A | WRITE_MODE_A | OUTPUT_REG_A | READ_WIDTH_B | WRITE_WIDTH_B | WRITE_MODE_B | OUTPUT_REG_B |
++-------------------------------------------------------------------+------+--------------+---------------+--------------+--------------+--------------+---------------+--------------+--------------+
+| algorithm/scaler_inst/ramRB/ram_generate[0].ram_inst_i/ram__D$d1  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[0].ram_inst_i/ram__D$12  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[2].ram_inst_i/ram__D$12  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[0].ram_inst_i/ram__D$b12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+|  algorithm/scaler_inst/ramRB/ram_generate[0].ram_inst_i/ram__D$2  | TDP  |      4       |       4       | WRITE_FIRST  |    false     |      4       |       4       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[0].ram_inst_i/ram__D$c12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[1].ram_inst_i/ram__D$d1  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[1].ram_inst_i/ram__D$12  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[1].ram_inst_i/ram__D$b12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+|  algorithm/scaler_inst/ramRB/ram_generate[1].ram_inst_i/ram__D$2  | TDP  |      4       |       4       | WRITE_FIRST  |    false     |      4       |       4       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[1].ram_inst_i/ram__D$c12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[2].ram_inst_i/ram__D$d1  | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[2].ram_inst_i/ram__D$b12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
+|  algorithm/scaler_inst/ramRB/ram_generate[2].ram_inst_i/ram__D$2  | TDP  |      4       |       4       | WRITE_FIRST  |    false     |      4       |       4       |  READ_FIRST  |    false     |
+| algorithm/scaler_inst/ramRB/ram_generate[2].ram_inst_i/ram__D$c12 | TDP  |      5       |       5       | WRITE_FIRST  |    false     |      5       |       5       |  READ_FIRST  |    false     |
++-------------------------------------------------------------------+------+--------------+---------------+--------------+--------------+--------------+---------------+--------------+--------------+
+
+----------- True Dual Port RAM Information (end) ----------
+
+
+---------- IO Interface Summary (begin) ----------
+
++------------------------+--------------+
+| Missing Interface Pins | Input/Output |
++------------------------+--------------+
+|       phy_rst_n        |    Output    |
+|       phy_rst_n1       |    Output    |
+|       tx_en_o_LO       |    Output    |
+|      rxd_lo_i[2]       |    Input     |
+|       tx_en_o_HI       |    Output    |
+|      rxd_hi_i[2]       |    Input     |
+|     jtag_inst1_SEL     |    Input     |
+|    jtag_inst1_DRCK     |    Input     |
+|     jtag_inst1_TDI     |    Input     |
+|     jtag_inst1_TMS     |    Input     |
+|     jtag_inst1_TCK     |    Input     |
+|    jtag_inst1_RESET    |    Input     |
+|   jtag_inst1_RUNTEST   |    Input     |
+|    jtag_inst1_SHIFT    |    Input     |
+|   jtag_inst1_UPDATE    |    Input     |
+|   jtag_inst1_CAPTURE   |    Input     |
+|      mdio_io1_OUT      |    Output    |
+|      mdio_io1_OE       |    Output    |
+|      mdio_io1_IN       |    Input     |
+|      txd_lo_o[1]       |    Output    |
+|      txd_hi_o[1]       |    Output    |
+|      rxd_lo_i[3]       |    Input     |
+|      rxd_hi_i[3]       |    Input     |
+|      txd_lo_o[0]       |    Output    |
+|      txd_hi_o[0]       |    Output    |
+|      rxd_lo_i[1]       |    Input     |
+|      rxd_hi_i[1]       |    Input     |
+|        txc_lo_o        |    Output    |
+|        txc_hi_o        |    Output    |
+|      rxd_lo_i[0]       |    Input     |
+|      rxd_hi_i[0]       |    Input     |
+|        rx_dv_LO        |    Input     |
+|        rx_dv_HI        |    Input     |
+|       txd1_LO[3]       |    Output    |
+|       txd1_HI[3]       |    Output    |
+|       mdc_o1_LO        |    Output    |
+|       mdc_o1_HI        |    Output    |
+|         mdio_o         |    Output    |
+|        mdc_o_LO        |    Output    |
+|        mdc_o_HI        |    Output    |
+|        mdio_oe         |    Output    |
+|         mdio_i         |    Input     |
+|      txd_lo_o[2]       |    Output    |
+|      txd_hi_o[2]       |    Output    |
+|      txd_lo_o[3]       |    Output    |
+|      txd_hi_o[3]       |    Output    |
+|      tx_en_o1_LO       |    Output    |
+|      tx_en_o1_HI       |    Output    |
+|       rxd1_LO[3]       |    Input     |
+|       rxd1_HI[3]       |    Input     |
+|       txd1_LO[1]       |    Output    |
+|       txd1_HI[1]       |    Output    |
+|       txd1_LO[2]       |    Output    |
+|       txd1_HI[2]       |    Output    |
+|       txd1_LO[0]       |    Output    |
+|       txd1_HI[0]       |    Output    |
+|        txc1_LO         |    Output    |
+|        txc1_HI         |    Output    |
+|       rxd1_LO[2]       |    Input     |
+|       rxd1_HI[2]       |    Input     |
+|       rxd1_LO[0]       |    Input     |
+|       rxd1_LO[1]       |    Input     |
+|       rxd1_HI[0]       |    Input     |
+|       rxd1_HI[1]       |    Input     |
+|       rx_dv1_LO        |    Input     |
+|       rx_dv1_HI        |    Input     |
+|     i_sysclk_div_2     |    Input     |
+|  i_mipi_tx_pll_locked  |    Input     |
++------------------------+--------------+
+
+----------- IO Interface Summary (end) ----------
+
+
+---------- IO Placement Summary (begin) ----------
+
++----------------------+--------------+
+| Unassigned Core Pins | Input/Output |
++----------------------+--------------+
+|    o_dqs_n_hi[1]     |    Output    |
+|    o_dqs_n_hi[0]     |    Output    |
+|    o_dqs_n_lo[1]     |    Output    |
+|    o_dqs_n_lo[0]     |    Output    |
++----------------------+--------------+
+
+----------- IO Placement Summary (end) ----------
+
+Elapsed time for placement: 0 hours 8 minutes 59 seconds

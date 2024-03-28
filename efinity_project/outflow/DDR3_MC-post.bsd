@@ -1,0 +1,1548 @@
+-- Copyright (C) 2022 Efinix Inc. All rights reserved.
+--
+-- This   document  contains  proprietary information  which   is
+-- protected by  copyright. All rights  are reserved.  This notice
+-- refers to original work by Efinix, Inc. which may be derivitive
+-- of other work distributed under license of the authors.  In the
+-- case of derivative work, nothing in this notice overrides the
+-- original author's license agreement.  Where applicable, the 
+-- original license agreement is included in it's original 
+-- unmodified form immediately below this header.
+--
+-- WARRANTY DISCLAIMER.  
+--     THE  DESIGN, CODE, OR INFORMATION ARE PROVIDED "AS IS" AND 
+--     EFINIX MAKES NO WARRANTIES, EXPRESS OR IMPLIED WITH 
+--     RESPECT THERETO, AND EXPRESSLY DISCLAIMS ANY IMPLIED WARRANTIES, 
+--     INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF 
+--     MERCHANTABILITY, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR 
+--     PURPOSE.  SOME STATES DO NOT ALLOW EXCLUSIONS OF AN IMPLIED 
+--     WARRANTY, SO THIS DISCLAIMER MAY NOT APPLY TO LICENSEE.
+--
+-- LIMITATION OF LIABILITY.  
+--     NOTWITHSTANDING ANYTHING TO THE CONTRARY, EXCEPT FOR BODILY 
+--     INJURY, EFINIX SHALL NOT BE LIABLE WITH RESPECT TO ANY SUBJECT 
+--     MATTER OF THIS AGREEMENT UNDER TORT, CONTRACT, STRICT LIABILITY 
+--     OR ANY OTHER LEGAL OR EQUITABLE THEORY (I) FOR ANY INDIRECT, 
+--     SPECIAL, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY 
+--     CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF 
+--     GOODWILL, DATA OR PROFIT, WORK STOPPAGE, OR COMPUTER FAILURE OR 
+--     MALFUNCTION, OR IN ANY EVENT (II) FOR ANY AMOUNT IN EXCESS, IN 
+--     THE AGGREGATE, OF THE FEE PAID BY LICENSEE TO EFINIX HEREUNDER 
+--     (OR, IF THE FEE HAS BEEN WAIVED, $100), EVEN IF EFINIX SHALL HAVE 
+--     BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES.  SOME STATES DO 
+--     NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR 
+--     CONSEQUENTIAL DAMAGES, SO THIS LIMITATION AND EXCLUSION MAY NOT 
+--     APPLY TO LICENSEE.
+
+--------------------------------------------------------------------------------
+-- This BSDL file is used for boundary-scan testing on post-configuration device
+--------------------------------------------------------------------------------
+
+entity Ti60F225 is
+
+-- Generic Parameter
+
+generic (PHYSICAL_PIN_MAP : string := "FBGA225" );
+
+-- Logical Port Description
+
+port (
+
+	-- HVIO Pins
+
+	GPIOL_01                      : out bit;
+	GPIOL_02                      : out bit;
+	GPIOL_03                      : linkage bit;
+	GPIOL_04                      : linkage bit;
+	GPIOL_06                      : linkage bit;
+	GPIOL_07                      : linkage bit;
+	GPIOL_09                      : linkage bit;
+	GPIOL_10                      : linkage bit;
+	GPIOL_11_PLLIN2               : linkage bit;
+	GPIOR_12                      : out bit;
+	GPIOR_13                      : linkage bit;
+	GPIOR_15                      : in bit;
+	GPIOR_16                      : linkage bit;
+	GPIOR_18                      : out bit;
+	GPIOR_19                      : linkage bit;
+	GPIOR_20                      : out bit;
+	GPIOR_21                      : out bit;
+	GPIOR_22                      : out bit;
+	GPIOR_24                      : linkage bit;
+	GPIOR_25                      : linkage bit;
+	GPIOR_27                      : in bit;
+	GPIOR_28                      : linkage bit;
+	GPIOR_29_PLLIN2               : linkage bit;
+
+	-- HSIO Pins
+
+	GPIOB_N_00                    : inout bit;
+	GPIOB_N_01                    : inout bit;
+	GPIOB_N_02_CDI5               : out bit;
+	GPIOB_N_03_CDI7               : inout bit;
+	GPIOB_N_04                    : out bit;
+	GPIOB_N_06_CDI9               : out bit;
+	GPIOB_N_07_CLK15_N            : inout bit;
+	GPIOB_N_08_CLK14_N            : out bit;
+	GPIOB_N_09_CLK13_N            : out bit;
+	GPIOB_N_10_CLK12_N            : out bit;
+	GPIOB_N_11_CDI11              : out bit;
+	GPIOB_N_12_CDI13              : inout bit;
+	GPIOB_N_13_CDI15              : inout bit;
+	GPIOB_N_14_CDI17              : inout bit;
+	GPIOB_N_15_CDI19              : out bit;
+	GPIOB_N_17                    : inout bit;
+	GPIOB_P_00_PLLIN1             : inout bit;
+	GPIOB_P_01_EXTFB              : inout bit;
+	GPIOB_P_02_CDI4               : inout bit;
+	GPIOB_P_03_CDI6               : inout bit;
+	GPIOB_P_04_SSU_N              : in bit;
+	GPIOB_P_06_CDI8               : out bit;
+	GPIOB_P_07_CLK15_P            : out bit;
+	GPIOB_P_08_CLK14_P            : inout bit;
+	GPIOB_P_09_CLK13_P            : in bit;
+	GPIOB_P_10_CLK12_P            : out bit;
+	GPIOB_P_11_CDI10              : out bit;
+	GPIOB_P_12_CDI12              : inout bit;
+	GPIOB_P_13_CDI14              : inout bit;
+	GPIOB_P_14_CDI16              : inout bit;
+	GPIOB_P_15_CDI18              : inout bit;
+	GPIOB_P_17_PLLIN1             : inout bit;
+	GPIOL_N_00                    : out bit;
+	GPIOL_N_01_CCK                : linkage bit;
+	GPIOL_N_02_CSO                : inout bit;
+	GPIOL_N_03_CDI1               : linkage bit;
+	GPIOL_N_04_CDI3               : linkage bit;
+	GPIOL_N_05                    : in bit;
+	GPIOL_N_06                    : in bit;
+	GPIOL_N_07_CLK0_N             : in bit;
+	GPIOL_N_08_CLK1_N             : in bit;
+	GPIOL_N_09_CLK2_N             : out bit;
+	GPIOL_N_10_CLK3_N             : out bit;
+	GPIOL_N_11                    : out bit;
+	GPIOL_N_12                    : out bit;
+	GPIOL_N_13_CBSEL1             : in bit;
+	GPIOL_N_14                    : out bit;
+	GPIOL_N_15_TEST_N             : linkage bit;
+	GPIOL_N_16                    : in bit;
+	GPIOL_N_17                    : in bit;
+	GPIOL_N_18                    : in bit;
+	GPIOL_P_00_PLLIN0             : in bit;
+	GPIOL_P_01_SSL_N              : linkage bit;
+	GPIOL_P_02_CSI                : linkage bit;
+	GPIOL_P_03_CDI0               : linkage bit;
+	GPIOL_P_04_CDI2               : linkage bit;
+	GPIOL_P_05                    : out bit;
+	GPIOL_P_06                    : out bit;
+	GPIOL_P_07_CLK0_P             : out bit;
+	GPIOL_P_08_CLK1_P             : in bit;
+	GPIOL_P_09_CLK2_P             : in bit;
+	GPIOL_P_10_CLK3_P             : in bit;
+	GPIOL_P_11                    : inout bit;
+	GPIOL_P_12                    : out bit;
+	GPIOL_P_13_CBSEL0             : out bit;
+	GPIOL_P_14                    : out bit;
+	GPIOL_P_15_NSTATUS            : out bit;
+	GPIOL_P_16                    : out bit;
+	GPIOL_P_17_EXTFB              : in bit;
+	GPIOL_P_18_PLLIN0             : linkage bit;
+	GPIOR_N_00_CDI22              : out bit;
+	GPIOR_N_01_CDI23              : out bit;
+	GPIOR_N_02_CDI25              : out bit;
+	GPIOR_N_03_CDI27              : out bit;
+	GPIOR_N_04_CDI29              : out bit;
+	GPIOR_N_05_CDI31              : out bit;
+	GPIOR_N_06_CDI21              : out bit;
+	GPIOR_N_07                    : out bit;
+	GPIOR_N_08_CLK11_N            : out bit;
+	GPIOR_N_09_CLK10_N            : linkage bit;
+	GPIOR_N_10_CLK9_N             : out bit;
+	GPIOR_N_11_CLK8_N             : out bit;
+	GPIOR_N_12                    : out bit;
+	GPIOR_N_13                    : out bit;
+	GPIOR_N_14                    : inout bit;
+	GPIOR_N_15                    : out bit;
+	GPIOR_N_16                    : linkage bit;
+	GPIOR_N_17                    : linkage bit;
+	GPIOR_N_18                    : linkage bit;
+	GPIOR_N_19                    : linkage bit;
+	GPIOR_P_00_PLLIN0             : out bit;
+	GPIOR_P_01_EXTFB              : out bit;
+	GPIOR_P_02_CDI24              : out bit;
+	GPIOR_P_03_CDI26              : out bit;
+	GPIOR_P_04_CDI28              : out bit;
+	GPIOR_P_05_CDI30              : out bit;
+	GPIOR_P_06_CDI20              : out bit;
+	GPIOR_P_07                    : out bit;
+	GPIOR_P_08_CLK11_P            : out bit;
+	GPIOR_P_09_CLK10_P            : out bit;
+	GPIOR_P_10_CLK9_P             : out bit;
+	GPIOR_P_11_CLK8_P             : out bit;
+	GPIOR_P_12                    : out bit;
+	GPIOR_P_13                    : out bit;
+	GPIOR_P_14                    : inout bit;
+	GPIOR_P_15                    : in bit;
+	GPIOR_P_16                    : in bit;
+	GPIOR_P_17                    : in bit;
+	GPIOR_P_18                    : in bit;
+	GPIOR_P_19_PLLIN0             : in bit;
+	GPIOT_N_00                    : linkage bit;
+	GPIOT_N_01                    : linkage bit;
+	GPIOT_N_03                    : linkage bit;
+	GPIOT_N_04                    : linkage bit;
+	GPIOT_N_05                    : linkage bit;
+	GPIOT_N_06                    : linkage bit;
+	GPIOT_N_07_CLK4_N             : linkage bit;
+	GPIOT_N_09_CLK6_N             : linkage bit;
+	GPIOT_N_10_CLK7_N             : linkage bit;
+	GPIOT_N_11                    : linkage bit;
+	GPIOT_N_12                    : linkage bit;
+	GPIOT_N_13                    : linkage bit;
+	GPIOT_N_14                    : linkage bit;
+	GPIOT_N_16                    : linkage bit;
+	GPIOT_N_17                    : linkage bit;
+	GPIOT_P_00_PLLIN1             : linkage bit;
+	GPIOT_P_01                    : linkage bit;
+	GPIOT_P_03                    : linkage bit;
+	GPIOT_P_04                    : linkage bit;
+	GPIOT_P_05                    : linkage bit;
+	GPIOT_P_06                    : out bit;
+	GPIOT_P_07_CLK4_P             : out bit;
+	GPIOT_P_09_CLK6_P             : out bit;
+	GPIOT_P_10_CLK7_P             : out bit;
+	GPIOT_P_11                    : out bit;
+	GPIOT_P_12                    : linkage bit;
+	GPIOT_P_13                    : linkage bit;
+	GPIOT_P_14                    : linkage bit;
+	GPIOT_P_16_EXTFB              : linkage bit;
+	GPIOT_P_17_PLLIN1             : linkage bit;
+
+	-- Configuration Pins
+
+	CDONE                         : inout bit;
+	CRESET_N                      : in bit;
+	TCK                           : in bit;
+	TDI                           : in bit;
+	TDO                           : out bit;
+	TMS                           : in bit;
+
+	-- Reference Resistor Pins
+
+	REF_RES_1A                    : linkage bit_vector (1 to 1);
+	REF_RES_1B                    : linkage bit_vector (1 to 1);
+	REF_RES_2A                    : linkage bit_vector (1 to 1);
+	REF_RES_2B                    : linkage bit_vector (1 to 1);
+	REF_RES_3A                    : linkage bit_vector (1 to 1);
+	REF_RES_3B                    : linkage bit_vector (1 to 1);
+	REF_RES_4A                    : linkage bit_vector (1 to 1);
+	REF_RES_4B                    : linkage bit_vector (1 to 1);
+
+	-- Power Pins
+
+	VCC                           : linkage bit_vector (1 to 8);
+	VCCAUX                        : linkage bit_vector (1 to 4);
+	VCCA_BL                       : linkage bit_vector (1 to 1);
+	VCCA_BR                       : linkage bit_vector (1 to 1);
+	VCCA_TL                       : linkage bit_vector (1 to 1);
+	VCCA_TR                       : linkage bit_vector (1 to 1);
+	VCCIO1A                       : linkage bit_vector (1 to 2);
+	VCCIO1B                       : linkage bit_vector (1 to 2);
+	VCCIO2A                       : linkage bit_vector (1 to 2);
+	VCCIO2B                       : linkage bit_vector (1 to 2);
+	VCCIO3A                       : linkage bit_vector (1 to 2);
+	VCCIO3B                       : linkage bit_vector (1 to 2);
+	VCCIO4A                       : linkage bit_vector (1 to 2);
+	VCCIO4B                       : linkage bit_vector (1 to 2);
+	VCCIO33_BL                    : linkage bit_vector (1 to 1);
+	VCCIO33_BR                    : linkage bit_vector (1 to 1);
+	VCCIO33_TL                    : linkage bit_vector (1 to 1);
+	VCCIO33_TR                    : linkage bit_vector (1 to 1);
+
+	-- Ground Pins
+
+	GND                           : linkage bit_vector (1 to 12)
+
+);
+
+-- Use Statements
+
+use STD_1149_1_2001.all;
+
+-- Component Conformance Statement(s)
+
+attribute COMPONENT_CONFORMANCE of Ti60F225 : entity is
+	"STD_1149_1_2001";
+
+-- Device Package Pin Mappings
+
+attribute PIN_MAP of Ti60F225 : entity is PHYSICAL_PIN_MAP;
+
+constant FBGA225: PIN_MAP_STRING:=
+
+	-- HVIO Pins
+
+	"GPIOL_01                      : R3," &
+	"GPIOL_02                      : R4," &
+	"GPIOL_03                      : A3," &
+	"GPIOL_04                      : B3," &
+	"GPIOL_06                      : C3," &
+	"GPIOL_07                      : C4," &
+	"GPIOL_09                      : A4," &
+	"GPIOL_10                      : B5," &
+	"GPIOL_11_PLLIN2               : C5," &
+	"GPIOR_12                      : A13," &
+	"GPIOR_13                      : A12," &
+	"GPIOR_15                      : B12," &
+	"GPIOR_16                      : C12," &
+	"GPIOR_18                      : B14," &
+	"GPIOR_19                      : A14," &
+	"GPIOR_20                      : D12," &
+	"GPIOR_21                      : N14," &
+	"GPIOR_22                      : P14," &
+	"GPIOR_24                      : N13," &
+	"GPIOR_25                      : P15," &
+	"GPIOR_27                      : P13," &
+	"GPIOR_28                      : R14," &
+	"GPIOR_29_PLLIN2               : R13," &
+
+	-- HSIO Pins
+
+	"GPIOB_N_00                    : P5," &
+	"GPIOB_N_01                    : P6," &
+	"GPIOB_N_02_CDI5               : P7," &
+	"GPIOB_N_03_CDI7               : M6," &
+	"GPIOB_N_04                    : K6," &
+	"GPIOB_N_06_CDI9               : L7," &
+	"GPIOB_N_07_CLK15_N            : P8," &
+	"GPIOB_N_08_CLK14_N            : M8," &
+	"GPIOB_N_09_CLK13_N            : L8," &
+	"GPIOB_N_10_CLK12_N            : L9," &
+	"GPIOB_N_11_CDI11              : K9," &
+	"GPIOB_N_12_CDI13              : P9," &
+	"GPIOB_N_13_CDI15              : M10," &
+	"GPIOB_N_14_CDI17              : P10," &
+	"GPIOB_N_15_CDI19              : R11," &
+	"GPIOB_N_17                    : P12," &
+	"GPIOB_P_00_PLLIN1             : R5," &
+	"GPIOB_P_01_EXTFB              : R6," &
+	"GPIOB_P_02_CDI4               : R7," &
+	"GPIOB_P_03_CDI6               : N6," &
+	"GPIOB_P_04_SSU_N              : L6," &
+	"GPIOB_P_06_CDI8               : M7," &
+	"GPIOB_P_07_CLK15_P            : R8," &
+	"GPIOB_P_08_CLK14_P            : N8," &
+	"GPIOB_P_09_CLK13_P            : K7," &
+	"GPIOB_P_10_CLK12_P            : M9," &
+	"GPIOB_P_11_CDI10              : K8," &
+	"GPIOB_P_12_CDI12              : R9," &
+	"GPIOB_P_13_CDI14              : N10," &
+	"GPIOB_P_14_CDI16              : R10," &
+	"GPIOB_P_15_CDI18              : R12," &
+	"GPIOB_P_17_PLLIN1             : P11," &
+	"GPIOL_N_00                    : R2," &
+	"GPIOL_N_01_CCK                : N1," &
+	"GPIOL_N_02_CSO                : M2," &
+	"GPIOL_N_03_CDI1               : L1," &
+	"GPIOL_N_04_CDI3               : H4," &
+	"GPIOL_N_05                    : J3," &
+	"GPIOL_N_06                    : K2," &
+	"GPIOL_N_07_CLK0_N             : J1," &
+	"GPIOL_N_08_CLK1_N             : H3," &
+	"GPIOL_N_09_CLK2_N             : G1," &
+	"GPIOL_N_10_CLK3_N             : G2," &
+	"GPIOL_N_11                    : F5," &
+	"GPIOL_N_12                    : G4," &
+	"GPIOL_N_13_CBSEL1             : E3," &
+	"GPIOL_N_14                    : F2," &
+	"GPIOL_N_15_TEST_N             : E2," &
+	"GPIOL_N_16                    : C1," &
+	"GPIOL_N_17                    : C2," &
+	"GPIOL_N_18                    : A2," &
+	"GPIOL_P_00_PLLIN0             : P2," &
+	"GPIOL_P_01_SSL_N              : P1," &
+	"GPIOL_P_02_CSI                : N2," &
+	"GPIOL_P_03_CDI0               : M1," &
+	"GPIOL_P_04_CDI2               : H5," &
+	"GPIOL_P_05                    : K4," &
+	"GPIOL_P_06                    : K3," &
+	"GPIOL_P_07_CLK0_P             : K1," &
+	"GPIOL_P_08_CLK1_P             : J2," &
+	"GPIOL_P_09_CLK2_P             : H1," &
+	"GPIOL_P_10_CLK3_P             : H2," &
+	"GPIOL_P_11                    : G5," &
+	"GPIOL_P_12                    : G3," &
+	"GPIOL_P_13_CBSEL0             : F3," &
+	"GPIOL_P_14                    : F1," &
+	"GPIOL_P_15_NSTATUS            : E1," &
+	"GPIOL_P_16                    : D1," &
+	"GPIOL_P_17_EXTFB              : B1," &
+	"GPIOL_P_18_PLLIN0             : B2," &
+	"GPIOR_N_00_CDI22              : K11," &
+	"GPIOR_N_01_CDI23              : L13," &
+	"GPIOR_N_02_CDI25              : M15," &
+	"GPIOR_N_03_CDI27              : J10," &
+	"GPIOR_N_04_CDI29              : J12," &
+	"GPIOR_N_05_CDI31              : K15," &
+	"GPIOR_N_06_CDI21              : J13," &
+	"GPIOR_N_07                    : J14," &
+	"GPIOR_N_08_CLK11_N            : H11," &
+	"GPIOR_N_09_CLK10_N            : H15," &
+	"GPIOR_N_10_CLK9_N             : H12," &
+	"GPIOR_N_11_CLK8_N             : G14," &
+	"GPIOR_N_12                    : F13," &
+	"GPIOR_N_13                    : F15," &
+	"GPIOR_N_14                    : F11," &
+	"GPIOR_N_15                    : E12," &
+	"GPIOR_N_16                    : E14," &
+	"GPIOR_N_17                    : D13," &
+	"GPIOR_N_18                    : D14," &
+	"GPIOR_N_19                    : C15," &
+	"GPIOR_P_00_PLLIN0             : L11," &
+	"GPIOR_P_01_EXTFB              : L12," &
+	"GPIOR_P_02_CDI24              : M14," &
+	"GPIOR_P_03_CDI26              : K10," &
+	"GPIOR_P_04_CDI28              : K12," &
+	"GPIOR_P_05_CDI30              : L15," &
+	"GPIOR_P_06_CDI20              : K13," &
+	"GPIOR_P_07                    : K14," &
+	"GPIOR_P_08_CLK11_P            : H10," &
+	"GPIOR_P_09_CLK10_P            : J15," &
+	"GPIOR_P_10_CLK9_P             : H13," &
+	"GPIOR_P_11_CLK8_P             : H14," &
+	"GPIOR_P_12                    : G13," &
+	"GPIOR_P_13                    : G15," &
+	"GPIOR_P_14                    : G11," &
+	"GPIOR_P_15                    : F12," &
+	"GPIOR_P_16                    : E15," &
+	"GPIOR_P_17                    : C13," &
+	"GPIOR_P_18                    : D15," &
+	"GPIOR_P_19_PLLIN0             : C14," &
+	"GPIOT_N_00                    : D5," &
+	"GPIOT_N_01                    : C6," &
+	"GPIOT_N_03                    : A6," &
+	"GPIOT_N_04                    : F8," &
+	"GPIOT_N_05                    : D7," &
+	"GPIOT_N_06                    : A7," &
+	"GPIOT_N_07_CLK4_N             : A8," &
+	"GPIOT_N_09_CLK6_N             : D8," &
+	"GPIOT_N_10_CLK7_N             : C9," &
+	"GPIOT_N_11                    : A9," &
+	"GPIOT_N_12                    : E9," &
+	"GPIOT_N_13                    : D10," &
+	"GPIOT_N_14                    : B10," &
+	"GPIOT_N_16                    : F10," &
+	"GPIOT_N_17                    : B11," &
+	"GPIOT_P_00_PLLIN1             : E6," &
+	"GPIOT_P_01                    : B6," &
+	"GPIOT_P_03                    : A5," &
+	"GPIOT_P_04                    : F7," &
+	"GPIOT_P_05                    : E7," &
+	"GPIOT_P_06                    : B7," &
+	"GPIOT_P_07_CLK4_P             : B8," &
+	"GPIOT_P_09_CLK6_P             : E8," &
+	"GPIOT_P_10_CLK7_P             : C8," &
+	"GPIOT_P_11                    : B9," &
+	"GPIOT_P_12                    : F9," &
+	"GPIOT_P_13                    : C10," &
+	"GPIOT_P_14                    : A10," &
+	"GPIOT_P_16_EXTFB              : E10," &
+	"GPIOT_P_17_PLLIN1             : A11," &
+
+	-- Configuration Pins
+
+	"CDONE                         : L3," &
+	"CRESET_N                      : J5," &
+	"TCK                           : N4," &
+	"TDI                           : P3," &
+	"TDO                           : M4," &
+	"TMS                           : N3," &
+
+	-- Reference Resistor Pins
+
+	"REF_RES_1A                    : (K5)," &
+	"REF_RES_1B                    : (E4)," &
+	"REF_RES_2A                    : (F6)," &
+	"REF_RES_2B                    : (D11)," &
+	"REF_RES_3A                    : (B15)," &
+	"REF_RES_3B                    : (M12)," &
+	"REF_RES_4A                    : (N12)," &
+	"REF_RES_4B                    : (M5)," &
+
+	-- Power Pins
+
+	"VCC                           : (E13,  G7,   G9,   H6,   H8," &
+	"                                 J7,   J9,   M3)," &
+	"VCCAUX                        : (D4,   E11,  L4,   M11)," &
+	"VCCA_BL                       : (L5)," &
+	"VCCA_BR                       : (L10)," &
+	"VCCA_TL                       : (E5)," &
+	"VCCA_TR                       : (G10)," &
+	"VCCIO1A                       : (J4,   L2)," &
+	"VCCIO1B                       : (D2,   F4)," &
+	"VCCIO2A                       : (C7,   D6)," &
+	"VCCIO2B                       : (C11,  D9)," &
+	"VCCIO3A                       : (F14,  G12)," &
+	"VCCIO3B                       : (J11,  L14)," &
+	"VCCIO4A                       : (N9,   N11)," &
+	"VCCIO4B                       : (N5,   N7)," &
+	"VCCIO33_BL                    : (P4)," &
+	"VCCIO33_BR                    : (N15)," &
+	"VCCIO33_TL                    : (B4)," &
+	"VCCIO33_TR                    : (B13)," &
+
+	-- Ground Pins
+
+	"GND                           : (A1,   A15,  D3,   G6,   G8," &
+	"                                 H7,   H9,   J6,   J8,   M13," &
+	"                                 R1,   R15)";
+
+-- Scan Port Identification
+
+attribute TAP_SCAN_IN    of TDI : signal is true;
+attribute TAP_SCAN_MODE  of TMS : signal is true;
+attribute TAP_SCAN_OUT   of TDO : signal is true;
+attribute TAP_SCAN_CLOCK of TCK : signal is (30.0e6, BOTH);
+
+-- Instruction Register Description
+
+attribute INSTRUCTION_LENGTH of Ti60F225 : entity is 5;
+
+attribute INSTRUCTION_OPCODE of Ti60F225 : entity is
+	"IDCODE         (00011)," &  -- DEVICE_ID reg
+	"BYPASS         (11111)," &  -- BYPASS reg
+	"EXTEST         (00000)," &  -- BOUNDARY reg
+	"SAMPLE         (00010)," &  -- BOUNDARY reg
+	"PRELOAD        (00010)," &  -- BOUNDARY reg, Same as SAMPLE
+	"USER1          (01000)," &  -- PRIVATE, Not available until after configuration
+	"USER2          (01001)," &  -- PRIVATE, Not available until after configuration
+	"USER3          (01010)," &  -- PRIVATE, Not available until after configuration
+	"USER4          (01011)" ;   -- PRIVATE, Not available until after configuration
+
+attribute INSTRUCTION_CAPTURE of Ti60F225 : entity is "00101";
+
+attribute INSTRUCTION_PRIVATE of Ti60F225 : entity is
+	"USER1," &
+	"USER2," &
+	"USER3," &
+	"USER4";
+
+-- Optional Register Description
+
+attribute IDCODE_REGISTER of Ti60F225 : entity is
+	"0001" &        -- version
+	"0000011" &     -- family
+	"001100000" &   -- device id
+	"10100111100" & -- manufacturer id
+	"1";            -- required by 1149.1
+
+-- Register Access Description
+
+attribute REGISTER_ACCESS of Ti60F225 : entity is
+	"BYPASS         (BYPASS)," &
+	"DEVICE_ID      (IDCODE)," &
+	"BOUNDARY       (SAMPLE,PRELOAD,EXTEST)";
+
+-- Boundary-Scan Register Description
+
+attribute BOUNDARY_LENGTH of Ti60F225 : entity is 741;
+
+attribute BOUNDARY_REGISTER of Ti60F225 : entity is
+-- cellnum (type, port, function, safe[, ccell, disval, disrslt])
+
+	"0 (BC_1, *, internal, X)," &
+	"1 (BC_1, *, internal, 0)," &
+	"2 (BC_1, *, internal, X)," &
+
+	"3 (BC_1, *, internal, X)," &
+	"4 (BC_1, *, internal, 0)," &
+	"5 (BC_1, *, internal, X)," &
+
+	"6 (BC_1, *, internal, X)," &
+	"7 (BC_1, *, internal, 0)," &
+	"8 (BC_1, *, internal, X)," &
+
+	"9 (BC_1, *, internal, X)," &
+	"10 (BC_1, *, internal, 0)," &
+	"11 (BC_1, *, internal, X)," &
+
+	"12 (BC_1, *, internal, X)," &
+	"13 (BC_1, *, control, 0)," &
+	"14 (BC_1, GPIOL_02, output3, X, 13, 0, Z)," &
+
+	"15 (BC_1, *, internal, X)," &
+	"16 (BC_1, *, control, 0)," &
+	"17 (BC_1, GPIOL_01, output3, X, 16, 0, Z)," &
+
+	"18 (BC_1, GPIOB_N_00, input, X)," &
+	"19 (BC_1, *, control, 0)," &
+	"20 (BC_1, GPIOB_N_00, output3, X, 19, 0, Z)," &
+
+	"21 (BC_1, *, internal, X)," &
+	"22 (BC_1, *, internal, 0)," &
+	"23 (BC_1, *, internal, X)," &
+
+	"24 (BC_1, GPIOB_P_00_PLLIN1, input, X)," &
+	"25 (BC_1, *, control, 0)," &
+	"26 (BC_1, GPIOB_P_00_PLLIN1, output3, X, 25, 0, Z)," &
+
+	"27 (BC_1, GPIOB_N_01, input, X)," &
+	"28 (BC_1, *, control, 0)," &
+	"29 (BC_1, GPIOB_N_01, output3, X, 28, 0, Z)," &
+
+	"30 (BC_1, *, internal, X)," &
+	"31 (BC_1, *, internal, 0)," &
+	"32 (BC_1, *, internal, X)," &
+
+	"33 (BC_1, GPIOB_P_01_EXTFB, input, X)," &
+	"34 (BC_1, *, control, 0)," &
+	"35 (BC_1, GPIOB_P_01_EXTFB, output3, X, 34, 0, Z)," &
+
+	"36 (BC_1, *, internal, X)," &
+	"37 (BC_1, *, control, 0)," &
+	"38 (BC_1, GPIOB_N_02_CDI5, output3, X, 37, 0, Z)," &
+
+	"39 (BC_1, GPIOB_P_02_CDI4, input, X)," &
+	"40 (BC_1, *, internal, 0)," &
+	"41 (BC_1, GPIOB_P_02_CDI4, output3, X, 43, 0, Z)," &
+
+	"42 (BC_1, *, internal, X)," &
+	"43 (BC_1, *, control, 0)," &
+	"44 (BC_1, *, internal, X)," &
+
+	"45 (BC_1, GPIOB_N_03_CDI7, input, X)," &
+	"46 (BC_1, *, control, 0)," &
+	"47 (BC_1, GPIOB_N_03_CDI7, output3, X, 46, 0, Z)," &
+
+	"48 (BC_1, *, internal, X)," &
+	"49 (BC_1, *, internal, 0)," &
+	"50 (BC_1, *, internal, X)," &
+
+	"51 (BC_1, GPIOB_P_03_CDI6, input, X)," &
+	"52 (BC_1, *, control, 0)," &
+	"53 (BC_1, GPIOB_P_03_CDI6, output3, X, 52, 0, Z)," &
+
+	"54 (BC_1, *, internal, X)," &
+	"55 (BC_1, *, control, 0)," &
+	"56 (BC_1, GPIOB_N_04, output3, X, 55, 0, Z)," &
+
+	"57 (BC_1, *, internal, X)," &
+	"58 (BC_1, *, internal, 0)," &
+	"59 (BC_1, *, internal, X)," &
+
+	"60 (BC_1, GPIOB_P_04_SSU_N, input, X)," &
+	"61 (BC_1, *, internal, 0)," &
+	"62 (BC_1, *, internal, X)," &
+
+	"63 (BC_1, *, internal, X)," &
+	"64 (BC_1, *, control, 0)," &
+	"65 (BC_1, GPIOB_N_06_CDI9, output3, X, 64, 0, Z)," &
+
+	"66 (BC_1, *, internal, X)," &
+	"67 (BC_1, *, internal, 0)," &
+	"68 (BC_1, *, internal, X)," &
+
+	"69 (BC_1, *, internal, X)," &
+	"70 (BC_1, *, control, 0)," &
+	"71 (BC_1, GPIOB_P_06_CDI8, output3, X, 70, 0, Z)," &
+
+	"72 (BC_1, GPIOB_N_07_CLK15_N, input, X)," &
+	"73 (BC_1, *, control, 0)," &
+	"74 (BC_1, GPIOB_N_07_CLK15_N, output3, X, 73, 0, Z)," &
+
+	"75 (BC_1, *, internal, X)," &
+	"76 (BC_1, *, internal, 0)," &
+	"77 (BC_1, *, internal, X)," &
+
+	"78 (BC_1, *, internal, X)," &
+	"79 (BC_1, *, control, 0)," &
+	"80 (BC_1, GPIOB_P_07_CLK15_P, output3, X, 79, 0, Z)," &
+
+	"81 (BC_1, *, internal, X)," &
+	"82 (BC_1, *, control, 0)," &
+	"83 (BC_1, GPIOB_N_08_CLK14_N, output3, X, 82, 0, Z)," &
+
+	"84 (BC_1, *, internal, X)," &
+	"85 (BC_1, *, internal, 0)," &
+	"86 (BC_1, *, internal, X)," &
+
+	"87 (BC_1, GPIOB_P_08_CLK14_P, input, X)," &
+	"88 (BC_1, *, control, 0)," &
+	"89 (BC_1, GPIOB_P_08_CLK14_P, output3, X, 88, 0, Z)," &
+
+	"90 (BC_1, *, internal, X)," &
+	"91 (BC_1, *, control, 0)," &
+	"92 (BC_1, GPIOB_N_09_CLK13_N, output3, X, 91, 0, Z)," &
+
+	"93 (BC_1, *, internal, X)," &
+	"94 (BC_1, *, internal, 0)," &
+	"95 (BC_1, *, internal, X)," &
+
+	"96 (BC_1, GPIOB_P_09_CLK13_P, input, X)," &
+	"97 (BC_1, *, internal, 0)," &
+	"98 (BC_1, *, internal, X)," &
+
+	"99 (BC_1, *, internal, X)," &
+	"100 (BC_1, *, control, 0)," &
+	"101 (BC_1, GPIOB_N_10_CLK12_N, output3, X, 100, 0, Z)," &
+
+	"102 (BC_1, *, internal, X)," &
+	"103 (BC_1, *, internal, 0)," &
+	"104 (BC_1, *, internal, X)," &
+
+	"105 (BC_1, *, internal, X)," &
+	"106 (BC_1, *, control, 0)," &
+	"107 (BC_1, GPIOB_P_10_CLK12_P, output3, X, 106, 0, Z)," &
+
+	"108 (BC_1, *, internal, X)," &
+	"109 (BC_1, *, control, 0)," &
+	"110 (BC_1, GPIOB_N_11_CDI11, output3, X, 109, 0, Z)," &
+
+	"111 (BC_1, *, internal, X)," &
+	"112 (BC_1, *, internal, 0)," &
+	"113 (BC_1, *, internal, X)," &
+
+	"114 (BC_1, *, internal, X)," &
+	"115 (BC_1, *, control, 0)," &
+	"116 (BC_1, GPIOB_P_11_CDI10, output3, X, 115, 0, Z)," &
+
+	"117 (BC_1, GPIOB_N_12_CDI13, input, X)," &
+	"118 (BC_1, *, control, 0)," &
+	"119 (BC_1, GPIOB_N_12_CDI13, output3, X, 118, 0, Z)," &
+
+	"120 (BC_1, *, internal, X)," &
+	"121 (BC_1, *, internal, 0)," &
+	"122 (BC_1, *, internal, X)," &
+
+	"123 (BC_1, GPIOB_P_12_CDI12, input, X)," &
+	"124 (BC_1, *, control, 0)," &
+	"125 (BC_1, GPIOB_P_12_CDI12, output3, X, 124, 0, Z)," &
+
+	"126 (BC_1, GPIOB_N_13_CDI15, input, X)," &
+	"127 (BC_1, *, control, 0)," &
+	"128 (BC_1, GPIOB_N_13_CDI15, output3, X, 127, 0, Z)," &
+
+	"129 (BC_1, *, internal, X)," &
+	"130 (BC_1, *, internal, 0)," &
+	"131 (BC_1, *, internal, X)," &
+
+	"132 (BC_1, GPIOB_P_13_CDI14, input, X)," &
+	"133 (BC_1, *, control, 0)," &
+	"134 (BC_1, GPIOB_P_13_CDI14, output3, X, 133, 0, Z)," &
+
+	"135 (BC_1, GPIOB_N_14_CDI17, input, X)," &
+	"136 (BC_1, *, control, 0)," &
+	"137 (BC_1, GPIOB_N_14_CDI17, output3, X, 136, 0, Z)," &
+
+	"138 (BC_1, *, internal, X)," &
+	"139 (BC_1, *, internal, 0)," &
+	"140 (BC_1, *, internal, X)," &
+
+	"141 (BC_1, GPIOB_P_14_CDI16, input, X)," &
+	"142 (BC_1, *, control, 0)," &
+	"143 (BC_1, GPIOB_P_14_CDI16, output3, X, 142, 0, Z)," &
+
+	"144 (BC_1, *, internal, X)," &
+	"145 (BC_1, *, control, 0)," &
+	"146 (BC_1, GPIOB_N_15_CDI19, output3, X, 145, 0, Z)," &
+
+	"147 (BC_1, GPIOB_P_15_CDI18, input, X)," &
+	"148 (BC_1, *, internal, 0)," &
+	"149 (BC_1, GPIOB_P_15_CDI18, output3, X, 151, 0, Z)," &
+
+	"150 (BC_1, *, internal, X)," &
+	"151 (BC_1, *, control, 0)," &
+	"152 (BC_1, *, internal, X)," &
+
+	"153 (BC_1, GPIOB_N_17, input, X)," &
+	"154 (BC_1, *, control, 0)," &
+	"155 (BC_1, GPIOB_N_17, output3, X, 154, 0, Z)," &
+
+	"156 (BC_1, *, internal, X)," &
+	"157 (BC_1, *, internal, 0)," &
+	"158 (BC_1, *, internal, X)," &
+
+	"159 (BC_1, GPIOB_P_17_PLLIN1, input, X)," &
+	"160 (BC_1, *, control, 0)," &
+	"161 (BC_1, GPIOB_P_17_PLLIN1, output3, X, 160, 0, Z)," &
+
+	"162 (BC_1, *, internal, X)," &
+	"163 (BC_1, *, internal, 0)," &
+	"164 (BC_1, *, internal, X)," &
+
+	"165 (BC_1, *, internal, X)," &
+	"166 (BC_1, *, internal, 0)," &
+	"167 (BC_1, *, internal, X)," &
+
+	"168 (BC_1, GPIOR_27, input, X)," &
+	"169 (BC_1, *, internal, 0)," &
+	"170 (BC_1, *, internal, X)," &
+
+	"171 (BC_1, *, internal, X)," &
+	"172 (BC_1, *, internal, 0)," &
+	"173 (BC_1, *, internal, X)," &
+
+	"174 (BC_1, *, internal, X)," &
+	"175 (BC_1, *, internal, 0)," &
+	"176 (BC_1, *, internal, X)," &
+
+	"177 (BC_1, *, internal, X)," &
+	"178 (BC_1, *, internal, 0)," &
+	"179 (BC_1, *, internal, X)," &
+
+	"180 (BC_1, *, internal, X)," &
+	"181 (BC_1, *, internal, 0)," &
+	"182 (BC_1, *, internal, X)," &
+
+	"183 (BC_1, *, internal, X)," &
+	"184 (BC_1, *, control, 0)," &
+	"185 (BC_1, GPIOR_22, output3, X, 184, 0, Z)," &
+
+	"186 (BC_1, *, internal, X)," &
+	"187 (BC_1, *, control, 0)," &
+	"188 (BC_1, GPIOR_21, output3, X, 187, 0, Z)," &
+
+	"189 (BC_1, *, internal, X)," &
+	"190 (BC_1, *, control, 0)," &
+	"191 (BC_1, GPIOR_N_00_CDI22, output3, X, 190, 0, Z)," &
+
+	"192 (BC_1, *, internal, X)," &
+	"193 (BC_1, *, internal, 0)," &
+	"194 (BC_1, *, internal, X)," &
+
+	"195 (BC_1, *, internal, X)," &
+	"196 (BC_1, *, control, 0)," &
+	"197 (BC_1, GPIOR_P_00_PLLIN0, output3, X, 196, 0, Z)," &
+
+	"198 (BC_1, *, internal, X)," &
+	"199 (BC_1, *, control, 0)," &
+	"200 (BC_1, GPIOR_N_01_CDI23, output3, X, 199, 0, Z)," &
+
+	"201 (BC_1, *, internal, X)," &
+	"202 (BC_1, *, internal, 0)," &
+	"203 (BC_1, *, internal, X)," &
+
+	"204 (BC_1, *, internal, X)," &
+	"205 (BC_1, *, control, 0)," &
+	"206 (BC_1, GPIOR_P_01_EXTFB, output3, X, 205, 0, Z)," &
+
+	"207 (BC_1, *, internal, X)," &
+	"208 (BC_1, *, control, 0)," &
+	"209 (BC_1, GPIOR_N_02_CDI25, output3, X, 208, 0, Z)," &
+
+	"210 (BC_1, *, internal, X)," &
+	"211 (BC_1, *, internal, 0)," &
+	"212 (BC_1, *, internal, X)," &
+
+	"213 (BC_1, *, internal, X)," &
+	"214 (BC_1, *, control, 0)," &
+	"215 (BC_1, GPIOR_P_02_CDI24, output3, X, 214, 0, Z)," &
+
+	"216 (BC_1, *, internal, X)," &
+	"217 (BC_1, *, control, 0)," &
+	"218 (BC_1, GPIOR_N_03_CDI27, output3, X, 217, 0, Z)," &
+
+	"219 (BC_1, *, internal, X)," &
+	"220 (BC_1, *, internal, 0)," &
+	"221 (BC_1, *, internal, X)," &
+
+	"222 (BC_1, *, internal, X)," &
+	"223 (BC_1, *, control, 0)," &
+	"224 (BC_1, GPIOR_P_03_CDI26, output3, X, 223, 0, Z)," &
+
+	"225 (BC_1, *, internal, X)," &
+	"226 (BC_1, *, control, 0)," &
+	"227 (BC_1, GPIOR_N_04_CDI29, output3, X, 226, 0, Z)," &
+
+	"228 (BC_1, *, internal, X)," &
+	"229 (BC_1, *, internal, 0)," &
+	"230 (BC_1, *, internal, X)," &
+
+	"231 (BC_1, *, internal, X)," &
+	"232 (BC_1, *, control, 0)," &
+	"233 (BC_1, GPIOR_P_04_CDI28, output3, X, 232, 0, Z)," &
+
+	"234 (BC_1, *, internal, X)," &
+	"235 (BC_1, *, control, 0)," &
+	"236 (BC_1, GPIOR_N_05_CDI31, output3, X, 235, 0, Z)," &
+
+	"237 (BC_1, *, internal, X)," &
+	"238 (BC_1, *, internal, 0)," &
+	"239 (BC_1, *, internal, X)," &
+
+	"240 (BC_1, *, internal, X)," &
+	"241 (BC_1, *, control, 0)," &
+	"242 (BC_1, GPIOR_P_05_CDI30, output3, X, 241, 0, Z)," &
+
+	"243 (BC_1, *, internal, X)," &
+	"244 (BC_1, *, control, 0)," &
+	"245 (BC_1, GPIOR_N_06_CDI21, output3, X, 244, 0, Z)," &
+
+	"246 (BC_1, *, internal, X)," &
+	"247 (BC_1, *, internal, 0)," &
+	"248 (BC_1, *, internal, X)," &
+
+	"249 (BC_1, *, internal, X)," &
+	"250 (BC_1, *, control, 0)," &
+	"251 (BC_1, GPIOR_P_06_CDI20, output3, X, 250, 0, Z)," &
+
+	"252 (BC_1, *, internal, X)," &
+	"253 (BC_1, *, control, 0)," &
+	"254 (BC_1, GPIOR_N_07, output3, X, 253, 0, Z)," &
+
+	"255 (BC_1, *, internal, X)," &
+	"256 (BC_1, *, internal, 0)," &
+	"257 (BC_1, *, internal, X)," &
+
+	"258 (BC_1, *, internal, X)," &
+	"259 (BC_1, *, control, 0)," &
+	"260 (BC_1, GPIOR_P_07, output3, X, 259, 0, Z)," &
+
+	"261 (BC_1, *, internal, X)," &
+	"262 (BC_1, *, control, 0)," &
+	"263 (BC_1, GPIOR_N_08_CLK11_N, output3, X, 262, 0, Z)," &
+
+	"264 (BC_1, *, internal, X)," &
+	"265 (BC_1, *, internal, 0)," &
+	"266 (BC_1, *, internal, X)," &
+
+	"267 (BC_1, *, internal, X)," &
+	"268 (BC_1, *, control, 0)," &
+	"269 (BC_1, GPIOR_P_08_CLK11_P, output3, X, 268, 0, Z)," &
+
+	"270 (BC_1, *, internal, X)," &
+	"271 (BC_1, *, internal, 1)," &
+	"272 (BC_1, *, internal, X)," &
+
+	"273 (BC_1, *, internal, X)," &
+	"274 (BC_1, *, internal, 0)," &
+	"275 (BC_1, GPIOR_P_09_CLK10_P, output3, X, 277, 0, Z)," &
+
+	"276 (BC_1, *, internal, X)," &
+	"277 (BC_1, *, control, 0)," &
+	"278 (BC_1, *, internal, X)," &
+
+	"279 (BC_1, *, internal, X)," &
+	"280 (BC_1, *, control, 0)," &
+	"281 (BC_1, GPIOR_N_10_CLK9_N, output3, X, 280, 0, Z)," &
+
+	"282 (BC_1, *, internal, X)," &
+	"283 (BC_1, *, internal, 0)," &
+	"284 (BC_1, *, internal, X)," &
+
+	"285 (BC_1, *, internal, X)," &
+	"286 (BC_1, *, control, 0)," &
+	"287 (BC_1, GPIOR_P_10_CLK9_P, output3, X, 286, 0, Z)," &
+
+	"288 (BC_1, *, internal, X)," &
+	"289 (BC_1, *, control, 0)," &
+	"290 (BC_1, GPIOR_N_11_CLK8_N, output3, X, 289, 0, Z)," &
+
+	"291 (BC_1, *, internal, X)," &
+	"292 (BC_1, *, internal, 0)," &
+	"293 (BC_1, *, internal, X)," &
+
+	"294 (BC_1, *, internal, X)," &
+	"295 (BC_1, *, control, 0)," &
+	"296 (BC_1, GPIOR_P_11_CLK8_P, output3, X, 295, 0, Z)," &
+
+	"297 (BC_1, *, internal, X)," &
+	"298 (BC_1, *, control, 0)," &
+	"299 (BC_1, GPIOR_N_12, output3, X, 298, 0, Z)," &
+
+	"300 (BC_1, *, internal, X)," &
+	"301 (BC_1, *, internal, 0)," &
+	"302 (BC_1, *, internal, X)," &
+
+	"303 (BC_1, *, internal, X)," &
+	"304 (BC_1, *, control, 0)," &
+	"305 (BC_1, GPIOR_P_12, output3, X, 304, 0, Z)," &
+
+	"306 (BC_1, *, internal, X)," &
+	"307 (BC_1, *, control, 0)," &
+	"308 (BC_1, GPIOR_N_13, output3, X, 307, 0, Z)," &
+
+	"309 (BC_1, *, internal, X)," &
+	"310 (BC_1, *, internal, 0)," &
+	"311 (BC_1, *, internal, X)," &
+
+	"312 (BC_1, *, internal, X)," &
+	"313 (BC_1, *, control, 0)," &
+	"314 (BC_1, GPIOR_P_13, output3, X, 313, 0, Z)," &
+
+	"315 (BC_1, GPIOR_N_14, input, X)," &
+	"316 (BC_1, *, control, 0)," &
+	"317 (BC_1, GPIOR_N_14, output3, X, 316, 0, Z)," &
+
+	"318 (BC_1, *, internal, X)," &
+	"319 (BC_1, *, internal, 0)," &
+	"320 (BC_1, *, internal, X)," &
+
+	"321 (BC_1, GPIOR_P_14, input, X)," &
+	"322 (BC_1, *, control, 0)," &
+	"323 (BC_1, GPIOR_P_14, output3, X, 322, 0, Z)," &
+
+	"324 (BC_1, *, internal, X)," &
+	"325 (BC_1, *, control, 0)," &
+	"326 (BC_1, GPIOR_N_15, output3, X, 325, 0, Z)," &
+
+	"327 (BC_1, *, internal, X)," &
+	"328 (BC_1, *, internal, 0)," &
+	"329 (BC_1, *, internal, X)," &
+
+	"330 (BC_1, GPIOR_P_15, input, X)," &
+	"331 (BC_1, *, internal, 0)," &
+	"332 (BC_1, *, internal, X)," &
+
+	"333 (BC_1, *, internal, X)," &
+	"334 (BC_1, *, internal, 0)," &
+	"335 (BC_1, *, internal, X)," &
+
+	"336 (BC_1, GPIOR_P_16, input, X)," &
+	"337 (BC_1, *, internal, 0)," &
+	"338 (BC_1, *, internal, X)," &
+
+	"339 (BC_1, *, internal, X)," &
+	"340 (BC_1, *, internal, 0)," &
+	"341 (BC_1, *, internal, X)," &
+
+	"342 (BC_1, *, internal, X)," &
+	"343 (BC_1, *, internal, 0)," &
+	"344 (BC_1, *, internal, X)," &
+
+	"345 (BC_1, GPIOR_P_17, input, X)," &
+	"346 (BC_1, *, internal, 0)," &
+	"347 (BC_1, *, internal, X)," &
+
+	"348 (BC_1, *, internal, X)," &
+	"349 (BC_1, *, internal, 0)," &
+	"350 (BC_1, *, internal, X)," &
+
+	"351 (BC_1, *, internal, X)," &
+	"352 (BC_1, *, internal, 0)," &
+	"353 (BC_1, *, internal, X)," &
+
+	"354 (BC_1, GPIOR_P_18, input, X)," &
+	"355 (BC_1, *, internal, 0)," &
+	"356 (BC_1, *, internal, X)," &
+
+	"357 (BC_1, *, internal, X)," &
+	"358 (BC_1, *, internal, 0)," &
+	"359 (BC_1, *, internal, X)," &
+
+	"360 (BC_1, *, internal, X)," &
+	"361 (BC_1, *, internal, 0)," &
+	"362 (BC_1, *, internal, X)," &
+
+	"363 (BC_1, GPIOR_P_19_PLLIN0, input, X)," &
+	"364 (BC_1, *, internal, 0)," &
+	"365 (BC_1, *, internal, X)," &
+
+	"366 (BC_1, *, internal, X)," &
+	"367 (BC_1, *, internal, 0)," &
+	"368 (BC_1, *, internal, X)," &
+
+	"369 (BC_1, *, internal, X)," &
+	"370 (BC_1, *, control, 0)," &
+	"371 (BC_1, GPIOR_20, output3, X, 370, 0, Z)," &
+
+	"372 (BC_1, *, internal, X)," &
+	"373 (BC_1, *, internal, 0)," &
+	"374 (BC_1, *, internal, X)," &
+
+	"375 (BC_1, *, internal, X)," &
+	"376 (BC_1, *, control, 0)," &
+	"377 (BC_1, GPIOR_18, output3, X, 376, 0, Z)," &
+
+	"378 (BC_1, *, internal, X)," &
+	"379 (BC_1, *, internal, 0)," &
+	"380 (BC_1, *, internal, X)," &
+
+	"381 (BC_1, *, internal, X)," &
+	"382 (BC_1, *, internal, 0)," &
+	"383 (BC_1, *, internal, X)," &
+
+	"384 (BC_1, GPIOR_15, input, X)," &
+	"385 (BC_1, *, internal, 0)," &
+	"386 (BC_1, *, internal, X)," &
+
+	"387 (BC_1, *, internal, X)," &
+	"388 (BC_1, *, internal, 0)," &
+	"389 (BC_1, *, internal, X)," &
+
+	"390 (BC_1, *, internal, X)," &
+	"391 (BC_1, *, internal, 0)," &
+	"392 (BC_1, *, internal, X)," &
+
+	"393 (BC_1, *, internal, X)," &
+	"394 (BC_1, *, control, 0)," &
+	"395 (BC_1, GPIOR_12, output3, X, 394, 0, Z)," &
+
+	"396 (BC_1, *, internal, X)," &
+	"397 (BC_1, *, internal, 0)," &
+	"398 (BC_1, *, internal, X)," &
+
+	"399 (BC_1, *, internal, X)," &
+	"400 (BC_1, *, internal, 0)," &
+	"401 (BC_1, *, internal, X)," &
+
+	"402 (BC_1, *, internal, X)," &
+	"403 (BC_1, *, internal, 0)," &
+	"404 (BC_1, *, internal, X)," &
+
+	"405 (BC_1, *, internal, X)," &
+	"406 (BC_1, *, internal, 0)," &
+	"407 (BC_1, *, internal, X)," &
+
+	"408 (BC_1, *, internal, X)," &
+	"409 (BC_1, *, internal, 0)," &
+	"410 (BC_1, *, internal, X)," &
+
+	"411 (BC_1, *, internal, X)," &
+	"412 (BC_1, *, internal, 0)," &
+	"413 (BC_1, *, internal, X)," &
+
+	"414 (BC_1, *, internal, X)," &
+	"415 (BC_1, *, internal, 0)," &
+	"416 (BC_1, *, internal, X)," &
+
+	"417 (BC_1, *, internal, X)," &
+	"418 (BC_1, *, internal, 0)," &
+	"419 (BC_1, *, internal, X)," &
+
+	"420 (BC_1, *, internal, X)," &
+	"421 (BC_1, *, internal, 0)," &
+	"422 (BC_1, *, internal, X)," &
+
+	"423 (BC_1, *, internal, X)," &
+	"424 (BC_1, *, internal, 0)," &
+	"425 (BC_1, *, internal, X)," &
+
+	"426 (BC_1, *, internal, X)," &
+	"427 (BC_1, *, internal, 0)," &
+	"428 (BC_1, *, internal, X)," &
+
+	"429 (BC_1, *, internal, X)," &
+	"430 (BC_1, *, internal, 0)," &
+	"431 (BC_1, *, internal, X)," &
+
+	"432 (BC_1, *, internal, X)," &
+	"433 (BC_1, *, internal, 0)," &
+	"434 (BC_1, *, internal, X)," &
+
+	"435 (BC_1, *, internal, X)," &
+	"436 (BC_1, *, internal, 0)," &
+	"437 (BC_1, *, internal, X)," &
+
+	"438 (BC_1, *, internal, X)," &
+	"439 (BC_1, *, internal, 0)," &
+	"440 (BC_1, *, internal, X)," &
+
+	"441 (BC_1, *, internal, X)," &
+	"442 (BC_1, *, internal, 0)," &
+	"443 (BC_1, *, internal, X)," &
+
+	"444 (BC_1, *, internal, X)," &
+	"445 (BC_1, *, control, 0)," &
+	"446 (BC_1, GPIOT_P_11, output3, X, 445, 0, Z)," &
+
+	"447 (BC_1, *, internal, X)," &
+	"448 (BC_1, *, internal, 0)," &
+	"449 (BC_1, *, internal, X)," &
+
+	"450 (BC_1, *, internal, X)," &
+	"451 (BC_1, *, internal, 0)," &
+	"452 (BC_1, *, internal, X)," &
+
+	"453 (BC_1, *, internal, X)," &
+	"454 (BC_1, *, control, 0)," &
+	"455 (BC_1, GPIOT_P_10_CLK7_P, output3, X, 454, 0, Z)," &
+
+	"456 (BC_1, *, internal, X)," &
+	"457 (BC_1, *, internal, 0)," &
+	"458 (BC_1, *, internal, X)," &
+
+	"459 (BC_1, *, internal, X)," &
+	"460 (BC_1, *, internal, 0)," &
+	"461 (BC_1, *, internal, X)," &
+
+	"462 (BC_1, *, internal, X)," &
+	"463 (BC_1, *, control, 0)," &
+	"464 (BC_1, GPIOT_P_09_CLK6_P, output3, X, 463, 0, Z)," &
+
+	"465 (BC_1, *, internal, X)," &
+	"466 (BC_1, *, internal, 0)," &
+	"467 (BC_1, *, internal, X)," &
+
+	"468 (BC_1, *, internal, X)," &
+	"469 (BC_1, *, internal, 0)," &
+	"470 (BC_1, *, internal, X)," &
+
+	"471 (BC_1, *, internal, X)," &
+	"472 (BC_1, *, internal, 0)," &
+	"473 (BC_1, *, internal, X)," &
+
+	"474 (BC_1, *, internal, X)," &
+	"475 (BC_1, *, internal, 0)," &
+	"476 (BC_1, *, internal, X)," &
+
+	"477 (BC_1, *, internal, X)," &
+	"478 (BC_1, *, internal, 0)," &
+	"479 (BC_1, *, internal, X)," &
+
+	"480 (BC_1, *, internal, X)," &
+	"481 (BC_1, *, control, 0)," &
+	"482 (BC_1, GPIOT_P_07_CLK4_P, output3, X, 481, 0, Z)," &
+
+	"483 (BC_1, *, internal, X)," &
+	"484 (BC_1, *, internal, 0)," &
+	"485 (BC_1, *, internal, X)," &
+
+	"486 (BC_1, *, internal, X)," &
+	"487 (BC_1, *, internal, 0)," &
+	"488 (BC_1, *, internal, X)," &
+
+	"489 (BC_1, *, internal, X)," &
+	"490 (BC_1, *, control, 0)," &
+	"491 (BC_1, GPIOT_P_06, output3, X, 490, 0, Z)," &
+
+	"492 (BC_1, *, internal, X)," &
+	"493 (BC_1, *, internal, 0)," &
+	"494 (BC_1, *, internal, X)," &
+
+	"495 (BC_1, *, internal, X)," &
+	"496 (BC_1, *, internal, 0)," &
+	"497 (BC_1, *, internal, X)," &
+
+	"498 (BC_1, *, internal, X)," &
+	"499 (BC_1, *, internal, 0)," &
+	"500 (BC_1, *, internal, X)," &
+
+	"501 (BC_1, *, internal, X)," &
+	"502 (BC_1, *, internal, 0)," &
+	"503 (BC_1, *, internal, X)," &
+
+	"504 (BC_1, *, internal, X)," &
+	"505 (BC_1, *, internal, 0)," &
+	"506 (BC_1, *, internal, X)," &
+
+	"507 (BC_1, *, internal, X)," &
+	"508 (BC_1, *, internal, 0)," &
+	"509 (BC_1, *, internal, X)," &
+
+	"510 (BC_1, *, internal, X)," &
+	"511 (BC_1, *, internal, 0)," &
+	"512 (BC_1, *, internal, X)," &
+
+	"513 (BC_1, *, internal, X)," &
+	"514 (BC_1, *, internal, 0)," &
+	"515 (BC_1, *, internal, X)," &
+
+	"516 (BC_1, *, internal, X)," &
+	"517 (BC_1, *, internal, 0)," &
+	"518 (BC_1, *, internal, X)," &
+
+	"519 (BC_1, *, internal, X)," &
+	"520 (BC_1, *, internal, 0)," &
+	"521 (BC_1, *, internal, X)," &
+
+	"522 (BC_1, *, internal, X)," &
+	"523 (BC_1, *, internal, 0)," &
+	"524 (BC_1, *, internal, X)," &
+
+	"525 (BC_1, *, internal, X)," &
+	"526 (BC_1, *, internal, 0)," &
+	"527 (BC_1, *, internal, X)," &
+
+	"528 (BC_1, *, internal, X)," &
+	"529 (BC_1, *, internal, 0)," &
+	"530 (BC_1, *, internal, X)," &
+
+	"531 (BC_1, *, internal, X)," &
+	"532 (BC_1, *, internal, 0)," &
+	"533 (BC_1, *, internal, X)," &
+
+	"534 (BC_1, *, internal, X)," &
+	"535 (BC_1, *, internal, 0)," &
+	"536 (BC_1, *, internal, X)," &
+
+	"537 (BC_1, *, internal, X)," &
+	"538 (BC_1, *, internal, 0)," &
+	"539 (BC_1, *, internal, X)," &
+
+	"540 (BC_1, *, internal, X)," &
+	"541 (BC_1, *, internal, 0)," &
+	"542 (BC_1, *, internal, X)," &
+
+	"543 (BC_1, *, internal, X)," &
+	"544 (BC_1, *, internal, 0)," &
+	"545 (BC_1, *, internal, X)," &
+
+	"546 (BC_1, *, internal, X)," &
+	"547 (BC_1, *, internal, 0)," &
+	"548 (BC_1, *, internal, X)," &
+
+	"549 (BC_1, *, internal, X)," &
+	"550 (BC_1, *, internal, 0)," &
+	"551 (BC_1, *, internal, X)," &
+
+	"552 (BC_1, *, internal, X)," &
+	"553 (BC_1, *, internal, 0)," &
+	"554 (BC_1, *, internal, X)," &
+
+	"555 (BC_1, *, internal, X)," &
+	"556 (BC_1, *, internal, 0)," &
+	"557 (BC_1, *, internal, X)," &
+
+	"558 (BC_1, *, internal, X)," &
+	"559 (BC_1, *, internal, 0)," &
+	"560 (BC_1, *, internal, X)," &
+
+	"561 (BC_1, GPIOL_N_18, input, X)," &
+	"562 (BC_1, *, internal, 0)," &
+	"563 (BC_1, *, internal, X)," &
+
+	"564 (BC_1, *, internal, X)," &
+	"565 (BC_1, *, internal, 0)," &
+	"566 (BC_1, *, internal, X)," &
+
+	"567 (BC_1, *, internal, X)," &
+	"568 (BC_1, *, internal, 0)," &
+	"569 (BC_1, *, internal, X)," &
+
+	"570 (BC_1, GPIOL_N_17, input, X)," &
+	"571 (BC_1, *, internal, 0)," &
+	"572 (BC_1, *, internal, X)," &
+
+	"573 (BC_1, *, internal, X)," &
+	"574 (BC_1, *, internal, 0)," &
+	"575 (BC_1, *, internal, X)," &
+
+	"576 (BC_1, GPIOL_P_17_EXTFB, input, X)," &
+	"577 (BC_1, *, internal, 0)," &
+	"578 (BC_1, *, internal, X)," &
+
+	"579 (BC_1, GPIOL_N_16, input, X)," &
+	"580 (BC_1, *, internal, 0)," &
+	"581 (BC_1, *, internal, X)," &
+
+	"582 (BC_1, *, internal, X)," &
+	"583 (BC_1, *, internal, 0)," &
+	"584 (BC_1, *, internal, X)," &
+
+	"585 (BC_1, *, internal, X)," &
+	"586 (BC_1, *, control, 0)," &
+	"587 (BC_1, GPIOL_P_16, output3, X, 586, 0, Z)," &
+
+	"588 (BC_1, *, internal, X)," &
+	"589 (BC_1, *, internal, 0)," &
+	"590 (BC_1, *, internal, X)," &
+
+	"591 (BC_1, *, internal, X)," &
+	"592 (BC_1, *, internal, 0)," &
+	"593 (BC_1, *, internal, X)," &
+
+	"594 (BC_1, *, internal, X)," &
+	"595 (BC_1, *, control, 0)," &
+	"596 (BC_1, GPIOL_P_15_NSTATUS, output3, X, 595, 0, Z)," &
+
+	"597 (BC_1, *, internal, X)," &
+	"598 (BC_1, *, control, 0)," &
+	"599 (BC_1, GPIOL_N_14, output3, X, 598, 0, Z)," &
+
+	"600 (BC_1, *, internal, X)," &
+	"601 (BC_1, *, internal, 0)," &
+	"602 (BC_1, *, internal, X)," &
+
+	"603 (BC_1, *, internal, X)," &
+	"604 (BC_1, *, control, 0)," &
+	"605 (BC_1, GPIOL_P_14, output3, X, 604, 0, Z)," &
+
+	"606 (BC_1, GPIOL_N_13_CBSEL1, input, X)," &
+	"607 (BC_1, *, internal, 0)," &
+	"608 (BC_1, *, internal, X)," &
+
+	"609 (BC_1, *, internal, X)," &
+	"610 (BC_1, *, internal, 0)," &
+	"611 (BC_1, *, internal, X)," &
+
+	"612 (BC_1, *, internal, X)," &
+	"613 (BC_1, *, control, 0)," &
+	"614 (BC_1, GPIOL_P_13_CBSEL0, output3, X, 613, 0, Z)," &
+
+	"615 (BC_1, *, internal, X)," &
+	"616 (BC_1, *, control, 0)," &
+	"617 (BC_1, GPIOL_N_12, output3, X, 616, 0, Z)," &
+
+	"618 (BC_1, *, internal, X)," &
+	"619 (BC_1, *, internal, 0)," &
+	"620 (BC_1, *, internal, X)," &
+
+	"621 (BC_1, *, internal, X)," &
+	"622 (BC_1, *, control, 0)," &
+	"623 (BC_1, GPIOL_P_12, output3, X, 622, 0, Z)," &
+
+	"624 (BC_1, *, internal, X)," &
+	"625 (BC_1, *, control, 0)," &
+	"626 (BC_1, GPIOL_N_11, output3, X, 625, 0, Z)," &
+
+	"627 (BC_1, *, internal, X)," &
+	"628 (BC_1, *, internal, 0)," &
+	"629 (BC_1, *, internal, X)," &
+
+	"630 (BC_1, GPIOL_P_11, input, X)," &
+	"631 (BC_1, *, control, 0)," &
+	"632 (BC_1, GPIOL_P_11, output3, X, 631, 0, Z)," &
+
+	"633 (BC_1, *, internal, X)," &
+	"634 (BC_1, *, control, 0)," &
+	"635 (BC_1, GPIOL_N_10_CLK3_N, output3, X, 634, 0, Z)," &
+
+	"636 (BC_1, *, internal, X)," &
+	"637 (BC_1, *, internal, 0)," &
+	"638 (BC_1, *, internal, X)," &
+
+	"639 (BC_1, GPIOL_P_10_CLK3_P, input, X)," &
+	"640 (BC_1, *, internal, 0)," &
+	"641 (BC_1, *, internal, X)," &
+
+	"642 (BC_1, *, internal, X)," &
+	"643 (BC_1, *, control, 0)," &
+	"644 (BC_1, GPIOL_N_09_CLK2_N, output3, X, 643, 0, Z)," &
+
+	"645 (BC_1, *, internal, X)," &
+	"646 (BC_1, *, internal, 0)," &
+	"647 (BC_1, *, internal, X)," &
+
+	"648 (BC_1, GPIOL_P_09_CLK2_P, input, X)," &
+	"649 (BC_1, *, internal, 0)," &
+	"650 (BC_1, *, internal, X)," &
+
+	"651 (BC_1, GPIOL_N_08_CLK1_N, input, X)," &
+	"652 (BC_1, *, internal, 0)," &
+	"653 (BC_1, *, internal, X)," &
+
+	"654 (BC_1, *, internal, X)," &
+	"655 (BC_1, *, internal, 0)," &
+	"656 (BC_1, *, internal, X)," &
+
+	"657 (BC_1, GPIOL_P_08_CLK1_P, input, X)," &
+	"658 (BC_1, *, internal, 0)," &
+	"659 (BC_1, *, internal, X)," &
+
+	"660 (BC_1, GPIOL_N_07_CLK0_N, input, X)," &
+	"661 (BC_1, *, internal, 0)," &
+	"662 (BC_1, *, internal, X)," &
+
+	"663 (BC_1, *, internal, X)," &
+	"664 (BC_1, *, internal, 0)," &
+	"665 (BC_1, *, internal, X)," &
+
+	"666 (BC_1, *, internal, X)," &
+	"667 (BC_1, *, control, 0)," &
+	"668 (BC_1, GPIOL_P_07_CLK0_P, output3, X, 667, 0, Z)," &
+
+	"669 (BC_1, GPIOL_N_06, input, X)," &
+	"670 (BC_1, *, internal, 0)," &
+	"671 (BC_1, *, internal, X)," &
+
+	"672 (BC_1, *, internal, X)," &
+	"673 (BC_1, *, internal, 0)," &
+	"674 (BC_1, *, internal, X)," &
+
+	"675 (BC_1, *, internal, X)," &
+	"676 (BC_1, *, control, 0)," &
+	"677 (BC_1, GPIOL_P_06, output3, X, 676, 0, Z)," &
+
+	"678 (BC_1, GPIOL_N_05, input, X)," &
+	"679 (BC_1, *, internal, 0)," &
+	"680 (BC_1, *, internal, X)," &
+
+	"681 (BC_1, *, internal, X)," &
+	"682 (BC_1, *, internal, 0)," &
+	"683 (BC_1, *, internal, X)," &
+
+	"684 (BC_1, *, internal, X)," &
+	"685 (BC_1, *, control, 0)," &
+	"686 (BC_1, GPIOL_P_05, output3, X, 685, 0, Z)," &
+
+	"687 (BC_1, *, internal, X)," &
+	"688 (BC_1, *, internal, 0)," &
+	"689 (BC_1, *, internal, X)," &
+
+	"690 (BC_1, *, internal, X)," &
+	"691 (BC_1, *, internal, 0)," &
+	"692 (BC_1, *, internal, X)," &
+
+	"693 (BC_1, *, internal, X)," &
+	"694 (BC_1, *, internal, 0)," &
+	"695 (BC_1, *, internal, X)," &
+
+	"696 (BC_1, *, internal, X)," &
+	"697 (BC_1, *, internal, 0)," &
+	"698 (BC_1, *, internal, X)," &
+
+	"699 (BC_1, *, internal, X)," &
+	"700 (BC_1, *, internal, 0)," &
+	"701 (BC_1, *, internal, X)," &
+
+	"702 (BC_1, *, internal, X)," &
+	"703 (BC_1, *, internal, 0)," &
+	"704 (BC_1, *, internal, X)," &
+
+	"705 (BC_1, GPIOL_N_02_CSO, input, X)," &
+	"706 (BC_1, *, control, 0)," &
+	"707 (BC_1, GPIOL_N_02_CSO, output3, X, 706, 0, Z)," &
+
+	"708 (BC_1, *, internal, X)," &
+	"709 (BC_1, *, internal, 0)," &
+	"710 (BC_1, *, internal, X)," &
+
+	"711 (BC_1, *, internal, X)," &
+	"712 (BC_1, *, internal, 0)," &
+	"713 (BC_1, *, internal, X)," &
+
+	"714 (BC_1, *, internal, X)," &
+	"715 (BC_1, *, internal, 0)," &
+	"716 (BC_1, *, internal, X)," &
+
+	"717 (BC_1, *, internal, X)," &
+	"718 (BC_1, *, internal, 0)," &
+	"719 (BC_1, *, internal, X)," &
+
+	"720 (BC_1, *, internal, X)," &
+	"721 (BC_1, *, internal, 0)," &
+	"722 (BC_1, *, internal, X)," &
+
+	"723 (BC_1, *, internal, X)," &
+	"724 (BC_1, *, control, 0)," &
+	"725 (BC_1, GPIOL_N_00, output3, X, 724, 0, Z)," &
+
+	"726 (BC_1, *, internal, X)," &
+	"727 (BC_1, *, internal, 0)," &
+	"728 (BC_1, *, internal, X)," &
+
+	"729 (BC_1, GPIOL_P_00_PLLIN0, input, X)," &
+	"730 (BC_1, *, internal, 0)," &
+	"731 (BC_1, *, internal, X)," &
+
+	"732 (BC_1, *, internal, X)," &	-- CRESET_N IN
+	"733 (BC_1, *, internal, 0)," &	-- CRESET_N OE
+	"734 (BC_1, *, internal, X)," &	-- CRESET_N OUT
+
+	"735 (BC_1, *, internal, X)," &
+	"736 (BC_1, *, internal, 0)," &
+	"737 (BC_1, *, internal, X)," &
+
+	"738 (BC_1, CDONE, input, X)," &
+	"739 (BC_1, *, control, 0)," &
+	"740 (BC_1, CDONE, output3, X, 739, 0, Z)";
+
+-- Design Warning Section
+
+attribute DESIGN_WARNING of Ti60F225 : entity is
+	"This BSDL file is used for boundary-scan testing on the post-configuration device" &
+	"The N pad for the differential HSTL/SSTL bidirectional pin needs to be controlled," &
+		"to enable or disable the N pad output buffer." &
+	"CDONE and CRESET_N are only for capture, no update.";
+
+end Ti60F225;

@@ -1,0 +1,84 @@
+{
+    "memory":[
+        {   "simulation"    :"yes",
+            "ram_type"      :"DDR3",
+            "brand"         :"none",
+            "data_width"    :16,
+            "freq"          :400,
+            "speed_grade"   :1333,
+            "row"           :16,
+            "col"           :10,
+            "bank"          :3,
+            "rank"          :1,
+            "mr0":[
+                {
+                    "mode"              :0,
+                    "burst_length"      :8,
+                    "read_burst_type"   :"sequential",
+                    "cas_latency"       :5,
+                    "dll_reset"         :"yes",
+                    "write_recovery"    :6,
+                    "precharge_pd"      :"on"
+                }
+            ],
+            "mr1":[
+                {
+                    "mode"                  :1,
+                    "dll_enable"            :true,
+                    "output_drive_strength" :"rzq/6",
+                    "al"                    :"disable",
+                    "write_leveling"        :"disable",
+                    "tdqs"                  :"disable",
+                    "qoff"                  :"enable",
+                    "rtt"                   :"rzq/6"
+                }
+            ],
+            "mr2":[
+                {
+                    "mode"          :2,
+                    "cwl"           :5,
+                    "asr"           :"disable",
+                    "srt"           :"normal",
+                    "dynamic_odt"   :"disable"
+                }
+            ],
+            "mr3":[
+                {
+                    "mode"  :3,
+                    "mpr_rf":0,
+                    "mpr"   :"normal"
+                }
+            ],
+            "timing":[
+                {
+                    "tCL"       :5,
+                    "tCWL"      :5,
+                    "tAL"       :0,
+                    "tCCD"      :4,
+                    "tRTP"      :4,
+                    "tWR"       :6,
+                    "tRAS"      :37.5,
+                    "tRCD"      :13.125,
+                    "tREFI"     :7800,
+                    "tRC"       :49.5,
+                    "tRFC"      :350,
+                    "tWTR"      :4,
+                    "tMRD"      :4,
+                    "tRP"       :13.125,
+                    "tMOD"      :12,
+                    "ODTH8"     :6,
+                    "tXS"       :360,
+                    "usReset"   :200,
+                    "usCKE"     :500,
+                    "tZQinit"   :512
+                }
+            ],
+            "arbiter":[
+                {
+                    "arbiter_init" :1,
+                    "arbiter_count":1
+                }
+            ]
+        }
+    ]
+}

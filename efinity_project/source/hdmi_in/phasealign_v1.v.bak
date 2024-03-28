@@ -1,0 +1,103 @@
+
+module phasealign_v1(
+input		clk,
+input 	rst_n,
+input [9:0] vin,
+
+output bitslip,
+output reg aligned
+
+
+
+);
+
+parameter CTRLTOKEN0 = 10'h354;
+parameter CTRLTOKEN1 = 10'h0ab;
+parameter CTRLTOKEN2 = 10'h154;
+parameter CTRLTOKEN3 = 10'h2ab;
+parameter kTimeoutEnd = 38400;   
+parameter SYNC_CNT = 16;
+wire            ptkn0_flag;
+wire            ptkn1_flag;
+wire            ptkn2_flag;
+wire            ptkn3_flag;       
+//reg define
+reg             ptkn_flag=0; 
+reg             ptkn_flagq=0;   
+reg             pblank_begin=0;
+reg [9:0] 			vin_r = 'd0;    
+reg [10:0]      blank_cnt = 'd0;
+reg     [31:0]  rtimeout_cnt=0;       
+reg							time_out_rst = 'd0;  
+reg [23:0] 			align_cnt = 'd0;
+//wire define
+wire 						rtimeout_ovf       ;
+
+always @( posedge clk )
+begin
+			ptkn0_flag <= (vin_r ==  CTRLTOKEN0 ) ? 1'b1 : 1'b0;                                                      
+			ptkn1_flag <= (vin_r ==  CTRLTOKEN1 ) ? 1'b1 : 1'b0;                                                          
+			ptkn2_flag <= (vin_r ==  CTRLTOKEN2 ) ? 1'b1 : 1'b0;                                                      
+			ptkn3_flag <= (vin_r ==  CTRLTOKEN3 ) ? 1'b1 : 1'b0;
+end  
+
+//Register pipeline                                                                                                                  
+always@(posedge clk)
+begin
+    vin_r <= vin;
+    ptkn_flag <= ptkn0_flag || ptkn1_flag || ptkn2_flag || ptkn3_flag;
+    ptkn_flagq <= ptkn_flag;
+end   
+
+assign bitslip = rtimeout_ovf & ~time_out_rst;
+assign rtimeout_ovf = (rtimeout_cnt == (kTimeoutEnd - 1))? 1'b1 : 1'b0;
+always@(posedge clk )begin
+    if(time_out_rst)
+        rtimeout_cnt <= 0;  
+    else if( rtimeout_ovf == 1 )
+    			rtimeout_cnt <= 'd0;
+    else
+        rtimeout_cnt <= rtimeout_cnt + 1;
+end 
+
+always @( posedge clk )
+begin
+		if( !rst_n  ) begin
+				blank_cnt <= 'd0;
+		end else if( ptkn_flag ) begin
+				if( SYNC_CNT == blank_cnt )
+						blank_cnt <= 0;
+				else	
+						blank_cnt <= blank_cnt + 1'b1;
+		end else 
+				blank_cnt <= 'd0;
+end
+
+always @( posedge clk )
+begin
+		time_out_rst <=  ptkn_flag && blank_cnt ==  SYNC_CNT;
+				
+end             
+
+always @( posedge clk )
+begin
+		if( !rst_n )
+				align_cnt <= 'd0;    
+		else if( rtimeout_ovf )
+				align_cnt <= 'd0;
+		else 
+				align_cnt <= align_cnt + 1'b1;
+end                               
+
+always @( posedge clk )
+begin
+		if( !rst_n )
+				aligned <= 1'b0;
+		else if( rtimeout_ovf )
+				aligned <= 1'b0;
+		else if( align_cnt[23]) 
+				aligned <= 1'b1;
+end 
+
+
+endmodule

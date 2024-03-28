@@ -1,0 +1,233 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/FPGA_Prj/11_Ti60F225_DemoBoard/Prj_demo/01_Ti60_Soft_DDR3_Axi_demo_v6/efinity_project/source/modulesim
+vddr3
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1670389430
+!i10b 1
+!s100 =oV^5^QJcl^ahSedV`:hz1
+I0E9jIl8Ne6@V4:YXZkC]K3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ddr3_v_unit
+S1
+R0
+Z4 w1670307269
+8ddr3.v
+Fddr3.v
+F4096Mb_ddr3_parameters.vh
+L0 101
+Z5 OL;L;10.5;63
+r1
+!s85 0
+31
+Z6 !s108 1670389429.000000
+!s107 4096Mb_ddr3_parameters.vh|ddr3_device_ID.vh|ddr3.v|
+!s90 -reportprogress|300|+define+den4096Mb|+define+x16|-sv|ddr3.v|
+!i113 0
+Z7 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 +define+den4096Mb +define+x16 -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 tCvgOpt 0
+vDdr_Ctrl_Sc_Fifo
+R2
+!i10b 1
+!s100 9EHMNTC[=4EG@4g_Y9T1Y2
+IfJ4T_h[MjX>P4l6SnD7OJ2
+R3
+R0
+Z9 w1670307570
+8./../soft_ddr3/Ddr_Ctrl_Sc_Fifo.v
+F./../soft_ddr3/Ddr_Ctrl_Sc_Fifo.v
+L0 13
+R5
+r1
+!s85 0
+31
+Z10 !s108 1670389430.000000
+!s107 ./../soft_ddr3/Ddr_Ctrl_Sc_Fifo.v|
+!s90 -reportprogress|300|./../soft_ddr3/Ddr_Ctrl_Sc_Fifo.v|
+!i113 0
+Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+n@ddr_@ctrl_@sc_@fifo
+vefx_ddr3_axi
+R2
+!i10b 1
+!s100 6kmGBJXXM3MlU=RoZ=ZMl3
+IPH<>0A3[1eX_cH9W2oGG=3
+R3
+R0
+R9
+8./efx_ddr3_axi.v
+F./efx_ddr3_axi.v
+L0 3
+R5
+r1
+!s85 0
+31
+R10
+!s107 ddr3_controller.vh|./efx_ddr3_axi.v|
+!s90 -reportprogress|300|./efx_ddr3_axi.v|
+!i113 0
+R11
+R8
+vefx_ddr3_soft_controller
+R2
+!i10b 1
+!s100 <VB<h?BVMlB6WI6K[PcUk3
+IQJ0DgY[GzGFGNBPohP<N31
+R3
+R0
+R9
+8./efx_ddr3_soft_controller.v
+F./efx_ddr3_soft_controller.v
+L0 49
+R5
+r1
+!s85 0
+31
+R10
+!s107 ./efx_ddr3_soft_controller.v|
+!s90 -reportprogress|300|./efx_ddr3_soft_controller.v|
+!i113 0
+R11
+R8
+vefx_ddr3_soft_controller_tb
+R1
+!s110 1670389429
+!i10b 1
+!s100 mFme@Tozh_iYJZLPFLSNX1
+IBYah?FD<P]PE]JDbWK6>P0
+R3
+!s105 efx_ddr3_soft_controller_tb_v_unit
+S1
+R0
+w1670307270
+8efx_ddr3_soft_controller_tb.v
+Fefx_ddr3_soft_controller_tb.v
+Fddr3_device_ID.vh
+L0 6
+R5
+r1
+!s85 0
+31
+R6
+!s107 ddr3_device_ID.vh|ddr3_controller.vh|efx_ddr3_soft_controller_tb.v|
+!s90 -reportprogress|300|-sv|efx_ddr3_soft_controller_tb.v|
+!i113 0
+R7
+R8
+vEFX_IDDR
+R2
+!i10b 1
+!s100 Y:BUXSZnic7lf:f_aS_]E0
+IJX7VRhV^m5D@eeJOJcNKZ1
+R3
+R0
+R4
+8efx_iddr.v
+Fefx_iddr.v
+L0 21
+R5
+r1
+!s85 0
+31
+R10
+!s107 efx_iddr.v|
+!s90 -reportprogress|300|efx_iddr.v|
+!i113 0
+R11
+R8
+n@e@f@x_@i@d@d@r
+vEFX_ODDR
+R2
+!i10b 1
+!s100 3L@`m:PTQa^S]diV3KXC:3
+IzL=XW3zIN<kEX0JbSN3MN1
+R3
+R0
+R4
+8efx_oddr.v
+Fefx_oddr.v
+L0 22
+R5
+r1
+!s85 0
+31
+R10
+!s107 efx_oddr.v|
+!s90 -reportprogress|300|efx_oddr.v|
+!i113 0
+R11
+R8
+n@e@f@x_@o@d@d@r
+vEFX_SRL8
+R2
+!i10b 1
+!s100 @n<<GBeb^AAPHCIR8:68f1
+Icf_I:z:0JYH8SRb@hM9kB3
+R3
+R0
+R4
+8./efx_srl8.v
+F./efx_srl8.v
+L0 17
+R5
+r1
+!s85 0
+31
+R10
+!s107 ./efx_srl8.v|
+!s90 -reportprogress|300|./efx_srl8.v|
+!i113 0
+R11
+R8
+n@e@f@x_@s@r@l8
+vexample_top
+R2
+!i10b 1
+!s100 =Azic2cfUg:<Tei@B01=O3
+IiC:z?XZ<iW;ReQ[1UFeB;0
+R3
+R0
+R4
+8./example_top.v
+F./example_top.v
+L0 3
+R5
+r1
+!s85 0
+31
+R10
+!s107 ddr3_controller.vh|./example_top.v|
+!s90 -reportprogress|300|./example_top.v|
+!i113 0
+R11
+R8
+vmemory_checker_axi
+R2
+!i10b 1
+!s100 3;6B6VPXW1`9K]9:>Tz^G0
+I;B7A:f`iNRVf;[YE0]3<i0
+R3
+R0
+R4
+8./memory_checker_axi.v
+F./memory_checker_axi.v
+L0 1
+R5
+r1
+!s85 0
+31
+R10
+!s107 ./memory_checker_axi.v|
+!s90 -reportprogress|300|./memory_checker_axi.v|
+!i113 0
+R11
+R8

@@ -1,0 +1,50 @@
+[dumpfile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\01_Ti60_Soft_DDR3_Axi_demo_v6\efinity_project\Axi_waveform.vcd"
+[dumpfile_mtime] "Sun Feb 19 14:07:30 2023"
+[dumpfile_size] 3117
+[savefile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\01_Ti60_Soft_DDR3_Axi_demo_v6\efinity_project\Axi_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 512 1536 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.AVALID
+top.AREADY
+top.ATYPE
+top.AADDR[31:0]
+top.ALEN[7:0]
+top.WVALID
+top.WREADY
+top.WLAST
+top.BVALID
+top.BREADY
+top.RVALID
+top.RREADY
+top.RLAST
+top.WrDataMode
+top.WrEn
+top.WrAddr[31:0]
+top.WDATA__31___0[31:0]
+top.WDATA__63__32[31:0]
+top.WDATA__95__64[31:0]
+top.WDATA_127__96[31:0]
+top.WDATA_159_128[31:0]
+top.WDATA_191_160[31:0]
+top.WDATA_223_192[31:0]
+top.WDATA_255_224[31:0]
+top.TestErr
+top.RdDataMode
+top.RdAva
+top.RdAddr[31:0]
+top.RDATA__31___0[31:0]
+top.RDATA__63__32[31:0]
+top.RDATA__95__64[31:0]
+top.RDATA_127__96[31:0]
+top.RDATA_159_128[31:0]
+top.RDATA_191_160[31:0]
+top.RDATA_223_192[31:0]
+top.RDATA_255_224[31:0]
+top.TimeOut
+top.WrStartA[31:0]
+top.RdStartA[31:0]

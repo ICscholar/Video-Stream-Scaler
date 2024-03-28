@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<efx:tool_report xmlns:efx="http://www.efinixinc.com/tool_report" date="T中国标准时间" project="DDR3_MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/tool_report tool_report.xsd">
+
+  <efx:group name="System Resources">
+    <efx:group_data info="runtime" name="packing" severity="info" value="0|0:0:0"/>
+    <efx:group_data info="runtime" name="placement" severity="info" value="0|0:8:59"/>
+    <efx:group_data info="runtime" name="routing" severity="info" value="0|0:0:55"/>
+    <efx:group_data info="peak_rr" name="Peak RSS" severity="info" value="1742.71 MB"/>
+  </efx:group>
+
+  <efx:group name="Core Resources">
+    <efx:group_data name="Inputs" severity="info" value="94 / 1703"/>
+    <efx:group_data name="Outputs" severity="info" value="330 / 2267"/>
+    <efx:group_data name="XLRs" severity="info" value="15508 / 60800"/>
+    <efx:group_data name="Memory Blocks" severity="info" value="83 / 256"/>
+    <efx:group_data name="DSP Blocks" severity="info" value="29 / 160"/>
+  </efx:group>
+
+  <efx:group name="Interface">
+    <efx:group_data name="Missing Interface Pins" severity="info" value="68"/>
+    <efx:group_data name="Unassigned Core Pins" severity="error" value="4"/>
+  </efx:group>
+
+  <efx:group name="Timing">
+    <efx:group_data name="Worst Negative Slack (WNS)" severity="error" value="-20.591 ns"/>
+    <efx:group_data name="Worst Hold Slack (WHS)" severity="info" value="0.011 ns"/>
+    <efx:group_data name="sys_clk" severity="info" value="149.858 MHz"/>
+    <efx:group_data name="tdqss_clk" severity="info" value="464.037 MHz"/>
+    <efx:group_data name="core_clk" severity="info" value="206.186 MHz"/>
+    <efx:group_data name="tac_clk" severity="info" value="305.810 MHz"/>
+    <efx:group_data name="twd_clk" severity="info" value="441.112 MHz"/>
+    <efx:group_data name="hdmi_tx_fast_clk" severity="info" value="761.615 MHz"/>
+    <efx:group_data name="hdmi_rx_slow_clk" severity="info" value="150.557 MHz"/>
+    <efx:group_data name="hdmi_rx_slow_clk_2x" severity="info" value="232.288 MHz"/>
+  </efx:group>
+
+</efx:tool_report>

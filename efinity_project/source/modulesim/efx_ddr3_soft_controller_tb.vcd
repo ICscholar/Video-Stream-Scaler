@@ -1,0 +1,276 @@
+$date
+	Wed Dec 07 12:33:48 2022
+$end
+$version
+	ModelSim Version 10.5
+$end
+$timescale
+	1ps
+$end
+
+$scope module efx_ddr3_soft_controller_tb $end
+
+$scope begin genblk2[15] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[14] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[13] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[12] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[11] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[10] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[9] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[8] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[7] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[6] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[5] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[4] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[3] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[2] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[1] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk2[0] $end
+
+$scope module ddio_dq_out $end
+$upscope $end
+
+$scope module ddio_dq_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[1] $end
+
+$scope module ddio_dm_out $end
+$upscope $end
+
+$scope module ddio_dqs_out $end
+$upscope $end
+
+$scope module ddio_dqs_n_out $end
+$upscope $end
+
+$scope module ddio_dqs_in $end
+$upscope $end
+
+$scope module ddio_dqs_n_in $end
+$upscope $end
+$upscope $end
+
+$scope begin genblk1[0] $end
+
+$scope module ddio_dm_out $end
+$upscope $end
+
+$scope module ddio_dqs_out $end
+$upscope $end
+
+$scope module ddio_dqs_n_out $end
+$upscope $end
+
+$scope module ddio_dqs_in $end
+$upscope $end
+
+$scope module ddio_dqs_n_in $end
+$upscope $end
+$upscope $end
+
+$scope module u_top $end
+
+$scope begin genblk1 $end
+
+$scope module memcheck_0 $end
+$upscope $end
+
+$scope module inst_ddr3_axi $end
+
+$scope module inst_arburst_fifo $end
+
+$scope begin U_SRL8_D[3] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[2] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[1] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[0] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+$upscope $end
+
+$scope module u_rd_addr_fifo $end
+
+$scope begin U_SRL8_D[3] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[2] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[1] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[0] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+$upscope $end
+
+$scope module u_wr_addr_fifo $end
+
+$scope begin U_SRL8_D[3] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[2] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin U_SRL8_D[1] $end
+
+$scope begin genblk1 $end
+$upscope $end
+$upscope $end
+
+$scope begin

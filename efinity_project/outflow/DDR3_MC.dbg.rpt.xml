@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<efx:tool_report xmlns:efx="http://www.efinixinc.com/tool_report" date="T中国标准时间" project="DDR3_MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/tool_report tool_report.xsd">
+
+  <efx:group name="Debugger">
+    <efx:group_data name="Auto Instantiation" severity="info" value="No"/>
+  </efx:group>
+
+</efx:tool_report>

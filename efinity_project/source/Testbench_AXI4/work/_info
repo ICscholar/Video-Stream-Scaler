@@ -1,0 +1,495 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/FPGA_Prj/11_Ti60F225_DemoBoard/Prj_demo/efx_ddr3_soft_controller_1.6/Testbench_AXI4
+T_opt
+!s110 1670387616
+VLH>KY[Z4UbZm6C@LFikNn1
+04 27 4 work efx_ddr3_soft_controller_tb fast 0
+=1-3cf011750698-639017a0-149-4c90
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.5;63
+R0
+vaPEra+jrpLiNtHs2KuzC5n9PGW5yyDwYWc6Kg2UFxZWaI+PII5zlz05PkAQJ6NBT
+Z2 !s110 1670394021
+!i10b 0
+!s100 m[P>UbKBGU^?2Gn6lhGEK3
+IiXKdCk[:`cAQO2H6[4`=]2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!i8a 1790639472
+Z4 dD:/FPGA_Prj/11_Ti60F225_DemoBoard/Prj_demo/01_Ti60_Soft_DDR3_Axi_demo_v6/efinity_project/source/Testbench_AXI4
+Z5 w1670394021
+Z6 8./modelsim/efx_ddr3_soft_controller.v
+Z7 F./modelsim/efx_ddr3_soft_controller.v
+L0 174
+Z8 OL;L;10.5;63
+r1
+!s85 0
+31
+Z9 !s108 1670394021.000000
+Z10 !s107 ddr3_controller.vh|./modelsim/efx_ddr3_soft_controller.v|
+Z11 !s90 -reportprogress|300|./modelsim/efx_ddr3_soft_controller.v|
+!i113 0
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+nca62856
+vptAQX2WM+laSbfEzAWWXB+aHlY/8a/u2K1f8mBSJfuAksCV4+eWSptqsPOMAv1oj
+R2
+!i10b 0
+!s100 ^^_C9YbI^AcY]T_fRdP=U1
+ICDNIS;E0X^ci_fjzE[X9L2
+R3
+!i8a 734725248
+R4
+R5
+R6
+R7
+L0 189
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+n8d876
+v+wDUhMjrTVKwpBNrGJDO6XmpG93sDNcwUDkEdCC/usPV28vsr6DmMLgqnxZN0P2F
+R2
+!i10b 0
+!s100 >^X]V_ELzb5^KOo0zGmCl3
+I5UTZNB0X]TZh=d^_m<PB73
+R3
+!i8a 852240576
+R4
+R5
+R6
+R7
+L0 205
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+n317bd66
+vddr3
+Z13 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R2
+!i10b 1
+!s100 =oV^5^QJcl^ahSedV`:hz1
+I0E9jIl8Ne6@V4:YXZkC]K3
+R3
+!s105 ddr3_v_unit
+S1
+R4
+Z14 w1670307269
+8ddr3.v
+Fddr3.v
+F4096Mb_ddr3_parameters.vh
+L0 101
+R8
+r1
+!s85 0
+31
+R9
+!s107 4096Mb_ddr3_parameters.vh|ddr3_device_ID.vh|ddr3.v|
+!s90 -reportprogress|300|+define+den4096Mb|+define+x16|-sv|ddr3.v|
+!i113 0
+Z15 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 +define+den4096Mb +define+x16 -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vV14hm4E16VZL9LLFp3TaORCuO1lhxKYY6wNbYIhvnBEPvLY9VwrSWbzswrwb2y3KbiN2jMCb8OTr5nQd/0BW/w==
+R2
+!i10b 0
+!s100 6jU4`5T:S2odoP_CSmnOb2
+Ii2W^YjOi;LTPAlAMhF2O^1
+R3
+!i8a 1268687600
+R4
+R5
+R6
+R7
+L0 277
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+nb3966c6
+vDdr_Ctrl_Sc_Fifo
+R2
+!i10b 1
+!s100 9EHMNTC[=4EG@4g_Y9T1Y2
+ILaBDS06@QXl@09Tf>eelG0
+R3
+R4
+R14
+8./Ddr_Ctrl_Sc_Fifo.v
+F./Ddr_Ctrl_Sc_Fifo.v
+L0 13
+R8
+r1
+!s85 0
+31
+R9
+!s107 ./Ddr_Ctrl_Sc_Fifo.v|
+!s90 -reportprogress|300|./Ddr_Ctrl_Sc_Fifo.v|
+!i113 0
+R12
+R1
+n@ddr_@ctrl_@sc_@fifo
+vefx_ddr3_axi
+R2
+!i10b 1
+!s100 6kmGBJXXM3MlU=RoZ=ZMl3
+IPH<>0A3[1eX_cH9W2oGG=3
+R3
+R4
+R14
+8./efx_ddr3_axi.v
+F./efx_ddr3_axi.v
+L0 3
+R8
+r1
+!s85 0
+31
+R9
+!s107 ddr3_controller.vh|./efx_ddr3_axi.v|
+!s90 -reportprogress|300|./efx_ddr3_axi.v|
+!i113 0
+R12
+R1
+vefx_ddr3_soft_controller
+R2
+!i10b 1
+!s100 @E_BJWHEmNjf[@WVkz;TZ2
+IBO?fCFh>oo5iTjlAG@A1V0
+R3
+R4
+R14
+R6
+R7
+L0 49
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+vefx_ddr3_soft_controller_ee9ae54327f04007bc18831c9dff44ef
+R2
+!i10b 1
+!s100 elGYgc1MA9@;dV?33a9?72
+IDHQ7_gXSbCDoRRPcRoE0X1
+R3
+R4
+Z16 w1670307270
+R6
+R7
+Fddr3_controller.vh
+L0 544
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+vefx_ddr3_soft_controller_tb
+R13
+R2
+!i10b 1
+!s100 mFme@Tozh_iYJZLPFLSNX1
+IBYah?FD<P]PE]JDbWK6>P0
+R3
+!s105 efx_ddr3_soft_controller_tb_v_unit
+S1
+R4
+R16
+8efx_ddr3_soft_controller_tb.v
+Fefx_ddr3_soft_controller_tb.v
+Fddr3_device_ID.vh
+L0 6
+R8
+r1
+!s85 0
+31
+R9
+!s107 ddr3_device_ID.vh|ddr3_controller.vh|efx_ddr3_soft_controller_tb.v|
+!s90 -reportprogress|300|-sv|efx_ddr3_soft_controller_tb.v|
+!i113 0
+R15
+R1
+vEFX_IDDR
+R2
+!i10b 1
+!s100 Y:BUXSZnic7lf:f_aS_]E0
+IJX7VRhV^m5D@eeJOJcNKZ1
+R3
+R4
+R14
+8efx_iddr.v
+Fefx_iddr.v
+L0 21
+R8
+r1
+!s85 0
+31
+R9
+!s107 efx_iddr.v|
+!s90 -reportprogress|300|efx_iddr.v|
+!i113 0
+R12
+R1
+n@e@f@x_@i@d@d@r
+vEFX_ODDR
+R2
+!i10b 1
+!s100 3L@`m:PTQa^S]diV3KXC:3
+IzL=XW3zIN<kEX0JbSN3MN1
+R3
+R4
+R14
+8efx_oddr.v
+Fefx_oddr.v
+L0 22
+R8
+r1
+!s85 0
+31
+R9
+!s107 efx_oddr.v|
+!s90 -reportprogress|300|efx_oddr.v|
+!i113 0
+R12
+R1
+n@e@f@x_@o@d@d@r
+vEFX_SRL8
+R2
+!i10b 1
+!s100 @n<<GBeb^AAPHCIR8:68f1
+Icf_I:z:0JYH8SRb@hM9kB3
+R3
+R4
+R14
+8./efx_srl8.v
+F./efx_srl8.v
+L0 17
+R8
+r1
+!s85 0
+31
+R9
+!s107 ./efx_srl8.v|
+!s90 -reportprogress|300|./efx_srl8.v|
+!i113 0
+R12
+R1
+n@e@f@x_@s@r@l8
+vexample_top
+R2
+!i10b 1
+!s100 =Azic2cfUg:<Tei@B01=O3
+IiC:z?XZ<iW;ReQ[1UFeB;0
+R3
+R4
+R14
+8./example_top.v
+F./example_top.v
+L0 3
+R8
+r1
+!s85 0
+31
+R9
+!s107 ddr3_controller.vh|./example_top.v|
+!s90 -reportprogress|300|./example_top.v|
+!i113 0
+R12
+R1
+vmemory_checker_axi
+R2
+!i10b 1
+!s100 3;6B6VPXW1`9K]9:>Tz^G0
+I;B7A:f`iNRVf;[YE0]3<i0
+R3
+R4
+R14
+8./memory_checker_axi.v
+F./memory_checker_axi.v
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+!s107 ./memory_checker_axi.v|
+!s90 -reportprogress|300|./memory_checker_axi.v|
+!i113 0
+R12
+R1
+vMhZ6b3z1hmF7tQFHbXIsxE17no6FfBBZJtHAg5fznyzXvVr8kVM5ebWDMcUHTtxC
+R2
+!i10b 0
+!s100 6EaQnS>fFlghn:lFi5[9o0
+Izzi0mDoD?YL[BzX_Y61kM0
+R3
+!i8a 1717886576
+R4
+R5
+R6
+R7
+L0 471
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+ne2f7856
+veafu384PfxRBbwF8pp19dZ9/9NehEwdqDsO4Ea0KTpeCmHDfgk/29jWFTVy55x+y
+R2
+!i10b 0
+!s100 3]lYeX4]]go>ab=T3Ff]62
+IC2cZn:ZB273N=0_AZeOj42
+R3
+!i8a 1765914592
+R4
+R5
+R6
+R7
+L0 490
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+nc9ca546
+vBB/nU/nBoLvyfAdsdH9BKuMxreHbDnSiOeFrk6Kk88HrNmA8kwIZ2RIQumJkB59T
+R2
+!i10b 0
+!s100 5[k=SHVkNoC^BTEK`49JW3
+I^[haVGMNkbG=acjG@Qza[3
+R3
+!i8a 352886000
+R4
+R5
+R6
+R7
+L0 512
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+ne9a7e96
+vO04CvfUDJ1E3ybv11y8R1GwumzcFAVXL6bOEPZTT+Q9K9jBw6XKOKadh1C9CTNJi
+R2
+!i10b 0
+!s100 X6[m:;m]Ci_;L:kf2MnK03
+Ia29A<TM]ahBk^W>S`M8^81
+R3
+!i8a 1862236384
+R4
+R5
+R6
+R7
+L0 530
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+ndcf6816
+vHqOQh8j2u7fbczsxTvqFvpghKXzPTxhKQf13iVomIf2Bt9KE5xDz9+NAi7IlcDVu
+R2
+!i10b 0
+!s100 X;kV>JhS61Ii^UnhGF[U72
+Ic<AU;[^g9>TL;Ske9OSf52
+R3
+!i8a 858385984
+R4
+R5
+R6
+R7
+L0 433
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+ndc77156
+vFtiKa0wLDX+YmvVbJE77nIMDRtzzsWjqv+rIfzuO4nqtTRWJSqw/U3wdIJwfArVg8QHaPBnqkmWDdGh6rDnDxw==
+R2
+!i10b 0
+!s100 <L?O5?EQ6;XC_i8>@9S`G0
+IVSNdo4N3me85e7l>8@[U`1
+R3
+!i8a 485730064
+R4
+R5
+R6
+R7
+L0 746
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R1
+n48c0ac6

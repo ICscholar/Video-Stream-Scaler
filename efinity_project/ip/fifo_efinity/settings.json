@@ -1,0 +1,72 @@
+{
+    "args": [
+        "-o",
+        "fifo_efinity",
+        "--base_path",
+        "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "memory",
+            "name": "efx_fifo_top",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "SYNC_CLK": "0",
+        "SYNC_STAGE": "2",
+        "DEPTH_2": "10",
+        "DATA_WIDTH": "24",
+        "MODE": "\"STANDARD\"",
+        "OUTPUT_REG": "0",
+        "PROG_FULL_ASSERT": "128",
+        "PROGRAMMABLE_FULL": "\"STATIC_SINGLE\"",
+        "PFN_INTERNAL": "127",
+        "PEA_INTERNAL": "2",
+        "PEN_INTERNAL": "3",
+        "PROGRAMMABLE_EMPTY": "\"NONE\"",
+        "OPTIONAL_FLAGS": "1",
+        "PIPELINE_REG": "1",
+        "FAMILY": "\"TITANIUM\"",
+        "ASYM_WIDTH_RATIO": "4",
+        "BYPASS_RESET_SYNC": "0",
+        "ENDIANESS": "0"
+    },
+    "output": {
+        "external_source_source": [
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\fifo_efinity_tmpl.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\fifo_efinity.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\fifo_efinity_define.vh",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\fifo_efinity_tmpl.vhd"
+        ],
+        "external_example_example": [
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_demo_top.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_demo.peri.xml",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_demo.xml",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_demo_T20.sdc",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\efx_symmetric_width_fifo_top.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_efinity.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\T20F256_devkit\\fifo_efinity_define.vh"
+        ],
+        "external_example_2": [
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_demo_top.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_demo.peri.xml",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_demo.xml",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_demo_Ti60.sdc",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\efx_symmetric_width_fifo_top.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_efinity.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Ti60F225_devkit\\fifo_efinity_define.vh"
+        ],
+        "external_testbench_testbench": [
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\fifo_tb.sv",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\xrun.sh",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\msim.sh",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\flist",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\modelsim.do",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\fifo_efinity.v",
+            "D:\\FPGAGame\\RunningCyborg\\test11\\efinity_project\\ip\\fifo_efinity\\Testbench\\fifo_efinity_define.vh"
+        ]
+    },
+    "sw_version": "2023.1.150",
+    "generated_date": "2023-11-05T02:36:40.659843"
+}

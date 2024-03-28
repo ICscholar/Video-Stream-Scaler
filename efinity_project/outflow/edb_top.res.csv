@@ -1,0 +1,18 @@
+sep=\t
+Module Resource Usage Distribution Estimates
+Generated at: Nov 14, 2023 09:32:20
+
+Note: some resources maybe grouped under different hierarchy due to optimization and LUT mapping
+
+Module	         FFs	        SRLs	        ADDs	        LUTs	    COMB4s	      RAMs	 DSP/MULTs
+edb_top:edb_top                                             	     572(0)	      67(0)	     107(0)	     850(0)	     0(0)	    68(0)	     0(0)	
+ +la0:edb_la_top_renamed_due_excessive_length_1             	   486(252)	      67(0)	    107(45)	   832(441)	     0(0)	    68(0)	     0(0)	
+  +axi_crc_i:edb_adbg_crc32                                 	     32(32)	       0(0)	       0(0)	     55(55)	     0(0)	     0(0)	     0(0)	
+  +GEN_PROBE[6].genblk7.genblk3.trigger_cu:compare_unit(WIDTH=11'b01,PIPE=1)	       8(8)	       0(0)	       0(0)	       8(8)	     0(0)	     0(0)	     0(0)	
+  +trigger_tu:trigger_unit(WIDTH=32'b01,PIPE=1)             	       1(1)	       0(0)	       0(0)	       4(4)	     0(0)	     0(0)	     0(0)	
+  +la_biu_inst:la_biu(CAPTURE_WIDTH=32'b01000011,DATA_DEPTH=8192)	    193(97)	      67(0)	      62(0)	   324(152)	     0(0)	    68(0)	     0(0)	
+   +fifo_with_read_inst:fifo_with_read(DATA_WIDTH=32'b01000100,ADDR_WIDTH=13)	     96(70)	     67(67)	     62(62)	   172(133)	     0(0)	    68(0)	     0(0)	
+    +transcode_write_addr:fifo_address_trancode_unit(TOTAL_ADDR_WIDTH=13,CELL_ADDR_WIDTH=14)	     13(13)	       0(0)	       0(0)	     13(13)	     0(0)	     0(0)	     0(0)	
+    +transcode_read_addr:fifo_address_trancode_unit(TOTAL_ADDR_WIDTH=13,CELL_ADDR_WIDTH=14)	     13(13)	       0(0)	       0(0)	     26(26)	     0(0)	     0(0)	     0(0)	
+    +simple_dual_port_ram_inst:edb_simple_dual_port_ram(DATA_WIDTH=32'b01000100,ADDR_WIDTH=13,RAM_INIT_FILE="")	       0(0)	       0(0)	       0(0)	       0(0)	     0(0)	   68(68)	     0(0)	
+ +debug_hub_inst:debug_hub                                  	     86(86)	       0(0)	       0(0)	     18(18)	     0(0)	     0(0)	     0(0)	

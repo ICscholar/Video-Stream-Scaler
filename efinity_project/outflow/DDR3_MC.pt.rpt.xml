@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<efx:tool_report xmlns:efx="http://www.efinixinc.com/tool_report" date="2023-11-14 13:01" project="DDR3_MC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/tool_report tool_report.xsd">
+  <efx:group name="Periphery Resource">
+    <efx:group_data name="GPIO" severity="info" value="9 / 23"/>
+    <efx:group_data name="HSIO" severity="info" value="54.0 / 70"/>
+    <efx:group_data name="JTAG User TAP" severity="info" value="1 / 4"/>
+    <efx:group_data name="Oscillator" severity="info" value="1 / 1"/>
+    <efx:group_data name="PLL" severity="info" value="4 / 4"/>
+  </efx:group>
+</efx:tool_report>

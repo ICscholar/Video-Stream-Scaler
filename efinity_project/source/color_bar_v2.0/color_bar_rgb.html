@@ -1,0 +1,1703 @@
+
+<style>
+.hljs {
+  color: #383a42;
+  background: #fafafa;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #a626a4;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649;
+}
+
+.hljs-literal {
+  color: #0184bb;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #50a14f;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #986801;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #c18401;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+#descriptions{
+  margin-left:5.5%;
+  margin-right:3%;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  width:100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body th {
+    background-color: #ffd78c;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  width:100%;
+
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+.markdown-body .description {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+</style>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>TerosHDL</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+  </style>
+  </head>
+  <body>
+  <article class="markdown-body">
+
+<div id="teroshdl" class='templateTerosHDL'>
+<a id=color_bar_rgb><h1 id="entity-color_bar_rgb">Entity: color_bar_rgb</h1></a><ul>
+<li><strong>File</strong>: color_bar_rgb.v</li>
+</ul><h2 id="diagram">Diagram</h2><p><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 615 470"><svg id="SvgjsSvg1002" width="2" height="0" focusable="false" style="overflow:hidden;top:-100%;left:-100%;position:absolute;opacity:0"><polyline id="SvgjsPolyline1003" points="145,0 160,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg><rect id="SvgjsRect1006" width="310" height="250" fill="black" x="160" y="0"></rect><rect id="SvgjsRect1007" width="306" height="245" fill="#bdecb6" x="162" y="2"></rect><text id="SvgjsText1008" font-family="Helvetica" x="140" y="-5.698437500000001" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1009" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1010" font-family="Helvetica" x="175" y="-5.698437500000001" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1011" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   HS_POLORY </tspan></text><line id="SvgjsLine1012" x1="145" y1="15" x2="160" y2="15" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1013" font-family="Helvetica" x="140" y="14.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1014" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1015" font-family="Helvetica" x="175" y="14.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1016" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   VS_POLORY </tspan></text><line id="SvgjsLine1017" x1="145" y1="35" x2="160" y2="35" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1018" font-family="Helvetica" x="140" y="34.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1019" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1020" font-family="Helvetica" x="175" y="34.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1021" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   NUM_OF_PIXERS_PER_CLOCK </tspan></text><line id="SvgjsLine1022" x1="145" y1="55" x2="160" y2="55" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1023" font-family="Helvetica" x="140" y="54.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1024" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1025" font-family="Helvetica" x="175" y="54.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1026" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   H_FRONT_PORCH </tspan></text><line id="SvgjsLine1027" x1="145" y1="75" x2="160" y2="75" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1028" font-family="Helvetica" x="140" y="74.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1029" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1030" font-family="Helvetica" x="175" y="74.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1031" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   H_SYNC </tspan></text><line id="SvgjsLine1032" x1="145" y1="95" x2="160" y2="95" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1033" font-family="Helvetica" x="140" y="94.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1034" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1035" font-family="Helvetica" x="175" y="94.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1036" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   H_VALID </tspan></text><line id="SvgjsLine1037" x1="145" y1="115" x2="160" y2="115" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1038" font-family="Helvetica" x="140" y="114.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1039" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1040" font-family="Helvetica" x="175" y="114.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1041" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   H_BACK_PORCH </tspan></text><line id="SvgjsLine1042" x1="145" y1="135" x2="160" y2="135" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1043" font-family="Helvetica" x="140" y="134.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1044" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1045" font-family="Helvetica" x="175" y="134.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1046" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   V_FRONT_PORCH </tspan></text><line id="SvgjsLine1047" x1="145" y1="155" x2="160" y2="155" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1048" font-family="Helvetica" x="140" y="154.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1049" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1050" font-family="Helvetica" x="175" y="154.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1051" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   V_SYNC </tspan></text><line id="SvgjsLine1052" x1="145" y1="175" x2="160" y2="175" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1053" font-family="Helvetica" x="140" y="174.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1054" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1055" font-family="Helvetica" x="175" y="174.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1056" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   V_VALID </tspan></text><line id="SvgjsLine1057" x1="145" y1="195" x2="160" y2="195" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1058" font-family="Helvetica" x="140" y="194.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1059" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1060" font-family="Helvetica" x="175" y="194.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1061" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   V_BACK_PORCH </tspan></text><line id="SvgjsLine1062" x1="145" y1="215" x2="160" y2="215" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1063" font-family="Helvetica" x="140" y="214.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1064" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">    </tspan></text><text id="SvgjsText1065" font-family="Helvetica" x="175" y="214.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1066" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   TEST_MODE </tspan></text><line id="SvgjsLine1067" x1="145" y1="235" x2="160" y2="235" stroke-linecap="rec" stroke="black" stroke-width="5"></line><rect id="SvgjsRect1068" width="310" height="210" fill="black" x="160" y="255"></rect><rect id="SvgjsRect1069" width="306" height="205" fill="#fdfd96" x="162" y="257"></rect><text id="SvgjsText1070" font-family="Helvetica" x="140" y="249.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1071" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">   wire </tspan></text><text id="SvgjsText1072" font-family="Helvetica" x="175" y="249.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1073" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   clk </tspan></text><line id="SvgjsLine1074" x1="145" y1="270" x2="160" y2="270" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1075" font-family="Helvetica" x="140" y="269.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1076" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">   wire </tspan></text><text id="SvgjsText1077" font-family="Helvetica" x="175" y="269.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1078" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   rst_n </tspan></text><line id="SvgjsLine1079" x1="145" y1="290" x2="160" y2="290" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1080" font-family="Helvetica" x="140" y="289.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1081" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">   wire [7:0] </tspan></text><text id="SvgjsText1082" font-family="Helvetica" x="175" y="289.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1083" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   i_rdata </tspan></text><line id="SvgjsLine1084" x1="145" y1="310" x2="160" y2="310" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1085" font-family="Helvetica" x="140" y="309.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1086" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">   wire [7:0] </tspan></text><text id="SvgjsText1087" font-family="Helvetica" x="175" y="309.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1088" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   i_gdata </tspan></text><line id="SvgjsLine1089" x1="145" y1="330" x2="160" y2="330" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1090" font-family="Helvetica" x="140" y="329.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1091" dy="26" x="140" svgjs:data="{&quot;newLined&quot;:true}">   wire [7:0] </tspan></text><text id="SvgjsText1092" font-family="Helvetica" x="175" y="329.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1093" dy="26" x="175" svgjs:data="{&quot;newLined&quot;:true}">   i_bdata </tspan></text><line id="SvgjsLine1094" x1="145" y1="350" x2="160" y2="350" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1095" font-family="Helvetica" x="490" y="249.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1096" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg    [15:0] </tspan></text><text id="SvgjsText1097" font-family="Helvetica" x="455" y="249.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1098" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   h_cnt </tspan></text><line id="SvgjsLine1099" x1="470" y1="270" x2="485" y2="270" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1100" font-family="Helvetica" x="490" y="269.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1101" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg [15:0] </tspan></text><text id="SvgjsText1102" font-family="Helvetica" x="455" y="269.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1103" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   v_cnt </tspan></text><line id="SvgjsLine1104" x1="470" y1="290" x2="485" y2="290" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1105" font-family="Helvetica" x="490" y="289.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1106" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg </tspan></text><text id="SvgjsText1107" font-family="Helvetica" x="455" y="289.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1108" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   hs </tspan></text><line id="SvgjsLine1109" x1="470" y1="310" x2="485" y2="310" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1110" font-family="Helvetica" x="490" y="309.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1111" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg </tspan></text><text id="SvgjsText1112" font-family="Helvetica" x="455" y="309.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1113" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   vs </tspan></text><line id="SvgjsLine1114" x1="470" y1="330" x2="485" y2="330" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1115" font-family="Helvetica" x="490" y="329.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1116" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg </tspan></text><text id="SvgjsText1117" font-family="Helvetica" x="455" y="329.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1118" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   de </tspan></text><line id="SvgjsLine1119" x1="470" y1="350" x2="485" y2="350" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1120" font-family="Helvetica" x="490" y="349.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1121" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   wire [1:0] </tspan></text><text id="SvgjsText1122" font-family="Helvetica" x="455" y="349.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1123" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   w_h_state </tspan></text><line id="SvgjsLine1124" x1="470" y1="370" x2="485" y2="370" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1125" font-family="Helvetica" x="490" y="369.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1126" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   wire [1:0] </tspan></text><text id="SvgjsText1127" font-family="Helvetica" x="455" y="369.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1128" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   w_v_state </tspan></text><line id="SvgjsLine1129" x1="470" y1="390" x2="485" y2="390" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1130" font-family="Helvetica" x="490" y="389.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1131" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg [7:0] </tspan></text><text id="SvgjsText1132" font-family="Helvetica" x="455" y="389.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1133" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   rgb_r </tspan></text><line id="SvgjsLine1134" x1="470" y1="410" x2="485" y2="410" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1135" font-family="Helvetica" x="490" y="409.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1136" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg [7:0] </tspan></text><text id="SvgjsText1137" font-family="Helvetica" x="455" y="409.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1138" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   rgb_g </tspan></text><line id="SvgjsLine1139" x1="470" y1="430" x2="485" y2="430" stroke-linecap="rec" stroke="black" stroke-width="5"></line><text id="SvgjsText1140" font-family="Helvetica" x="490" y="429.3015625" font-size="20" text-anchor="start" family="Helvetica" size="20" anchor="start" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1141" dy="26" x="490" svgjs:data="{&quot;newLined&quot;:true}">   reg [7:0] </tspan></text><text id="SvgjsText1142" font-family="Helvetica" x="455" y="429.3015625" font-size="20" text-anchor="end" family="Helvetica" size="20" anchor="end" svgjs:data="{&quot;leading&quot;:&quot;1.3&quot;}"><tspan id="SvgjsTspan1143" dy="26" x="455" svgjs:data="{&quot;newLined&quot;:true}">   rgb_b </tspan></text><line id="SvgjsLine1144" x1="470" y1="450" x2="485" y2="450" stroke-linecap="rec" stroke="black" stroke-width="5"></line></svg></p><h2 id="generics">Generics</h2>
+<table>
+<thead>
+<tr>
+<th id="generic_name">Generic name</th>
+<th id="type">Type</th>
+<th id="value">Value</th>
+<th id="description">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HS_POLORY</td>
+<td></td>
+<td>1'b1</td>
+<td></td>
+</tr>
+<tr>
+<td>VS_POLORY</td>
+<td></td>
+<td>1'b1</td>
+<td></td>
+</tr>
+<tr>
+<td>NUM_OF_PIXERS_PER_CLOCK</td>
+<td></td>
+<td>2'b01</td>
+<td></td>
+</tr>
+<tr>
+<td>H_FRONT_PORCH</td>
+<td></td>
+<td>13'd100</td>
+<td></td>
+</tr>
+<tr>
+<td>H_SYNC</td>
+<td></td>
+<td>13'd100</td>
+<td></td>
+</tr>
+<tr>
+<td>H_VALID</td>
+<td></td>
+<td>13'd384</td>
+<td></td>
+</tr>
+<tr>
+<td>H_BACK_PORCH</td>
+<td></td>
+<td>13'd100</td>
+<td></td>
+</tr>
+<tr>
+<td>V_FRONT_PORCH</td>
+<td></td>
+<td>13'd4</td>
+<td></td>
+</tr>
+<tr>
+<td>V_SYNC</td>
+<td></td>
+<td>13'd5</td>
+<td></td>
+</tr>
+<tr>
+<td>V_VALID</td>
+<td></td>
+<td>13'd288</td>
+<td></td>
+</tr>
+<tr>
+<td>V_BACK_PORCH</td>
+<td></td>
+<td>13'd4</td>
+<td></td>
+</tr>
+<tr>
+<td>TEST_MODE</td>
+<td></td>
+<td>2'd0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ports">Ports</h2>
+<table>
+<thead>
+<tr>
+<th id="port_name">Port name</th>
+<th id="direction">Direction</th>
+<th id="type">Type</th>
+<th id="description">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>input</td>
+<td>wire</td>
+<td></td>
+</tr>
+<tr>
+<td>rst_n</td>
+<td>input</td>
+<td>wire</td>
+<td></td>
+</tr>
+<tr>
+<td>i_rdata</td>
+<td>input</td>
+<td>wire [7:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>i_gdata</td>
+<td>input</td>
+<td>wire [7:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>i_bdata</td>
+<td>input</td>
+<td>wire [7:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>h_cnt</td>
+<td>output</td>
+<td>reg    [15:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>v_cnt</td>
+<td>output</td>
+<td>reg    [15:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>hs</td>
+<td>output</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>vs</td>
+<td>output</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>de</td>
+<td>output</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>w_h_state</td>
+<td>output</td>
+<td>wire [1:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>w_v_state</td>
+<td>output</td>
+<td>wire [1:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>rgb_r</td>
+<td>output</td>
+<td>reg [7:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>rgb_g</td>
+<td>output</td>
+<td>reg [7:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>rgb_b</td>
+<td>output</td>
+<td>reg [7:0]</td>
+<td></td>
+</tr>
+</tbody>
+</table><h2 id="signals">Signals</h2>
+<table>
+<thead>
+<tr>
+<th id="name">Name</th>
+<th id="type">Type</th>
+<th id="description">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h_state</td>
+<td>reg    [1:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>v_state</td>
+<td>reg    [1:0]</td>
+<td></td>
+</tr>
+<tr>
+<td>hs_r1</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>vs_r1</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>de_r1</td>
+<td>reg</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>reg [23:0]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constants">Constants</h2>
+<table>
+<thead>
+<tr>
+<th id="name">Name</th>
+<th id="type">Type</th>
+<th id="value">Value</th>
+<th id="description">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WHITE_R</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>WHITE_G</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>WHITE_B</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>YELLOW_R</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>YELLOW_G</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>YELLOW_B</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>CYAN_R</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>CYAN_G</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>CYAN_B</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN_R</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN_G</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>GREEN_B</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>MAGENTA_R</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>MAGENTA_G</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>MAGENTA_B</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>RED_R</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>RED_G</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>RED_B</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>BLUE_R</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>BLUE_G</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>BLUE_B</td>
+<td></td>
+<td>8'hff</td>
+<td></td>
+</tr>
+<tr>
+<td>BLACK_R</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>BLACK_G</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>BLACK_B</td>
+<td></td>
+<td>8'h00</td>
+<td></td>
+</tr>
+<tr>
+<td>S_H_BACK_PORCH</td>
+<td></td>
+<td>2'd0</td>
+<td></td>
+</tr>
+<tr>
+<td>S_H_SYNC</td>
+<td></td>
+<td>2'd1</td>
+<td></td>
+</tr>
+<tr>
+<td>S_H_VALID</td>
+<td></td>
+<td>2'd2</td>
+<td></td>
+</tr>
+<tr>
+<td>S_H_FRONT_PORCH</td>
+<td></td>
+<td>2'd3</td>
+<td></td>
+</tr>
+<tr>
+<td>S_V_BACK_PORCH</td>
+<td></td>
+<td>2'd0</td>
+<td></td>
+</tr>
+<tr>
+<td>S_V_SYNC</td>
+<td></td>
+<td>2'd1</td>
+<td></td>
+</tr>
+<tr>
+<td>S_V_VALID</td>
+<td></td>
+<td>2'd2</td>
+<td></td>
+</tr>
+<tr>
+<td>S_V_FRONT_PORCH</td>
+<td></td>
+<td>2'd3</td>
+<td></td>
+</tr>
+</tbody>
+</table><h2 id="processes">Processes</h2><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n ) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n  ) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n ) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n ) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n ) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><ul>
+<li>unnamed: ( @( posedge clk or negedge rst_n) )</li>
+</ul><div id="descriptions"><p><strong>Type:</strong> always</p></div><h2 id="state-machines">State machines</h2><div><div id="state_machine"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: state transitions Pages: 1 -->
+<svg width="405pt" height="352pt"
+ viewBox="0.00 0.00 405.00 352.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 348)">
+<title>state transitions</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-348 401,-348 401,4 -4,4"/>
+<g id="clust1" class="cluster state regular">
+<title>cluster_h_state</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M20,-8C20,-8 377,-8 377,-8 383,-8 389,-14 389,-20 389,-20 389,-324 389,-324 389,-330 383,-336 377,-336 377,-336 20,-336 20,-336 14,-336 8,-330 8,-324 8,-324 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text text-anchor="start" x="179.3236" y="-317.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">h_state</text>
+</g>
+<!-- h_state -->
+<!-- S_H_SYNC -->
+<g id="node2" class="node state regular">
+<title>S_H_SYNC</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="204.5,-298 119.5,-298 119.5,-262 204.5,-262 204.5,-298"/>
+<text text-anchor="start" x="130.8308" y="-276.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_H_SYNC</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M131.8333,-263C131.8333,-263 192.1667,-263 192.1667,-263 197.8333,-263 203.5,-268.6667 203.5,-274.3333 203.5,-274.3333 203.5,-285.6667 203.5,-285.6667 203.5,-291.3333 197.8333,-297 192.1667,-297 192.1667,-297 131.8333,-297 131.8333,-297 126.1667,-297 120.5,-291.3333 120.5,-285.6667 120.5,-285.6667 120.5,-274.3333 120.5,-274.3333 120.5,-268.6667 126.1667,-263 131.8333,-263"/>
+</g>
+<!-- S_H_BACK_PORCH -->
+<g id="node3" class="node state regular">
+<title>S_H_BACK_PORCH</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="158,-216 24,-216 24,-180 158,-180 158,-216"/>
+<text text-anchor="start" x="34.6624" y="-194.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_H_BACK_PORCH</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M36.3333,-181C36.3333,-181 145.6667,-181 145.6667,-181 151.3333,-181 157,-186.6667 157,-192.3333 157,-192.3333 157,-203.6667 157,-203.6667 157,-209.3333 151.3333,-215 145.6667,-215 145.6667,-215 36.3333,-215 36.3333,-215 30.6667,-215 25,-209.3333 25,-203.6667 25,-203.6667 25,-192.3333 25,-192.3333 25,-186.6667 30.6667,-181 36.3333,-181"/>
+</g>
+<!-- S_H_SYNC&#45;&gt;S_H_BACK_PORCH -->
+<g id="edge1" class="edge transition">
+<title>S_H_SYNC&#45;&gt;S_H_BACK_PORCH</title>
+<path fill="none" stroke="#000000" d="M134.7142,-261.6542C128.4466,-256.6958 122.1188,-251.0202 116.971,-245 111.8893,-239.0571 107.3496,-231.9632 103.5423,-225.1104"/>
+<polygon fill="#000000" stroke="#000000" points="106.5452,-223.299 98.8223,-216.0459 100.3365,-226.532 106.5452,-223.299"/>
+<text text-anchor="start" x="116" y="-236" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_SYNC &#45; 1 &#160;&#160;</text>
+</g>
+<!-- S_H_VALID -->
+<g id="node4" class="node state regular">
+<title>S_H_VALID</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="112,-134 26,-134 26,-98 112,-98 112,-134"/>
+<text text-anchor="start" x="36.6594" y="-112.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_H_VALID</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M38.3333,-99C38.3333,-99 99.6667,-99 99.6667,-99 105.3333,-99 111,-104.6667 111,-110.3333 111,-110.3333 111,-121.6667 111,-121.6667 111,-127.3333 105.3333,-133 99.6667,-133 99.6667,-133 38.3333,-133 38.3333,-133 32.6667,-133 27,-127.3333 27,-121.6667 27,-121.6667 27,-110.3333 27,-110.3333 27,-104.6667 32.6667,-99 38.3333,-99"/>
+</g>
+<!-- S_H_BACK_PORCH&#45;&gt;S_H_VALID -->
+<g id="edge2" class="edge transition">
+<title>S_H_BACK_PORCH&#45;&gt;S_H_VALID</title>
+<path fill="none" stroke="#000000" d="M66.733,-179.8664C61.9082,-174.9731 57.5147,-169.2733 54.857,-163 52.283,-156.9242 52.5602,-150.2236 54.1994,-143.8322"/>
+<polygon fill="#000000" stroke="#000000" points="57.5812,-144.7715 57.6821,-134.1772 50.9965,-142.3963 57.5812,-144.7715"/>
+<text text-anchor="start" x="54" y="-154" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_BACK_PORCH &#45; 1 &#160;&#160;</text>
+</g>
+<!-- S_H_FRONT_PORCH -->
+<g id="node5" class="node state regular">
+<title>S_H_FRONT_PORCH</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="229.5,-52 86.5,-52 86.5,-16 229.5,-16 229.5,-52"/>
+<text text-anchor="start" x="97.837" y="-30.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_H_FRONT_PORCH</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M98.8333,-17C98.8333,-17 217.1667,-17 217.1667,-17 222.8333,-17 228.5,-22.6667 228.5,-28.3333 228.5,-28.3333 228.5,-39.6667 228.5,-39.6667 228.5,-45.3333 222.8333,-51 217.1667,-51 217.1667,-51 98.8333,-51 98.8333,-51 93.1667,-51 87.5,-45.3333 87.5,-39.6667 87.5,-39.6667 87.5,-28.3333 87.5,-28.3333 87.5,-22.6667 93.1667,-17 98.8333,-17"/>
+</g>
+<!-- S_H_VALID&#45;&gt;S_H_FRONT_PORCH -->
+<g id="edge3" class="edge transition">
+<title>S_H_VALID&#45;&gt;S_H_FRONT_PORCH</title>
+<path fill="none" stroke="#000000" d="M86.4133,-97.7432C95.0735,-88.869 105.8122,-78.1671 115.852,-69 119.6186,-65.5608 123.6566,-62.0267 127.687,-58.5884"/>
+<polygon fill="#000000" stroke="#000000" points="129.9511,-61.2575 135.355,-52.1444 125.4475,-55.8986 129.9511,-61.2575"/>
+<text text-anchor="start" x="115" y="-72" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_VALID &#45; 1 &#160;&#160;</text>
+</g>
+<!-- S_H_FRONT_PORCH&#45;&gt;S_H_SYNC -->
+<g id="edge4" class="edge transition">
+<title>S_H_FRONT_PORCH&#45;&gt;S_H_SYNC</title>
+<path fill="none" stroke="#000000" d="M215.4854,-52.1141C222.9147,-57.8242 228,-65.2821 228,-75 228,-239 228,-239 228,-239 228,-249.529 221.8643,-257.4489 213.3345,-263.372"/>
+<polygon fill="#000000" stroke="#000000" points="211.4468,-260.4206 204.545,-268.459 214.9532,-266.4791 211.4468,-260.4206"/>
+<text text-anchor="start" x="228" y="-154" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_FRONT_PORCH &#45; 1 &#160;&#160;</text>
+</g>
+</g>
+</svg>
+</div><div id="state_machine"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: state transitions Pages: 1 -->
+<svg width="752pt" height="388pt"
+ viewBox="0.00 0.00 752.00 388.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 384)">
+<title>state transitions</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-384 748,-384 748,4 -4,4"/>
+<g id="clust1" class="cluster state regular">
+<title>cluster_v_state</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M20,-8C20,-8 724,-8 724,-8 730,-8 736,-14 736,-20 736,-20 736,-360 736,-360 736,-366 730,-372 724,-372 724,-372 20,-372 20,-372 14,-372 8,-366 8,-360 8,-360 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text text-anchor="start" x="352.659" y="-353.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">v_state</text>
+</g>
+<!-- v_state -->
+<!-- S_V_SYNC -->
+<g id="node2" class="node state regular">
+<title>S_V_SYNC</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="274,-334 190,-334 190,-298 274,-298 274,-334"/>
+<text text-anchor="start" x="200.6608" y="-312.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_V_SYNC</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M202.3333,-299C202.3333,-299 261.6667,-299 261.6667,-299 267.3333,-299 273,-304.6667 273,-310.3333 273,-310.3333 273,-321.6667 273,-321.6667 273,-327.3333 267.3333,-333 261.6667,-333 261.6667,-333 202.3333,-333 202.3333,-333 196.6667,-333 191,-327.3333 191,-321.6667 191,-321.6667 191,-310.3333 191,-310.3333 191,-304.6667 196.6667,-299 202.3333,-299"/>
+</g>
+<!-- S_V_BACK_PORCH -->
+<g id="node3" class="node state regular">
+<title>S_V_BACK_PORCH</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="150,-240 16,-240 16,-204 150,-204 150,-240"/>
+<text text-anchor="start" x="26.9924" y="-218.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_V_BACK_PORCH</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M28.3333,-205C28.3333,-205 137.6667,-205 137.6667,-205 143.3333,-205 149,-210.6667 149,-216.3333 149,-216.3333 149,-227.6667 149,-227.6667 149,-233.3333 143.3333,-239 137.6667,-239 137.6667,-239 28.3333,-239 28.3333,-239 22.6667,-239 17,-233.3333 17,-227.6667 17,-227.6667 17,-216.3333 17,-216.3333 17,-210.6667 22.6667,-205 28.3333,-205"/>
+</g>
+<!-- S_V_SYNC&#45;&gt;S_V_BACK_PORCH -->
+<g id="edge1" class="edge transition">
+<title>S_V_SYNC&#45;&gt;S_V_BACK_PORCH</title>
+<path fill="none" stroke="#000000" d="M189.9284,-312.4232C148.5865,-307.9329 89.7047,-298.5892 75.617,-281 68.7216,-272.3907 68.8685,-260.6897 71.3803,-249.9777"/>
+<polygon fill="#000000" stroke="#000000" points="74.8098,-250.729 74.3604,-240.1437 68.1106,-248.6988 74.8098,-250.729"/>
+<text text-anchor="start" x="75" y="-272" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">v_cnt == V_SYNC &#45; 1 &#160;&#160;</text>
+<text text-anchor="start" x="75" y="-260" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_FRONT_PORCH &#45; 1 &amp;&amp; h_state == S_H_FRONT_PORCH &#160;&#160;</text>
+</g>
+<!-- S_V_VALID -->
+<g id="node4" class="node state regular">
+<title>S_V_VALID</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="102,-146 16,-146 16,-110 102,-110 102,-146"/>
+<text text-anchor="start" x="26.9894" y="-124.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_V_VALID</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M28.3333,-111C28.3333,-111 89.6667,-111 89.6667,-111 95.3333,-111 101,-116.6667 101,-122.3333 101,-122.3333 101,-133.6667 101,-133.6667 101,-139.3333 95.3333,-145 89.6667,-145 89.6667,-145 28.3333,-145 28.3333,-145 22.6667,-145 17,-139.3333 17,-133.6667 17,-133.6667 17,-122.3333 17,-122.3333 17,-116.6667 22.6667,-111 28.3333,-111"/>
+</g>
+<!-- S_V_BACK_PORCH&#45;&gt;S_V_VALID -->
+<g id="edge2" class="edge transition">
+<title>S_V_BACK_PORCH&#45;&gt;S_V_VALID</title>
+<path fill="none" stroke="#000000" d="M64.4585,-203.8524C60.4429,-198.8103 56.7605,-193.0464 54.617,-187 51.1528,-177.2283 51.1018,-165.99 52.3109,-155.9608"/>
+<polygon fill="#000000" stroke="#000000" points="55.7702,-156.4942 53.9369,-146.0592 48.8627,-155.3598 55.7702,-156.4942"/>
+<text text-anchor="start" x="54" y="-178" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">v_cnt == V_BACK_PORCH &#45; 1 &#160;&#160;</text>
+<text text-anchor="start" x="54" y="-166" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_FRONT_PORCH &#45; 1 &amp;&amp; h_state == S_H_FRONT_PORCH &#160;&#160;</text>
+</g>
+<!-- S_V_FRONT_PORCH -->
+<g id="node5" class="node state regular">
+<title>S_V_FRONT_PORCH</title>
+<polygon fill="#ffffff" fill-opacity="0.003922" stroke="transparent" stroke-width="2" points="317,-52 175,-52 175,-16 317,-16 317,-52"/>
+<text text-anchor="start" x="185.667" y="-30.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#000000">S_V_FRONT_PORCH</text>
+<path fill="none" stroke="#000000" stroke-width="2" d="M187.3333,-17C187.3333,-17 304.6667,-17 304.6667,-17 310.3333,-17 316,-22.6667 316,-28.3333 316,-28.3333 316,-39.6667 316,-39.6667 316,-45.3333 310.3333,-51 304.6667,-51 304.6667,-51 187.3333,-51 187.3333,-51 181.6667,-51 176,-45.3333 176,-39.6667 176,-39.6667 176,-28.3333 176,-28.3333 176,-22.6667 181.6667,-17 187.3333,-17"/>
+</g>
+<!-- S_V_VALID&#45;&gt;S_V_FRONT_PORCH -->
+<g id="edge3" class="edge transition">
+<title>S_V_VALID&#45;&gt;S_V_FRONT_PORCH</title>
+<path fill="none" stroke="#000000" d="M59.3171,-109.9967C60.5433,-96.8021 64.3988,-79.439 75.617,-69 88.9034,-56.6365 127.2752,-48.1671 164.2467,-42.6605"/>
+<polygon fill="#000000" stroke="#000000" points="165.2082,-46.0591 174.6154,-41.1852 164.2221,-39.1289 165.2082,-46.0591"/>
+<text text-anchor="start" x="75" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">v_cnt == V_VALID &#45; 1 &#160;&#160;</text>
+<text text-anchor="start" x="75" y="-72" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_FRONT_PORCH &#45; 1 &amp;&amp; h_state == S_H_FRONT_PORCH &#160;&#160;</text>
+</g>
+<!-- S_V_FRONT_PORCH&#45;&gt;S_V_SYNC -->
+<g id="edge4" class="edge transition">
+<title>S_V_FRONT_PORCH&#45;&gt;S_V_SYNC</title>
+<path fill="none" stroke="#000000" d="M317.0641,-43.7315C351.0456,-49.6366 387.1004,-58.1405 400,-69 404.4201,-72.721 405,-75.2222 405,-81 405,-269 405,-269 405,-269 405,-274.7778 404.4535,-277.3191 400,-281 382.5668,-295.4088 326.7194,-305.0375 284.1551,-310.4878"/>
+<polygon fill="#000000" stroke="#000000" points="283.6959,-307.0178 274.2009,-311.7184 284.5548,-313.965 283.6959,-307.0178"/>
+<text text-anchor="start" x="405" y="-178" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">v_cnt == V_FRONT_PORCH &#45; 1 &#160;&#160;</text>
+<text text-anchor="start" x="405" y="-166" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#000000">h_cnt == H_FRONT_PORCH &#45; 1 &amp;&amp; h_state == S_H_FRONT_PORCH &#160;&#160;</text>
+</g>
+</g>
+</svg>
+</div></div><br><br><br><br><br><br>
+    </article class="markdown-body">
+
+    </body>
+    
+    

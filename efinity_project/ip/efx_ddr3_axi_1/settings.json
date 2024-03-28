@@ -1,0 +1,75 @@
+{
+    "args": [
+        "-o",
+        "efx_ddr3_axi_1",
+        "--base_path",
+        "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "memory_controller",
+            "name": "efx_ddr3_soft_controller",
+            "version": "5.1"
+        }
+    ],
+    "conf": {
+        "data_width": "1'b1",
+        "freq": "400",
+        "row": "16",
+        "bank": "3",
+        "rank": "1",
+        "simulation": "1'b0",
+        "burst_length": "8",
+        "read_burst_type": "1'b0",
+        "cas_latency": "5",
+        "dll_reset": "1",
+        "precharge_pd": "1'b1",
+        "dll_enable": "1'b1",
+        "output_drive_strength": "1'b0",
+        "al": "0",
+        "qoff": "1'b1",
+        "rtt": "3",
+        "asr": "1'b0",
+        "srt": "1'b0",
+        "dynamic_odt": "0",
+        "mpr_rf": "0",
+        "mpr": "1'b0",
+        "tREFI": "7800",
+        "arbiter_init": "1",
+        "arbiter_count": "8",
+        "write_leveling": "1'b0",
+        "tdqs": "1'b0",
+        "DDR3_DATA_RATE": "1",
+        "DDR3_MODE": "1",
+        "READ_ENABLE_PIPELINE": "8"
+    },
+    "output": {
+        "external_source_source": [
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\efx_ddr3_axi_1_tmpl.vhd",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\efx_ddr3_axi_1.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\efx_ddr3_axi_1_tmpl.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\efx_ddr3_axi_1_define.vh"
+        ],
+        "external_script_generator": [],
+        "external_testbench_modelsim": [
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\modelsim\\efx_ddr3_axi_1.v"
+        ],
+        "external_testbench_testbench": [
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\ddr3.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\efx_ddr3_soft_controller_tb.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\efx_iddr.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\efx_oddr.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\4096Mb_ddr3_parameters.vh",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\memory_checker_native.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\modelsim_Native.do",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\example_top.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\ddr3_device_ID.vh",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\ddr3_controller.bin",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\ddr3_controller.vh",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\efx_ddr3_axi_1.v",
+            "D:\\FPGA_Prj\\03_Ti60F225_DemoBoard\\Prj_demo\\00_demo_total\\01_Ti60F225_demo_v6\\efinity_project\\ip\\efx_ddr3_axi_1\\Testbench\\efx_ddr3_axi_1_define.vh"
+        ]
+    },
+    "sw_version": "2023.1.150",
+    "generated_date": "2023-09-24T16:21:57.768814"
+}

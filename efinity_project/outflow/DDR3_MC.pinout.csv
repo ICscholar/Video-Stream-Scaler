@@ -1,0 +1,238 @@
+
+# Efinity Pinout Report
+# Version: 2023.1.150.5.11
+# Date: 2023-11-14 13:01
+
+# Copyright (C) 2017 - 2023 Efinix Inc. All rights reserved.
+
+# Device: Ti60F225
+# Package status: final
+# Project: DDR3_MC
+# Configuration mode: active (x1)
+
+Pin Number,Pin Name,Signal Name,Direction,Bank,I/O Bank Voltage,I/O Standard,Pull Type,Function
+A1,GND,,Power,,,,,Ground
+A2,GPIOL_N_18,rx_dv1.N,Input,1B,1.8 V,1.8 V LVCMOS,,User IO/PLL_CLKIN
+A3,GPIOL_03,,Input,TL,3.3 V,,weak pullup,User IO
+A4,GPIOL_09,,Input,TL,3.3 V,,weak pullup,User IO
+A5,GPIOT_P_03,,,2A,1.2 V,,,User IO
+A6,GPIOT_N_03,,,2A,1.2 V,,,User IO
+A7,GPIOT_N_06,mipi_dp_data3.N,Output,2A,1.2 V,,,User IO
+A8,GPIOT_N_07_CLK4_N,mipi_dp_data1.N,Output,2A,1.2 V,,,User IO/GCLK/RCLK
+A9,GPIOT_N_11,mipi_dp_data2.N,Output,2B,1.2 V,,,User IO
+A10,GPIOT_P_14,,,2B,1.2 V,,,User IO
+A11,GPIOT_P_17_PLLIN1,,,2B,1.2 V,,,User IO/PLL_CLKIN
+A12,GPIOR_13,,Input,TR,3.3 V,,weak pullup,User IO
+A13,GPIOR_12,uart_tx,Output,TR,3.3 V,3.3 V LVCMOS,,User IO
+A14,GPIOR_19,,Input,TR,3.3 V,,weak pullup,User IO
+A15,GND,,Power,,,,,Ground
+B1,GPIOL_P_17_EXTFB,rxd1[0].P,Input,1B,1.8 V,1.8 V LVCMOS,,User IO/PLL_EXTFB
+B2,GPIOL_P_18_PLLIN0,,,1B,1.8 V,,,User IO/PLL_CLKIN
+B3,GPIOL_04,,Input,TL,3.3 V,,weak pullup,User IO
+B4,VCCIO33_TL,,Power,TL,3.3 V,,,VCCIO Power
+B5,GPIOL_10,,Input,TL,3.3 V,,weak pullup,User IO
+B6,GPIOT_P_01,,,2A,1.2 V,,,User IO
+B7,GPIOT_P_06,mipi_dp_data3.P,Output,2A,1.2 V,,,User IO
+B8,GPIOT_P_07_CLK4_P,mipi_dp_data1.P,Output,2A,1.2 V,,,User IO/GCLK/RCLK
+B9,GPIOT_P_11,mipi_dp_data2.P,Output,2B,1.2 V,,,User IO
+B10,GPIOT_N_14,,,2B,1.2 V,,,User IO
+B11,GPIOT_N_17,,,2B,1.2 V,,,User IO/PLL_CLKIN
+B12,GPIOR_15,uart_rx,Input,TR,3.3 V,3.3 V LVCMOS,,User IO
+B13,VCCIO33_TR,,Power,TR,3.3 V,,,VCCIO Power
+B14,GPIOR_18,o_lcd_rstn,Output,TR,3.3 V,3.3 V LVCMOS,,User IO
+B15,REF_RES_3A,,Input,3A,1.8 V,,,
+C1,GPIOL_N_16,rxd1[2].N,Input,1B,1.8 V,1.8 V LVCMOS,,User IO
+C2,GPIOL_N_17,rxd1[1].N,Input,1B,1.8 V,1.8 V LVCMOS,,User IO/PLL_EXTFB
+C3,GPIOL_06,,Input,TL,3.3 V,,weak pullup,User IO
+C4,GPIOL_07,,Input,TL,3.3 V,,weak pullup,User IO
+C5,GPIOL_11_PLLIN2,,Input,TL,3.3 V,,weak pullup,User IO/PLL_CLKIN
+C6,GPIOT_N_01,,,2A,1.2 V,,,User IO
+C7,VCCIO2A,,Power,2A,1.2 V,,,VCCIO Power
+C8,GPIOT_P_10_CLK7_P,mipi_dp_data0.P,Output,2B,1.2 V,,,User IO/GCLK/RCLK
+C9,GPIOT_N_10_CLK7_N,mipi_dp_data0.N,Output,2B,1.2 V,,,User IO/GCLK/RCLK
+C10,GPIOT_P_13,,,2B,1.2 V,,,User IO/VREF
+C11,VCCIO2B,,Power,2B,1.2 V,,,VCCIO Power
+C12,GPIOR_16,,Input,TR,3.3 V,,weak pullup,User IO
+C13,GPIOR_P_17,hdmi_rx_d2.P,Input,3A,1.8 V,,,User IO
+C14,GPIOR_P_19_PLLIN0,hdmi_rx_clk.P,Input,3A,1.8 V,,,User IO/PLL_CLKIN
+C15,GPIOR_N_19,hdmi_rx_clk.N,Input,3A,1.8 V,,,User IO/PLL_CLKIN
+D1,GPIOL_P_16,txc1.P,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+D2,VCCIO1B,,Power,1B,1.8 V,,,VCCIO Power
+D3,GND,,Power,,,,,Ground
+D4,VCCAUX,,Power,4B,1.5 V,,,
+D5,GPIOT_N_00,,,2A,1.2 V,,,User IO/PLL_CLKIN
+D6,VCCIO2A,,Power,2A,1.2 V,,,VCCIO Power
+D7,GPIOT_N_05,,,2A,1.2 V,,,User IO
+D8,GPIOT_N_09_CLK6_N,mipi_dp_clk.N,Output,2B,1.2 V,,,User IO/GCLK/RCLK
+D9,VCCIO2B,,Power,2B,1.2 V,,,VCCIO Power
+D10,GPIOT_N_13,,,2B,1.2 V,,,User IO
+D11,REF_RES_2B,,Input,2B,1.2 V,,,
+D12,GPIOR_20,LCD_POWER,Output,TR,3.3 V,3.3 V LVCMOS,,User IO
+D13,GPIOR_N_17,hdmi_rx_d2.N,Input,3A,1.8 V,,,User IO
+D14,GPIOR_N_18,hdmi_rx_d1.N,Input,3A,1.8 V,,,User IO
+D15,GPIOR_P_18,hdmi_rx_d1.P,Input,3A,1.8 V,,,User IO
+E1,GPIOL_P_15_NSTATUS,txd1[0].P,Output,1B,1.8 V,1.8 V LVCMOS,,User IO/VREF/Configuration
+E2,GPIOL_N_15_TEST_N,,,1B,1.8 V,,,User IO/Configuration
+E3,GPIOL_N_13_CBSEL1,rxd1[3].N,Input,1B,1.8 V,1.8 V LVCMOS,,User IO
+E4,REF_RES_1B,,Input,1B,1.8 V,,,
+E5,VCCA_TL,,Power,,,,,0.95 V PLL Power
+E6,GPIOT_P_00_PLLIN1,,,2A,1.2 V,,,User IO/PLL_CLKIN/VREF
+E7,GPIOT_P_05,,,2A,1.2 V,,,User IO
+E8,GPIOT_P_09_CLK6_P,mipi_dp_clk.P,Output,2B,1.2 V,,,User IO/GCLK/RCLK
+E9,GPIOT_N_12,,,2B,1.2 V,,,User IO
+E10,GPIOT_P_16_EXTFB,,,2B,1.2 V,,,User IO/PLL_EXTFB
+E11,VCCAUX,,Power,4B,1.5 V,,,
+E12,GPIOR_N_15,HPD_N.N,Output,3A,1.8 V,1.8 V LVCMOS,,User IO
+E13,VCC,,Power,,,,,0.95 V VCC Power
+E14,GPIOR_N_16,hdmi_rx_d0.N,Input,3A,1.8 V,,,User IO
+E15,GPIOR_P_16,hdmi_rx_d0.P,Input,3A,1.8 V,,,User IO
+F1,GPIOL_P_14,txd1[1].P,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+F2,GPIOL_N_14,txd1[2].N,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+F3,GPIOL_P_13_CBSEL0,tx_en_o1.P,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+F4,VCCIO1B,,Power,1B,1.8 V,,,VCCIO Power
+F5,GPIOL_N_11,mdc_o.N,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+F6,REF_RES_2A,,Input,2A,1.2 V,,,
+F7,GPIOT_P_04,,,2A,1.2 V,,,User IO
+F8,GPIOT_N_04,,,2A,1.2 V,,,User IO
+F9,GPIOT_P_12,,,2B,1.2 V,,,User IO
+F10,GPIOT_N_16,,,2B,1.2 V,,,User IO/PLL_EXTFB
+F11,GPIOR_N_14,FPGA_HDMI_SDA.N,Bidirectional,3A,1.8 V,1.8 V LVCMOS,,User IO
+F12,GPIOR_P_15,HDMI_5V_N.P,Input,3A,1.8 V,1.8 V LVCMOS,,User IO
+F13,GPIOR_N_12,hdmi_tx_data_p[2].N,Output,3A,1.8 V,1.8 V LVCMOS,,User IO
+F14,VCCIO3A,,Power,3A,1.8 V,,,VCCIO Power
+F15,GPIOR_N_13,hdmi_tx_data_p[0].N,Output,3A,1.8 V,1.8 V LVCMOS,,User IO
+G1,GPIOL_N_09_CLK2_N,txd1[3].N,Output,1B,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+G2,GPIOL_N_10_CLK3_N,mdc_o1.N,Output,1B,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+G3,GPIOL_P_12,txd[2].P,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+G4,GPIOL_N_12,txd[3].N,Output,1B,1.8 V,1.8 V LVCMOS,,User IO
+G5,GPIOL_P_11,mdio_io.P,Bidirectional,1B,1.8 V,1.8 V LVCMOS,,User IO
+G6,GND,,Power,,,,,Ground
+G7,VCC,,Power,,,,,0.95 V VCC Power
+G8,GND,,Power,,,,,Ground
+G9,VCC,,Power,,,,,0.95 V VCC Power
+G10,VCCA_TR,,Power,,,,,0.95 V PLL Power
+G11,GPIOR_P_14,FPGA_HDMI_SCL.P,Bidirectional,3A,1.8 V,1.8 V LVCMOS,,User IO
+G12,VCCIO3A,,Power,3A,1.8 V,,,VCCIO Power
+G13,GPIOR_P_12,hdmi_tx_data_n[2].P,Output,3A,1.8 V,1.8 V LVCMOS,,User IO
+G14,GPIOR_N_11_CLK8_N,hdmi_tx_data_p[1].N,Output,3A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+G15,GPIOR_P_13,hdmi_tx_data_n[0].P,Output,3A,1.8 V,1.8 V LVCMOS,,User IO/VREF
+H1,GPIOL_P_09_CLK2_P,rxc.P,Input,1B,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+H2,GPIOL_P_10_CLK3_P,rxc1.P,Input,1B,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK/Configuration
+H3,GPIOL_N_08_CLK1_N,rx_dv.N,Input,1A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK/Configuration
+H4,GPIOL_N_04_CDI3,,,1A,1.8 V,,,User IO
+H5,GPIOL_P_04_CDI2,,,1A,1.8 V,,,User IO/VREF
+H6,VCC,,Power,,,,,0.95 V VCC Power
+H7,GND,,Power,,,,,Ground
+H8,VCC,,Power,,,,,0.95 V VCC Power
+H9,GND,,Power,,,,,Ground
+H10,GPIOR_P_08_CLK11_P,addr[10].P,Output,3B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+H11,GPIOR_N_08_CLK11_N,reset.N,Output,3B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+H12,GPIOR_N_10_CLK9_N,hdmi_tx_clk_p.N,Output,3A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+H13,GPIOR_P_10_CLK9_P,hdmi_tx_clk_n.P,Output,3A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+H14,GPIOR_P_11_CLK8_P,hdmi_tx_data_n[1].P,Output,3A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+H15,GPIOR_N_09_CLK10_N,clk_p.N,Output,3B,1.5 V,1.5 V Differential SSTL,,User IO/GCLK/RCLK
+J1,GPIOL_N_07_CLK0_N,rxd[0].N,Input,1A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+J2,GPIOL_P_08_CLK1_P,clk_25m.P,Input,1A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+J3,GPIOL_N_05,rxd[3].N,Input,1A,1.8 V,1.8 V LVCMOS,,User IO
+J4,VCCIO1A,,Power,1A,1.8 V,,,VCCIO Power
+J5,CRESET_N,,Input,1A,1.8 V,,,Configuration
+J6,GND,,Power,,,,,Ground
+J7,VCC,,Power,,,,,0.95 V VCC Power
+J8,GND,,Power,,,,,Ground
+J9,VCC,,Power,,,,,0.95 V VCC Power
+J10,GPIOR_N_03_CDI27,addr[11].N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+J11,VCCIO3B,,Power,3B,1.5 V,,,VCCIO Power
+J12,GPIOR_N_04_CDI29,addr[13].N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+J13,GPIOR_N_06_CDI21,addr[7].N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+J14,GPIOR_N_07,addr[9].N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+J15,GPIOR_P_09_CLK10_P,clk_p.P,Output,3B,1.5 V,1.5 V Differential SSTL,,User IO/GCLK/RCLK
+K1,GPIOL_P_07_CLK0_P,txc.P,Output,1A,1.8 V,1.8 V LVCMOS,,User IO/GCLK/RCLK
+K2,GPIOL_N_06,rxd[1].N,Input,1A,1.8 V,1.8 V LVCMOS,,User IO
+K3,GPIOL_P_06,txd[0].P,Output,1A,1.8 V,1.8 V LVCMOS,,User IO
+K4,GPIOL_P_05,txd[1].P,Output,1A,1.8 V,1.8 V LVCMOS,,User IO
+K5,REF_RES_1A,,Input,1A,1.8 V,,,
+K6,GPIOB_N_04,addr[3].N,Output,4B,1.5 V,1.5 V SSTL,,User IO
+K7,GPIOB_P_09_CLK13_P,verf0.P,Input,4A,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK/VREF/Configuration
+K8,GPIOB_P_11_CDI10,addr[5].P,Output,4A,1.5 V,1.5 V SSTL,,User IO
+K9,GPIOB_N_11_CDI11,addr[15].N,Output,4A,1.5 V,1.5 V SSTL,,User IO
+K10,GPIOR_P_03_CDI26,addr[6].P,Output,3B,1.5 V,1.5 V SSTL,,User IO
+K11,GPIOR_N_00_CDI22,addr[8].N,Output,3B,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+K12,GPIOR_P_04_CDI28,addr[2].P,Output,3B,1.5 V,1.5 V SSTL,,User IO
+K13,GPIOR_P_06_CDI20,addr[14].P,Output,3B,1.5 V,1.5 V SSTL,,User IO
+K14,GPIOR_P_07,ba[2].P,Output,3B,1.5 V,1.5 V SSTL,,User IO
+K15,GPIOR_N_05_CDI31,addr[0].N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+L1,GPIOL_N_03_CDI1,,,1A,1.8 V,,,User IO/Configuration
+L2,VCCIO1A,,Power,1A,1.8 V,,,VCCIO Power
+L3,CDONE,,Bidirectional,1A,1.8 V,,,Configuration
+L4,VCCAUX,,Power,4B,1.5 V,,,
+L5,VCCA_BL,,Power,,,,,0.95 V PLL Power
+L6,GPIOB_P_04_SSU_N,vref1.P,Input,4B,1.5 V,1.5 V SSTL,,User IO/VREF/Configuration
+L7,GPIOB_N_06_CDI9,ba[0].N,Output,4B,1.5 V,1.5 V SSTL,,User IO
+L8,GPIOB_N_09_CLK13_N,cke.N,Output,4A,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+L9,GPIOB_N_10_CLK12_N,ba[1].N,Output,4A,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+L10,VCCA_BR,,Power,,,,,0.95 V PLL Power
+L11,GPIOR_P_00_PLLIN0,addr[4].P,Output,3B,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+L12,GPIOR_P_01_EXTFB,addr[12].P,Output,3B,1.5 V,1.5 V SSTL,,User IO/PLL_EXTFB
+L13,GPIOR_N_01_CDI23,addr[1].N,Output,3B,1.5 V,1.5 V SSTL,,User IO/PLL_EXTFB
+L14,VCCIO3B,,Power,3B,1.5 V,,,VCCIO Power
+L15,GPIOR_P_05_CDI30,we.P,Output,3B,1.5 V,1.5 V SSTL,,User IO/VREF
+M1,GPIOL_P_03_CDI0,,,1A,1.8 V,,,User IO/Configuration
+M2,GPIOL_N_02_CSO,mdio_io1.N,Bidirectional,1A,1.8 V,1.8 V LVCMOS,,User IO/Configuration
+M3,VCC,,Power,,,,,0.95 V VCC Power
+M4,TDO,,Output,BL,3.3 V,,,Configuration
+M5,REF_RES_4B,,Input,4B,1.5 V,,,
+M6,GPIOB_N_03_CDI7,dq[9].N,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO
+M7,GPIOB_P_06_CDI8,odt.P,Output,4B,1.5 V,1.5 V SSTL,,User IO
+M8,GPIOB_N_08_CLK14_N,cs.N,Output,4B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+M9,GPIOB_P_10_CLK12_P,dm[0].P,Output,4A,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+M10,GPIOB_N_13_CDI15,dq[1].N,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+M11,VCCAUX,,Power,4B,1.5 V,,,
+M12,REF_RES_3B,,Input,3B,1.5 V,,,
+M13,GND,,Power,,,,,Ground
+M14,GPIOR_P_02_CDI24,ras.P,Output,3B,1.5 V,1.5 V SSTL,,User IO
+M15,GPIOR_N_02_CDI25,cas.N,Output,3B,1.5 V,1.5 V SSTL,,User IO
+N1,GPIOL_N_01_CCK,,,1A,1.8 V,,,User IO/Configuration
+N2,GPIOL_P_02_CSI,,,1A,1.8 V,,,User IO/Configuration
+N3,TMS,,Input,BL,3.3 V,,,Configuration
+N4,TCK,,Input,BL,3.3 V,,,Configuration
+N5,VCCIO4B,,Power,4B,1.5 V,,,VCCIO Power
+N6,GPIOB_P_03_CDI6,dq[13].P,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO
+N7,VCCIO4B,,Power,4B,1.5 V,,,VCCIO Power
+N8,GPIOB_P_08_CLK14_P,dq[11].P,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+N9,VCCIO4A,,Power,4A,1.5 V,,,VCCIO Power
+N10,GPIOB_P_13_CDI14,dq[5].P,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+N11,VCCIO4A,,Power,4A,1.5 V,,,VCCIO Power
+N12,REF_RES_4A,,Input,4A,1.5 V,,,
+N13,GPIOR_24,,Input,BR,3.3 V,,weak pullup,User IO
+N14,GPIOR_21,b_led[0],Output,BR,3.3 V,3.3 V LVCMOS,,User IO
+N15,VCCIO33_BR,,Power,BR,3.3 V,,,VCCIO Power
+P1,GPIOL_P_01_SSL_N,,,1A,1.8 V,,,User IO/Configuration
+P2,GPIOL_P_00_PLLIN0,rxd[2].P,Input,1A,1.8 V,1.8 V LVCMOS,,User IO/PLL_CLKIN
+P3,TDI,,Input,BL,3.3 V,,,Configuration
+P4,VCCIO33_BL,,Power,BL,3.3 V,,,VCCIO Power
+P5,GPIOB_N_00,dq[15].N,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+P6,GPIOB_N_01,dq[12].N,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/PLL_EXTFB
+P7,GPIOB_N_02_CDI5,dqs[1].N,Bidirectional,4B,1.5 V,1.5 V Differential SSTL,,User IO
+P8,GPIOB_N_07_CLK15_N,dq[8].N,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+P9,GPIOB_N_12_CDI13,dq[3].N,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+P10,GPIOB_N_14_CDI17,dq[6].N,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+P11,GPIOB_P_17_PLLIN1,dq[7].P,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+P12,GPIOB_N_17,dq[4].N,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+P13,GPIOR_27,nrst,Input,BR,3.3 V,3.3 V LVCMOS,weak pullup,User IO
+P14,GPIOR_22,b_led[1],Output,BR,3.3 V,3.3 V LVCMOS,,User IO
+P15,GPIOR_25,,Input,BR,3.3 V,,weak pullup,User IO
+R1,GND,,Power,,,,,Ground
+R2,GPIOL_N_00,tx_en_o.N,Output,1A,1.8 V,1.8 V LVCMOS,,User IO/PLL_CLKIN
+R3,GPIOL_01,phy_rst_n,Output,BL,3.3 V,3.3 V LVCMOS,,User IO
+R4,GPIOL_02,phy_rst_n1,Output,BL,3.3 V,3.3 V LVCMOS,,User IO
+R5,GPIOB_P_00_PLLIN1,dq[14].P,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/PLL_CLKIN
+R6,GPIOB_P_01_EXTFB,dq[10].P,Bidirectional,4B,1.5 V,1.5 V SSTL,,User IO/PLL_EXTFB
+R7,GPIOB_P_02_CDI4,dqs[1].P,Bidirectional,4B,1.5 V,1.5 V Differential SSTL,,User IO
+R8,GPIOB_P_07_CLK15_P,dm[1].P,Output,4B,1.5 V,1.5 V SSTL,,User IO/GCLK/RCLK
+R9,GPIOB_P_12_CDI12,dq[0].P,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+R10,GPIOB_P_14_CDI16,dq[2].P,Bidirectional,4A,1.5 V,1.5 V SSTL,,User IO
+R11,GPIOB_N_15_CDI19,dqs[0].N,Bidirectional,4A,1.5 V,1.5 V Differential SSTL,,User IO
+R12,GPIOB_P_15_CDI18,dqs[0].P,Bidirectional,4A,1.5 V,1.5 V Differential SSTL,,User IO
+R13,GPIOR_29_PLLIN2,,Input,BR,3.3 V,,weak pullup,User IO/PLL_CLKIN
+R14,GPIOR_28,,Input,BR,3.3 V,,weak pullup,User IO
+R15,GND,,Power,,,,,Ground

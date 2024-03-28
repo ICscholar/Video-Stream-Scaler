@@ -1,0 +1,604 @@
+{
+    "debug_cores": [
+        {
+            "name": "la0",
+            "type": "la",
+            "uuid": "f81588f843fb4569970951bc2637c033",
+            "trigin_en": false,
+            "trigout_en": false,
+            "auto_inserted": true,
+            "capture_control": false,
+            "data_depth": 8192,
+            "input_pipeline": 1,
+            "probes": [
+                {
+                    "name": "START_X",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "START_Y",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "END_X",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "END_Y",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "OUTPUT_Y_RES",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "OUTPUT_X_RES",
+                    "width": 11,
+                    "probe_type": 2
+                },
+                {
+                    "name": "rx_vsync",
+                    "width": 1,
+                    "probe_type": 1
+                }
+            ]
+        }
+    ],
+    "connections": [
+        {
+            "command": "add_ports",
+            "id": 1,
+            "args": {
+                "netlist": "example_top",
+                "ports": [
+                    {
+                        "name": "jtag_inst2_CAPTURE",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_DRCK",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_RESET",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_RUNTEST",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_SEL",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_SHIFT",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_TCK",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_TDI",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_TMS",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_UPDATE",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst2_TDO",
+                        "dir": "out",
+                        "width": 1
+                    }
+                ]
+            }
+        },
+        {
+            "command": "instantiate",
+            "netlist": "edb_top",
+            "id": 2,
+            "instance": "edb_top_inst"
+        },
+        {
+            "command": "connect",
+            "id": 3,
+            "args": {
+                "instance": "edb_top_inst",
+                "ports": [
+                    {
+                        "name": "bscan_CAPTURE",
+                        "net": "jtag_inst2_CAPTURE"
+                    },
+                    {
+                        "name": "bscan_DRCK",
+                        "net": "jtag_inst2_DRCK"
+                    },
+                    {
+                        "name": "bscan_RESET",
+                        "net": "jtag_inst2_RESET"
+                    },
+                    {
+                        "name": "bscan_RUNTEST",
+                        "net": "jtag_inst2_RUNTEST"
+                    },
+                    {
+                        "name": "bscan_SEL",
+                        "net": "jtag_inst2_SEL"
+                    },
+                    {
+                        "name": "bscan_SHIFT",
+                        "net": "jtag_inst2_SHIFT"
+                    },
+                    {
+                        "name": "bscan_TCK",
+                        "net": "jtag_inst2_TCK"
+                    },
+                    {
+                        "name": "bscan_TDI",
+                        "net": "jtag_inst2_TDI"
+                    },
+                    {
+                        "name": "bscan_TMS",
+                        "net": "jtag_inst2_TMS"
+                    },
+                    {
+                        "name": "bscan_UPDATE",
+                        "net": "jtag_inst2_UPDATE"
+                    },
+                    {
+                        "name": "bscan_TDO",
+                        "net": "jtag_inst2_TDO"
+                    },
+                    {
+                        "name": "la0_clk",
+                        "net": "hdmi_rx_slow_clk",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[0]",
+                        "net": "START_X[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[1]",
+                        "net": "START_X[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[2]",
+                        "net": "START_X[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[3]",
+                        "net": "START_X[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[4]",
+                        "net": "START_X[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[5]",
+                        "net": "START_X[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[6]",
+                        "net": "START_X[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[7]",
+                        "net": "START_X[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[8]",
+                        "net": "START_X[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[9]",
+                        "net": "START_X[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0[10]",
+                        "net": "START_X[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[0]",
+                        "net": "START_Y[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[1]",
+                        "net": "START_Y[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[2]",
+                        "net": "START_Y[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[3]",
+                        "net": "START_Y[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[4]",
+                        "net": "START_Y[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[5]",
+                        "net": "START_Y[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[6]",
+                        "net": "START_Y[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[7]",
+                        "net": "START_Y[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[8]",
+                        "net": "START_Y[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[9]",
+                        "net": "START_Y[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe1[10]",
+                        "net": "START_Y[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[0]",
+                        "net": "END_X[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[1]",
+                        "net": "END_X[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[2]",
+                        "net": "END_X[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[3]",
+                        "net": "END_X[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[4]",
+                        "net": "END_X[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[5]",
+                        "net": "END_X[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[6]",
+                        "net": "END_X[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[7]",
+                        "net": "END_X[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[8]",
+                        "net": "END_X[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[9]",
+                        "net": "END_X[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe2[10]",
+                        "net": "END_X[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[0]",
+                        "net": "END_Y[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[1]",
+                        "net": "END_Y[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[2]",
+                        "net": "END_Y[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[3]",
+                        "net": "END_Y[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[4]",
+                        "net": "END_Y[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[5]",
+                        "net": "END_Y[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[6]",
+                        "net": "END_Y[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[7]",
+                        "net": "END_Y[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[8]",
+                        "net": "END_Y[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[9]",
+                        "net": "END_Y[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe3[10]",
+                        "net": "END_Y[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[0]",
+                        "net": "OUTPUT_Y_RES[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[1]",
+                        "net": "OUTPUT_Y_RES[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[2]",
+                        "net": "OUTPUT_Y_RES[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[3]",
+                        "net": "OUTPUT_Y_RES[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[4]",
+                        "net": "OUTPUT_Y_RES[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[5]",
+                        "net": "OUTPUT_Y_RES[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[6]",
+                        "net": "OUTPUT_Y_RES[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[7]",
+                        "net": "OUTPUT_Y_RES[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[8]",
+                        "net": "OUTPUT_Y_RES[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[9]",
+                        "net": "OUTPUT_Y_RES[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe4[10]",
+                        "net": "OUTPUT_Y_RES[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[0]",
+                        "net": "OUTPUT_X_RES[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[1]",
+                        "net": "OUTPUT_X_RES[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[2]",
+                        "net": "OUTPUT_X_RES[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[3]",
+                        "net": "OUTPUT_X_RES[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[4]",
+                        "net": "OUTPUT_X_RES[4]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[5]",
+                        "net": "OUTPUT_X_RES[5]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[6]",
+                        "net": "OUTPUT_X_RES[6]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[7]",
+                        "net": "OUTPUT_X_RES[7]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[8]",
+                        "net": "OUTPUT_X_RES[8]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[9]",
+                        "net": "OUTPUT_X_RES[9]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe5[10]",
+                        "net": "OUTPUT_X_RES[10]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe6",
+                        "net": "rx_vsync",
+                        "path": []
+                    }
+                ]
+            }
+        }
+    ],
+    "vdbs": [
+        {
+            "file": "debug_top.post.vdb",
+            "instance": "edb_top_inst"
+        }
+    ],
+    "session": {
+        "wizard": {
+            "data_depth": 8192,
+            "capture_control": false,
+            "selected_nets": [
+                {
+                    "name": "START_X",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "START_Y",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "END_X",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "END_Y",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "OUTPUT_Y_RES",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "OUTPUT_X_RES",
+                    "width": 11,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA ONLY",
+                    "child": [],
+                    "path": [],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rx_vsync",
+                    "width": 1,
+                    "clk_domain": "hdmi_rx_slow_clk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": []
+                }
+            ],
+            "top_module": "example_top",
+            "db_checksum": "ba5fce12098a2c03e7bae2e9a172d1842464edfca8e284870b3519e987537970",
+            "src": "elaborate",
+            "jtag_user": "USER2",
+            "input_pipeline": 1
+        }
+    }
+}

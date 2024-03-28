@@ -1,0 +1,258 @@
+
+Efinity Interface Designer Timing Report
+Version: 2023.1.150.5.11
+Date: 2023-11-14 13:01
+
+Copyright (C) 2017 - 2023 Efinix Inc. All rights reserved.
+
+Device: Ti60F225
+Project: DDR3_MC
+Timing Model: C4 (final)
+
+---------- 1. Oscillator Timing Report (begin) ----------
+
++---------+-------------+
+|  Clock  | Period (ns) |
++---------+-------------+
+| osc_clk |      25     |
++---------+-------------+
+
+---------- Oscillator Timing Report (end) ----------
+
+---------- 2. PLL Timing Report (begin) ----------
+
++---------------------+-------------+----------------------------+-----------------------+----------+
+|        Clock        | Period (ns) | Enable Dynamic Phase Shift | Phase Shift (degrees) | Inverted |
++---------------------+-------------+----------------------------+-----------------------+----------+
+|      tdqss_clk      |    2.5000   |           False            |          0.0          |  false   |
+|       core_clk      |    5.0000   |           False            |          0.0          |  false   |
+|       tac_clk       |    2.5000   |            True            |          0.0          |  false   |
+|       twd_clk       |    2.5000   |           False            |          90.0         |  false   |
+|   DDR3_PLL_CLKOUT4  |   10.0000   |           False            |          0.0          |  false   |
+|       mipi_fb       |   10.0000   |           False            |          0.0          |  false   |
+|   i_mipi_txc_sclk   |    2.5000   |           False            |         135.0         |  false   |
+|   i_mipi_txd_sclk   |    2.5000   |           False            |          45.0         |  false   |
+|    i_mipi_tx_pclk   |   10.0000   |           False            |          0.0          |  false   |
+|       sys_clk       |   10.0000   |           False            |          0.0          |  false   |
+|       clk_125m      |    8.0000   |           False            |          0.0          |  false   |
+|       clk_10m       |   100.0000  |           False            |          0.0          |  false   |
+|    i_sysclk_div_2   |   17.0000   |           False            |          0.0          |  false   |
+| hdmi_rx_slow_clk_2x |    3.3670   |           False            |          0.0          |  false   |
+|   hdmi_rx_fast_clk  |    1.3468   |           False            |          45.0         |  false   |
+|   hdmi_tx_fast_clk  |    1.3468   |           False            |          0.0          |  false   |
+|   hdmi_rx_slow_clk  |    6.7340   |           False            |          0.0          |  false   |
++---------------------+-------------+----------------------------+-----------------------+----------+
+
+---------- PLL Timing Report (end) ----------
+
+---------- 3. GPIO Timing Report (begin) ----------
+
+Non-registered GPIO Configuration:
+===================================
+
++---------------+------------+-----------+----------+----------+
+| Instance Name |  Pin Name  | Parameter | Max (ns) | Min (ns) |
++---------------+------------+-----------+----------+----------+
+|      nrst     |    nrst    |  GPIO_IN  |  1.907   |  1.271   |
+|    uart_rx    |  uart_rx   |  GPIO_IN  |  1.907   |  1.271   |
+|    b_led[0]   |  b_led[0]  |  GPIO_OUT |  5.740   |  2.493   |
+|    b_led[1]   |  b_led[1]  |  GPIO_OUT |  5.740   |  2.493   |
+|   LCD_POWER   | LCD_POWER  |  GPIO_OUT |  5.740   |  2.493   |
+|   o_lcd_rstn  | o_lcd_rstn |  GPIO_OUT |  5.740   |  2.493   |
+|   phy_rst_n   | phy_rst_n  |  GPIO_OUT |  5.740   |  2.493   |
+|   phy_rst_n1  | phy_rst_n1 |  GPIO_OUT |  5.740   |  2.493   |
+|    uart_tx    |  uart_tx   |  GPIO_OUT |  5.740   |  2.493   |
++---------------+------------+-----------+----------+----------+
+
+---------- GPIO Timing Report (end) ----------
+
+---------- 4. JTAG Timing Report (begin) ----------
+
++---------------+----------------+-----------+----------+----------+
+| Instance Name |    Pin Name    | Parameter | Max (ns) | Min (ns) |
++---------------+----------------+-----------+----------+----------+
+|   jtag_inst1  | jtag_inst1_TDI |  JTAG_IN  |  2.536   |  1.690   |
+|   jtag_inst1  | jtag_inst1_TMS |  JTAG_IN  |  1.843   |  1.228   |
++---------------+----------------+-----------+----------+----------+
+
+---------- JTAG Timing Report (end) ----------
+
+---------- 5.1 HSIO GPIO Timing Report (begin) ----------
+
+Clkout GPIO Configuration:
+===========================
+
++---------------+------------+--------------+----------+----------+
+| Instance Name | Clock Pin  |  Parameter   | Max (ns) | Min (ns) |
++---------------+------------+--------------+----------+----------+
+|     clk_p     | ~tdqss_clk | GPIO_CLK_OUT |  1.512   |  1.008   |
++---------------+------------+--------------+----------+----------+
+
+Non-registered HSIO GPIO Configuration:
+========================================
+
++---------------+-------------------+-------------+----------+----------+
+| Instance Name |      Pin Name     |  Parameter  | Max (ns) | Min (ns) |
++---------------+-------------------+-------------+----------+----------+
+|    clk_25m    |      clk_25m      | GPIO_CLK_IN |  0.828   |  0.552   |
+|   HDMI_5V_N   |     HDMI_5V_N     |   GPIO_IN   |  0.828   |  0.552   |
+|      rxc      |        rxc        | GPIO_CLK_IN |  1.773   |  1.182   |
+|      rxc1     |        rxc1       | GPIO_CLK_IN |  1.773   |  1.182   |
+|     HPD_N     |       HPD_N       |   GPIO_OUT  |  2.205   |  1.470   |
+| FPGA_HDMI_SCL |  FPGA_HDMI_SCL_IN |   GPIO_IN   |  0.828   |  0.552   |
+| FPGA_HDMI_SCL | FPGA_HDMI_SCL_OUT |   GPIO_OUT  |  2.205   |  1.470   |
+| FPGA_HDMI_SCL |  FPGA_HDMI_SCL_OE |   GPIO_OUT  |  1.953   |  1.302   |
+| FPGA_HDMI_SDA |  FPGA_HDMI_SDA_IN |   GPIO_IN   |  0.828   |  0.552   |
+| FPGA_HDMI_SDA | FPGA_HDMI_SDA_OUT |   GPIO_OUT  |  2.205   |  1.470   |
+| FPGA_HDMI_SDA |  FPGA_HDMI_SDA_OE |   GPIO_OUT  |  1.953   |  1.302   |
+|    mdio_io    |       mdio_i      |   GPIO_IN   |  0.828   |  0.552   |
+|    mdio_io    |       mdio_o      |   GPIO_OUT  |  2.205   |  1.470   |
+|    mdio_io    |      mdio_oe      |   GPIO_OUT  |  1.953   |  1.302   |
+|    mdio_io1   |    mdio_io1_IN    |   GPIO_IN   |  0.828   |  0.552   |
+|    mdio_io1   |    mdio_io1_OUT   |   GPIO_OUT  |  2.205   |  1.470   |
+|    mdio_io1   |    mdio_io1_OE    |   GPIO_OUT  |  1.953   |  1.302   |
++---------------+-------------------+-------------+----------+----------+
+
+Registered HSIO GPIO Configuration:
+====================================
+
++-------------------+------------------+----------------+----------------+---------------+---------------+-----------------------+-----------------------+
+|   Instance Name   |    Clock Pin     | Max Setup (ns) | Min Setup (ns) | Max Hold (ns) | Min Hold (ns) | Max Clock To Out (ns) | Min Clock To Out (ns) |
++-------------------+------------------+----------------+----------------+---------------+---------------+-----------------------+-----------------------+
+|       rx_dv       |       rxc        |     0.657      |     0.438      |     -0.447    |     -0.298    |                       |                       |
+|       rx_dv1      |       rxc1       |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|      rxd1[0]      |       rxc1       |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|      rxd1[1]      |       rxc1       |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|      rxd1[2]      |       rxc1       |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|      rxd1[3]      |       rxc1       |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|       rxd[0]      |       rxc        |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|       rxd[1]      |       rxc        |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|       rxd[2]      |       rxc        |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|       rxd[3]      |       rxc        |     0.618      |     0.412      |     -0.408    |     -0.272    |                       |                       |
+|      addr[0]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[1]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[2]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[3]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[4]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[5]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[6]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[7]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[8]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[9]      |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[10]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[11]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[12]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[13]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[14]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      addr[15]     |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       ba[0]       |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       ba[1]       |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       ba[2]       |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|        cas        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|        cke        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|         cs        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       dm[0]       |     twd_clk      |                |                |               |               |         1.585         |         1.057         |
+|       dm[1]       |     twd_clk      |                |                |               |               |         1.585         |         1.057         |
+|   hdmi_tx_clk_n   | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+|   hdmi_tx_clk_p   | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_n[0] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_n[1] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_n[2] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_p[0] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_p[1] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+| hdmi_tx_data_p[2] | hdmi_tx_fast_clk |                |                |               |               |         2.226         |         1.484         |
+|       mdc_o       |     clk_10m      |                |                |               |               |         2.226         |         1.484         |
+|       mdc_o1      |     clk_10m      |                |                |               |               |         2.226         |         1.484         |
+|        odt        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|        ras        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       reset       |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|      tx_en_o      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|      tx_en_o1     |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|        txc        |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|        txc1       |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|      txd1[0]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|      txd1[1]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|      txd1[2]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|      txd1[3]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|       txd[0]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|       txd[1]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|       txd[2]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|       txd[3]      |     clk_125m     |                |                |               |               |         2.226         |         1.484         |
+|         we        |    tdqss_clk     |                |                |               |               |         1.596         |         1.064         |
+|       dq[0]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[0]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[1]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[1]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[2]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[2]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[3]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[3]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[4]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[4]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[5]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[5]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[6]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[6]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[7]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[7]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[8]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[8]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[9]       |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[9]       |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[10]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[10]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[11]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[11]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[12]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[12]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[13]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[13]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[14]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dq[14]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dq[15]      |     tac_clk      |     0.854      |     0.569      |     -0.518    |     -0.345    |                       |                       |
+|       dq[15]      |     twd_clk      |                |                |               |               |         1.585         |         0.994         |
+|       dqs[0]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dqs[0]      |    tdqss_clk     |                |                |               |               |         1.585         |         0.994         |
+|       dqs[1]      |     tac_clk      |     0.791      |     0.527      |     -0.581    |     -0.387    |                       |                       |
+|       dqs[1]      |    tdqss_clk     |                |                |               |               |         1.585         |         0.994         |
++-------------------+------------------+----------------+----------------+---------------+---------------+-----------------------+-----------------------+
+
+---------- HSIO GPIO Timing Report (end) ----------
+
+---------- 5.2.1 LVDS Rx Timing Report (begin) ----------
+
+---------- LVDS Rx Timing Report (end) ----------
+
+---------- 5.3.1 MIPI TX Lane Timing Report (begin) ----------
+
++---------------+------------------------+------------------+----------+----------+
+| Instance Name |        Pin Name        |    Parameter     | Max (ns) | Min (ns) |
++---------------+------------------------+------------------+----------+----------+
+|  mipi_dp_clk  |   mipi_dp_clk_HS_OE    | MIPI_TX_LANE_OUT |  1.575   |  1.050   |
+|  mipi_dp_clk  |  mipi_dp_clk_LP_N_OE   | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+|  mipi_dp_clk  |  mipi_dp_clk_LP_P_OE   | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+|  mipi_dp_clk  |  mipi_dp_clk_LP_N_OUT  | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+|  mipi_dp_clk  |  mipi_dp_clk_LP_P_OUT  | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data0 |  mipi_dp_data0_HS_OE   | MIPI_TX_LANE_OUT |  1.575   |  1.050   |
+| mipi_dp_data0 | mipi_dp_data0_LP_N_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data0 | mipi_dp_data0_LP_P_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data0 | mipi_dp_data0_LP_N_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data0 | mipi_dp_data0_LP_P_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data1 |  mipi_dp_data1_HS_OE   | MIPI_TX_LANE_OUT |  1.575   |  1.050   |
+| mipi_dp_data1 | mipi_dp_data1_LP_N_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data1 | mipi_dp_data1_LP_P_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data1 | mipi_dp_data1_LP_N_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data1 | mipi_dp_data1_LP_P_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data2 |  mipi_dp_data2_HS_OE   | MIPI_TX_LANE_OUT |  1.575   |  1.050   |
+| mipi_dp_data2 | mipi_dp_data2_LP_N_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data2 | mipi_dp_data2_LP_P_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data2 | mipi_dp_data2_LP_N_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data2 | mipi_dp_data2_LP_P_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data3 |  mipi_dp_data3_HS_OE   | MIPI_TX_LANE_OUT |  1.575   |  1.050   |
+| mipi_dp_data3 | mipi_dp_data3_LP_N_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data3 | mipi_dp_data3_LP_P_OE  | MIPI_TX_LANE_OUT |  2.100   |  1.400   |
+| mipi_dp_data3 | mipi_dp_data3_LP_N_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
+| mipi_dp_data3 | mipi_dp_data3_LP_P_OUT | MIPI_TX_LANE_OUT |  2.058   |  1.372   |
++---------------+------------------------+------------------+----------+----------+
+
+---------- MIPI TX Lane Timing Report (end) ----------

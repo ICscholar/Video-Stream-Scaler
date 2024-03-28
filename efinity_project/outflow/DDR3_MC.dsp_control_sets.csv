@@ -1,0 +1,10 @@
+DSP Block Name,CE Net,RST Net,CLK Net,SHIFT_ENA Net,OP[0] Net,OP[1] Net,SHIFTER,SIGNED,RST_SYNC,C_EXT,P_EXT,A_REG,B_REG,C_REG,OP_REG,O_REG,P_REG,W_REG,CASCOUT_SEL,M_SEL,N_SEL,W_SEL,CE_POLARITY,CLK_POLARITY,RST_POLARITY,SHIFT_ENA_POLARITY
+"rgb_to_ycbcr/mult_4","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,0,1,1,"P","P","CASCIN","X",1,1,1,1
+"rgb_to_ycbcr/mult_6","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,1,1,0,"P","P","C","P",1,1,1,1
+"rgb_to_ycbcr/mult_12","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,0,1,0,"P","P","C","P",1,1,1,1
+"rgb_to_ycbcr/mult_11","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,0,1,0,"P","P","C","P",1,1,1,1
+"rgb_to_ycbcr/mult_13","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,0,1,0,"P","P","C","P",1,1,1,1
+"rgb_to_ycbcr/mult_18","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,1,1,0,"P","P","C","P",1,1,1,1
+"rgb_to_ycbcr/mult_5","gnd","gnd","hdmi_rx_slow_clk_2x","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",0,0,0,0,0,1,0,"P","P","C","P",1,1,1,1
+"ycbcr_to_rgb/mult_11","ceg_net2713","gnd","hdmi_rx_slow_clk","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",1,0,0,0,0,1,0,"P","P","C","P",1,1,1,1
+"ycbcr_to_rgb/mult_17","ceg_net2713","gnd","hdmi_rx_slow_clk","gnd","gnd","gnd",0,0,1,"ALIGN_RIGHT","ALIGN_RIGHT",1,0,0,0,0,1,0,"P","P","C","P",1,1,1,1

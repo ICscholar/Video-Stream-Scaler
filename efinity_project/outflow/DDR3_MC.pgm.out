@@ -1,0 +1,32 @@
+
+Efinix FPGA Bitstream Generator.
+Version: 2023.1.150.5.11 
+Copyright (C) 2013 - 2023 Efinix Inc. All rights reserved.
+
+Compiled: Jun 23 2023.
+
+Using source file "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/work_pnr/DDR3_MC.lbf"
+Generating HEX programming file for device "Ti60F225", family "Titanium"
+Using periphery source file "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.lpf"
+Generating bit file: "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.bit"
+HEX Generation Options Summary:
+	Listing options specified to bitstream generation:
+	bitstream_compression                    = on
+	oscillator_clock_divider                 = DIV8
+	enable_external_master_clock             = off
+	spi_low_power_mode                       = on
+	active_capture_clk_edge                  = posedge
+	enable_remote_update                     = off
+	release_tri_then_reset                   = on
+	enable_seu_crc_check                     = off
+	seu_mode                                 = automatic
+	seu_wait_interval                        = 0xFFFFFF
+	jtag_usercode                            = 0xFFFFFFFF
+	io_weak_pullup                           = on
+Finished generating "F:/Project/yls/Project3/uart_showchar_fillbrank_updown2/efinity_project/outflow/DDR3_MC.hex"
+Efinity Bitstream Generator took 6.99322 seconds.
+	Efinity Bitstream Generator took 5.26562 seconds (approximately) in total CPU time.
+Efinity Bitstream Generator virtual memory usage: begin = 2.604 MB, end = 6.896 MB, delta = 4.292 MB
+	Efinity Bitstream Generator peak virtual memory usage = 137.288 MB
+Efinity Bitstream Generator resident set memory usage: begin = 7.776 MB, end = 15.344 MB, delta = 7.568 MB
+	Efinity Bitstream Generator peak resident set memory usage = 141.316 MB

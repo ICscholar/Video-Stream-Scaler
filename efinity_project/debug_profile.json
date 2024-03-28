@@ -1,0 +1,333 @@
+{
+    "debug_cores": [
+        {
+            "name": "Axi",
+            "type": "la",
+            "uuid": "bfeb66faa9564ae8bdd310611bd255ea",
+            "probes": [
+                {
+                    "name": "AVALID",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "AREADY",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "ATYPE",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "AADDR",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "ALEN",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WVALID",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WREADY",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WLAST",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "BVALID",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "BREADY",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RVALID",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RREADY",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RLAST",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WrDataMode",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WrEn",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WrAddr",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA__31___0",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA__63__32",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA__95__64",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA_127__96",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA_159_128",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA_191_160",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA_223_192",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "WDATA_255_224",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "TestErr",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RdDataMode",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RdAva",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RdAddr",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA__31___0",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA__63__32",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA__95__64",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA_127__96",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA_159_128",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA_191_160",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA_223_192",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "RDATA_255_224",
+                    "width": 32,
+                    "probe_type": 2
+                },
+                {
+                    "name": "TimeOut",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "WrStartA",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "RdStartA",
+                    "width": 32,
+                    "probe_type": 1
+                }
+            ],
+            "data_depth": 1024,
+            "trigin_en": false,
+            "trigout_en": false,
+            "capture_control": false,
+            "input_pipeline": 1,
+            "auto_inserted": false
+        },
+        {
+            "name": "DdrTest",
+            "type": "vio",
+            "uuid": "21d00086b97a465e99daa114b8157aad",
+            "probes": [
+                {
+                    "name": "DdrReset",
+                    "width": 1,
+                    "init": "0x0"
+                },
+                {
+                    "name": "TestStart",
+                    "width": 1,
+                    "init": "0x1"
+                },
+                {
+                    "name": "CfgDataMode",
+                    "width": 2,
+                    "init": "0x3"
+                },
+                {
+                    "name": "CfgTestMode",
+                    "width": 2,
+                    "init": "0x3"
+                },
+                {
+                    "name": "CfgBurstLen",
+                    "width": 8,
+                    "init": "0xf"
+                },
+                {
+                    "name": "CfgTestLen",
+                    "width": 32,
+                    "init": "0x80000000"
+                },
+                {
+                    "name": "CfgStartAddr",
+                    "width": 32,
+                    "init": "0x0"
+                },
+                {
+                    "name": "CfgEndAddr",
+                    "width": 32,
+                    "init": "0xffffffff"
+                },
+                {
+                    "name": "TestBusy",
+                    "width": 1,
+                    "init": null
+                },
+                {
+                    "name": "TestRight",
+                    "width": 1,
+                    "init": null
+                },
+                {
+                    "name": "TestErrCnt",
+                    "width": 24,
+                    "init": null
+                },
+                {
+                    "name": "Operate_Total_Cycle",
+                    "width": 48,
+                    "init": null
+                },
+                {
+                    "name": "Operate_Actual_Cycle",
+                    "width": 48,
+                    "init": null
+                },
+                {
+                    "name": "Operate_Efficiency_ppt",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "BandWidth_Mbps",
+                    "width": 16,
+                    "init": null
+                },
+                {
+                    "name": "Test_Time_second",
+                    "width": 24,
+                    "init": null
+                },
+                {
+                    "name": "WrPeriod_minimun_Cycle",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "WrPeriod_Average_Cycle",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "WrPeriod_Maximum_Cycle",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "RdPeriod_minimun_Cycle",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "RdPeriod_Average_Cycle",
+                    "width": 10,
+                    "init": null
+                },
+                {
+                    "name": "RdPeriod_Maximum_Cycle",
+                    "width": 10,
+                    "init": null
+                }
+            ]
+        }
+    ],
+    "session": {
+        "debug_widget": [],
+        "wizard": {}
+    }
+}

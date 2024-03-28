@@ -1,0 +1,18 @@
+[dumpfile] "F:\Project\yls\Project\uart_showchar_fillbrank4\efinity_project\la0_waveform.vcd"
+[dumpfile_mtime] "Sat Nov 11 12:07:41 2023"
+[dumpfile_size] 561
+[savefile] "F:\Project\yls\Project\uart_showchar_fillbrank4\efinity_project\la0_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 4096 12288 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.START_X[10:0]
+top.START_Y[10:0]
+top.END_X[10:0]
+top.END_Y[10:0]
+top.OUTPUT_Y_RES[10:0]
+top.OUTPUT_X_RES[10:0]
+top.rx_vsync

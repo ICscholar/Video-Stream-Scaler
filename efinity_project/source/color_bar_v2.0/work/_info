@@ -1,0 +1,146 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/customer_Prj/novastar/20230428-1413/Ti60F225_devkit_v6_3.16/color_bar_v2.0
+T_opt
+!s110 1687690602
+VP235_VBDgZOf>hERWj>?30
+04 12 4 work color_bar_tb fast 0
+=1-3cf011750698-64981d6a-1e9-82e0
+o-quiet -auto_acc_if_foreign -work work +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.7c;67
+R0
+vcolor_bar_rgb
+!s110 1687690700
+!i10b 1
+!s100 ERQKh2AJ[dOUe3@EiE?Yh2
+IYHTW26U7JVCd[3edZJAV92
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1687675603
+8./color_bar_rgb.v
+F./color_bar_rgb.v
+L0 2
+Z3 OL;L;10.7c;67
+r1
+!s85 0
+31
+!s108 1687690700.000000
+!s107 ./color_bar_rgb.v|
+!s90 -reportprogress|300|./color_bar_rgb.v|
+!i113 0
+Z4 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vcolor_bar_tb
+Z5 !s110 1687690701
+!i10b 1
+!s100 FXBhhLlXC4j1?d4[_k[b82
+IO99]<onkWRA[=QU3AV6I13
+R2
+R0
+w1687690454
+8./color_bar_tb.v
+F./color_bar_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z6 !s108 1687690701.000000
+!s107 ./color_bar_tb.v|
+!s90 -reportprogress|300|./color_bar_tb.v|
+!i113 0
+R4
+R1
+vlength_calc
+R5
+!i10b 1
+!s100 mB]27Lg2VanOf@0I@>4f83
+Ih0Cc5U;<4SRXUc3k3`?ML2
+R2
+R0
+Z7 w1686737918
+Z8 8./timing_detec.v
+Z9 F./timing_detec.v
+L0 164
+R3
+r1
+!s85 0
+31
+R6
+!s107 ./timing_detec.v|
+Z10 !s90 -reportprogress|300|./timing_detec.v|
+!i113 0
+R4
+R1
+vsep2par
+R5
+!i10b 1
+!s100 X=zVF=Bf:Agc5<oJASTm61
+I93h1[l73V:LAz[iYiHOKD3
+R2
+R0
+w1687689668
+Z11 8./ser2par_pixel.v
+Z12 F./ser2par_pixel.v
+L0 2
+R3
+r1
+!s85 0
+31
+R6
+Z13 !s107 ./ser2par_pixel.v|
+Z14 !s90 -reportprogress|300|./ser2par_pixel.v|
+!i113 0
+R4
+R1
+vser2par_pixel
+!s110 1686848296
+!i10b 1
+!s100 CS`P6obmZ]=IeQkfX?TB?1
+Io7OCT;JLV=c^:Hg28HH6F1
+R2
+R0
+w1686848288
+R11
+R12
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1686848296.000000
+R13
+R14
+!i113 0
+R4
+R1
+vtiming_detec
+R5
+!i10b 1
+!s100 zUDNaYD9d8@ZWC[d=gdX53
+IoLmJUBFBi2iSjSSkcSA7E1
+R2
+R0
+R7
+R8
+R9
+L0 2
+R3
+r1
+!s85 0
+31
+R6
+Z15 !s107 ./timing_detec.v|
+R10
+!i113 0
+R4
+R1

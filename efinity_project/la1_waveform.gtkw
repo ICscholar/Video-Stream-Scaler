@@ -1,0 +1,19 @@
+[dumpfile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\00_demo_total\01_Ti60_Soft_DDR3_Axi_demo_v3\efinity_project\la1_waveform.vcd"
+[dumpfile_mtime] "Mon May 08 15:34:16 2023"
+[dumpfile_size] 115953
+[savefile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\00_demo_total\01_Ti60_Soft_DDR3_Axi_demo_v3\efinity_project\la1_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 2048 6144 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/u_data_tx/de_o
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/u_data_tx/vs_o
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/u_data_tx/fifo_wr_data[15:0]
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/u_data_tx/hs_o
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/rd_shift_en
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/rd_shift[7:0]
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/rd_shift_period
+top.\u_frame_buffer_ch0/u_ddr_tx_buffer/tx_vin[15:0]

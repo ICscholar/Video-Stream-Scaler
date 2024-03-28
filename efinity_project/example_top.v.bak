@@ -1,0 +1,785 @@
+`include "ddr3_controller.vh"
+
+`define Efinity_Debug
+module example_top
+(
+
+input jtag_inst1_CAPTURE,
+input jtag_inst1_DRCK,
+input jtag_inst1_RESET,
+input jtag_inst1_RUNTEST,
+input jtag_inst1_SEL,
+input jtag_inst1_SHIFT,
+input jtag_inst1_TCK,
+input jtag_inst1_TDI,
+input jtag_inst1_TMS,
+input jtag_inst1_UPDATE,
+output jtag_inst1_TDO,
+
+ output DDR3_PLL_RSTN,
+  output SYS_PLL_RSTN,
+  input DDR3_PLL_LOCK,
+  input SYS_PLL_LOCK,
+input sys_clk,
+input core_clk,
+input twd_clk,
+input tdqss_clk,
+input tac_clk,
+input nrst,
+
+output reset,
+output cs,
+output ras,
+output cas,
+output we,
+output cke,
+output [15:0]addr,
+output [2:0]ba,
+output odt,
+output [`DRAM_GROUP-1'b1:0] o_dm_hi,
+output [`DRAM_GROUP-1'b1:0] o_dm_lo,
+
+input [`DRAM_GROUP-1'b1:0]i_dqs_hi,
+input [`DRAM_GROUP-1'b1:0]i_dqs_lo,
+
+input [`DRAM_GROUP-1'b1:0]i_dqs_n_hi,
+input [`DRAM_GROUP-1'b1:0]i_dqs_n_lo,
+
+
+output [`DRAM_GROUP-1'b1:0]o_dqs_hi,
+output [`DRAM_GROUP-1'b1:0]o_dqs_lo,
+
+output [`DRAM_GROUP-1'b1:0]o_dqs_n_hi,
+output [`DRAM_GROUP-1'b1:0]o_dqs_n_lo,
+
+
+output [`DRAM_GROUP-1'b1:0]o_dqs_oe,
+output [`DRAM_GROUP-1'b1:0]o_dqs_n_oe,
+
+input [`DRAM_WIDTH-1'b1:0] i_dq_hi,
+input [`DRAM_WIDTH-1'b1:0] i_dq_lo,
+
+output [`DRAM_WIDTH-1'b1:0] o_dq_hi,
+output [`DRAM_WIDTH-1'b1:0] o_dq_lo,
+
+output [`DRAM_WIDTH-1'b1:0] o_dq_oe,
+
+output [2:0]			shift,
+output [4:0]			shift_sel,
+output 					shift_ena,
+
+output 					cal_done,
+output 					cal_pass
+);
+//=====================================================================
+////Define  Parameter
+//=====================================================================
+
+  /////////////   
+  parameter   RIGHT_CNT_WIDTH   = 27                ; //Data Checker Right Counter Width 
+
+  parameter   AXI_CLK_PERIOD    = 32'd108_000_000   ; //AXI Clock Period(Hz)
+  parameter   AXI_DATA_WIDTH    = 128               ; //AXI Data Width(Bit)
+  parameter   AXI_WR_ID         = 8'haa             ; //AXI Write ID
+  parameter   AXI_RD_ID         = 8'h55             ; //AXI Read ID  
+  
+  parameter   DDR_CLK_PERIOD    = 32'd800_000_000   ; //DDR Clock Period(Hz)
+  parameter   DDR_START_ADDRESS = 32'h00_00_00_00   ; //DDR Memory Start Address
+  parameter   DDR_END_ADDRESS   = 32'h00_1f_ff_ff   ; //DDR Memory End Address
+  parameter   DDR_DATA_WIDTH    = 16                ; //DDR Data Width(Bit)                                  
+  parameter   DDR_WRITE_FIRST   = 1'h1              ; //1:Write First ; 0: Read First   
+
+  
+  parameter   AXI_ID_WIDTH    =   8         ;
+  
+  localparam  AXI_BYTE_NUMBER = AXI_DATA_WIDTH/8  ;
+  localparam  DRAM_DATA_WIDTH = `DRAM_WIDTH  ;
+  localparam  DRAM_GROUP_NUM  = `DRAM_GROUP  ;
+
+  /////////////                 
+  localparam  AIW   = AXI_ID_WIDTH      ;
+  localparam  ADW   = AXI_DATA_WIDTH    ;
+  localparam  ABN   = AXI_BYTE_NUMBER   ;
+  localparam  DDW   = DRAM_DATA_WIDTH   ;
+  localparam  DGN   = DRAM_GROUP_NUM    ;  
+  localparam  DBW   = `DM_BIT_WIDTH     ;
+  localparam  WFW   = `WFIFO_WIDTH      ;  
+
+  /////////////                 
+//=========================================================================
+//signal define
+//=========================================================================
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
+  reg           Ddr_Ready       = 1'h0  ;
+  /////////////////////////////////////////////////////////
+  wire  [ 1:0]      CfgDataMode     ; //(I)Config Test Data Mode 0: Normal 1:Reverse 2,3:Normal&Revers Alternate 
+  wire  [ 1:0]      CfgTestMode     ; //(I)Test Mode: 1:Read Only;2:Write Only;3:Write/Read alternate
+  wire  [ 7:0]      CfgBurstLen     ; //(I)Config Burst Length;
+  wire  [ 2:0]      CfgDataSize     ; //(I)Config Data Size
+  wire  [31:0]      CfgStartAddr    ; //(I)Config Start Address
+  wire  [31:0]      CfgFirstAddr    ; //(I)Config First Address
+  wire  [31:0]      CfgEndAddr      ; //(I)Config End Address
+  wire  [31:0]      CfgTestLen      ; //(I)Cinfig Test Length
+  wire              TestStart       ; //(I)Test Start Control
+    //Test State                    
+  wire              TestBusy        ; //(O)Test Busy State
+  wire              TestErr         ; //(O)Test Data Error
+  wire              TestRight       ; //(O)Test Data Right
+  //AXI4 Operate                    
+  wire  [31:0]      AxiWrStartA     ; //Axi4 Write Start Address
+  wire              AxiWrEn         ; //Axi4 Write Enable
+  wire  [31:0]      AxiWrAddr       ; //Axi4 Write Address
+  wire  [ABN-1:0]   AxiWrMask       ; //Axi4 Write Mask
+  wire  [   31:0]   AxiRdStartA     ; //Axi4 Read Start Address
+  wire              AxiRdAva        ; //Axi4 Read Available
+  wire  [   31:0]   AxiRdAddr       ; //Axi4 Read Address
+  wire              AxiWrDMode      ; //Axi4 Write DDR End
+  wire              AxiRdDMode      ; //Axi4 Read DDR End
+  
+
+  wire  [23:0]  TestTime  ; //(O)Test Time      
+  wire  [23:0]  ErrCnt    ; //(O)Test Error Counter   
+  wire  [47:0]  OpTotCyc  ; //(O)Total Operate Cycle Counter
+  wire  [47:0]  OpActCyc  ; //(O)Actual Operate Cycle Counter
+  wire  [ 9:0]  OpEffic   ; //(O)Operate Efficiency
+  wire  [15:0]  BandWidth ; //(O)BandWidth  
+  wire  [9:0]   WrPeriMin ; //Write Minimum Period For One Burst
+  wire  [9:0]   WrPeriAvg ; //Write Average Period For One Burst
+  wire  [9:0]   WrPeriMax ; //Write maximum Period For One Burst
+  wire  [9:0]   RdPeriMin ; //Read Minimum Period For One Burst
+  wire  [9:0]   RdPeriAvg ; //Read Average Period For One Burst
+  wire  [9:0]   RdPeriMax ; //Read maximum Period For One Burst
+  wire          TimeOut   ; //(O)TimeOut
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`ifdef  Efinity_Debug
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+  wire  [255:0]     AxiWrData       ; //Axi4 Write Data
+  wire  [255:0]     AxiRdData       ; //Axi4 Read Data
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`else
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+  wire  [ADW-1:0]   AxiWrData       ; //Axi4 Write Data
+  wire  [ADW-1:0]   AxiRdData       ; //Axi4 Read Data
+
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`endif 
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&    
+  
+  //Axi Interfac Signal
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`ifdef  AXI_FULL_DEPLEX
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  wire  [AIW-1:0]   Axi_AWID      ; //(I)[WrAddr]Write address ID. This signal is the identification tag for the write address group of signals.
+  wire  [   31:0]   Axi_AWADDR    ; //(I)[WrAddr]Write address. The write address gives the address of the first transfer in a write burst transaction.
+  wire  [    7:0]   Axi_AWLEN     ; //(I)[WrAddr]Burst length. The burst length gives the exact number of transfers in a burst. This information determines the number of data transfers associated with the address.
+  wire  [    2:0]   Axi_AWSIZE    ; //(I)[WrAddr]Burst size. This signal indicates the size of each transfer in the burst.
+  wire  [    1:0]   Axi_AWBURST   ; //(I)[WrAddr]Burst type. The burst type and the size information, determine how the address for each transfer within the burst is calculated.
+  wire  [    1:0]   Axi_AWLOCK    ; //(I)[WrAddr]Lock type. Provides additional information about the atomic characteristics of the transfer.
+  wire              Axi_AWVALID   ; //(I)[WrAddr]Write address valid. This signal indicates that the channel is signaling valid write address and control information.
+  wire              Axi_AWREADY   ; //(O)[WrAddr]Write address ready. This signal indicates that the slave is ready to accept an address and associated control signals.
+  /////////////
+  wire  [AIW-1:0]   Axi_ARID      ; //(I)[RdAddr]Read address ID. This signal is the identification tag for the read address group of signals.
+  wire  [   31:0]   Axi_ARADDR    ; //(I)[RdAddr]Read address. The read address gives the address of the first transfer in a read burst transaction.
+  wire  [    7:0]   Axi_ARLEN     ; //(I)[RdAddr]Burst length. This signal indicates the exact number of transfers in a burst.
+  wire  [    2:0]   Axi_ARSIZE    ; //(I)[RdAddr]Burst size. This signal indicates the size of each transfer in the burst.
+  wire  [    1:0]   Axi_ARBURST   ; //(I)[RdAddr]Burst type. The burst type and the size information determine how the address for each transfer within the burst is calculated.
+  wire  [    1:0]   Axi_ARLOCK    ; //(I)[RdAddr]Lock type. This signal provides additional information about the atomic characteristics of the transfer.
+  wire              Axi_ARVALID   ; //(I)[RdAddr]Read address valid. This signal indicates that the channel is signaling valid read address and control information.
+  wire              Axi_ARREADY   ; //(O)[RdAddr]Read address ready. This signal indicates that the slave is ready to accept an address and associated control signals.
+  /////////////
+  wire  [AIW-1:0]   Axi_WID       ; //(I)[WrData]Write ID tag. This signal is the ID tag of the write data transfer.
+  wire  [ABN-1:0]   Axi_WSTRB     ; //(I)[WrData]Write strobes. This signal indicates which byte lanes hold valid data. There is one write strobe bit for each eight bits of the write data bus.
+  wire              Axi_WLAST     ; //(I)[WrData]Write last. This signal indicates the last transfer in a write burst.
+  wire              Axi_WVALID    ; //(I)[WrData]Write valid. This signal indicates that valid write data and strobes are available.
+  wire  [ADW-1:0]   Axi_WDATA     ; //(O)[WrData]Write data.
+  wire              Axi_WREADY    ; //(I)[WrData]Write ready. This signal indicates that the slave can accept the write data.
+  /////////////
+  wire  [AIW-1:0]   Axi_BID       ; //(O)[WrResp]Response ID tag. This signal is the ID tag of the write response.
+  wire              Axi_BVALID    ; //(O)[WrResp]Write response valid. This signal indicates that the channel is signaling a valid write response.
+  wire              Axi_BREADY    ; //(I)[WrResp]Response ready. This signal indicates that the master can accept a write response.
+  /////////////      
+  wire              Axi_RREADY    ; //(I)[RdData]Read ready. This signal indicates that the master can accept the read data and response information.
+  wire  [AIW-1:0]   Axi_RID       ; //(O)[RdData]Read ID tag. This signal is the identification tag for the read data group of signals generated by the slave.
+  wire  [    1:0]   Axi_RRESP     ; //(O)[RdData]Read response. This signal indicates the status of the read transfer.
+  wire              Axi_RLAST     ; //(O)[RdData]Read last. This signal indicates the last transfer in a read burst.
+  wire              Axi_RVALID    ; //(O)[RdData]Read valid. This signal indicates that the channel is signaling the required read data.
+  wire  [ADW-1:0]   Axi_RDATA     ; //(O)[RdData]Read data.
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`else
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  wire  [AIW-1:0]   DdrCtrl_AID     ; //(O)[Addres] Address ID
+  wire  [   31:0]   DdrCtrl_AADDR   ; //(O)[Addres] Address
+  wire  [    7:0]   DdrCtrl_ALEN    ; //(O)[Addres] Address Brust Length
+  wire  [    2:0]   DdrCtrl_ASIZE   ; //(O)[Addres] Address Burst size
+  wire  [    1:0]   DdrCtrl_ABURST  ; //(O)[Addres] Address Burst type
+  wire  [    1:0]   DdrCtrl_ALOCK   ; //(O)[Addres] Address Lock type
+  wire              DdrCtrl_AVALID  ; //(O)[Addres] Address Valid
+  wire              DdrCtrl_AREADY  ; //(I)[Addres] Address Ready
+  wire              DdrCtrl_ATYPE   ; //(O)[Addres] Operate Type 0=Read, 1=Write
+  ///////////   
+  wire  [AIW-1:0]   DdrCtrl_WID     ; //(O)[Write]  ID
+  wire  [ADW-1:0]   DdrCtrl_WDATA   ; //(O)[Write]  Data
+  wire  [   15:0]   DdrCtrl_WSTRB   ; //(O)[Write]  Data Strobes(Byte valid)
+  wire              DdrCtrl_WLAST   ; //(O)[Write]  Data Last
+  wire              DdrCtrl_WVALID  ; //(O)[Write]  Data Valid
+  wire              DdrCtrl_WREADY  ; //(I)[Write]  Data Ready
+  ///////////   
+  wire  [AIW-1:0]   DdrCtrl_RID     ; //(I)[Read]   ID
+  wire  [ADW-1:0]   DdrCtrl_RDATA   ; //(I)[Read]   Data
+  wire              DdrCtrl_RLAST   ; //(I)[Read]   Data Last
+  wire              DdrCtrl_RVALID  ; //(I)[Read]   Data Valid
+  wire              DdrCtrl_RREADY  ; //(O)[Read]   Data Ready
+  wire  [   1:0]    DdrCtrl_RRESP   ; //(I)[Read]   Response
+  /////////// 
+  wire  [AIW-1:0]   DdrCtrl_BID     ; //(I)[Answer] Response Write ID
+  wire              DdrCtrl_BVALID  ; //(I)[Answer] Response valid
+  wire              DdrCtrl_BREADY  ; //(O)[Answer] Response Ready
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`endif 
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&    
+
+//==============================================================================
+//reset porcess module
+//==============================================================================
+
+ reg   [3:0]   Reset_Cnt     = 4'h0  ;
+ wire          DdrResetCtrl  ;
+ wire		   Sys_Rst_N	;
+ 
+ assign DDR3_PLL_RSTN = nrst;
+ assign SYS_PLL_RSTN = nrst;
+  always  @(posedge sys_clk )
+  begin
+    if (~DDR3_PLL_LOCK)          Reset_Cnt   <= 3'h0  ;
+    else if (~SYS_PLL_LOCK)    Reset_Cnt   <= 3'h0  ;
+    else if (DdrResetCtrl)  		Reset_Cnt   <= 3'h0  ;
+    else if (~&Reset_Cnt)   Reset_Cnt   <= Reset_Cnt + 4'h1  ;
+  end
+
+  assign  Sys_Rst_N  = Reset_Cnt[3]  ;
+
+  always @( posedge sys_clk or negedge Sys_Rst_N)
+  begin
+		if( !Sys_Rst_N )
+			Ddr_Ready <= 1'b0;
+		else if( cal_done & cal_pass )	
+			Ddr_Ready <= 1'b1;
+  end	
+
+//===============================================================================
+//DDR3 software control
+//===============================================================================
+
+
+ DdrTest  
+  # (
+      .AXI_ID_WIDTH       ( AXI_ID_WIDTH      ) ,
+      .AXI_DATA_WIDTH     ( AXI_DATA_WIDTH    ) ,
+      .DDR_WRITE_FIRST    ( DDR_WRITE_FIRST   ) , //1:Write First ; 0: Read First
+      .RIGHT_CNT_WIDTH    ( RIGHT_CNT_WIDTH   ) ,
+      .DDR_START_ADDRESS  ( DDR_START_ADDRESS ) , //DDR Memory Start Address
+      .DDR_END_ADDRESS    ( DDR_END_ADDRESS   ) , //DDR Memory End Address
+      .AXI_WR_ID          ( AXI_WR_ID         ) ,
+      .AXI_RD_ID          ( AXI_RD_ID         ) 
+    )
+  U1_DdrTest
+  (
+    //System Signal
+    .SysClk       ( sys_clk           ) , //(O)System Clock
+    .Reset_N      ( Ddr_Ready         ) , //(I)System Reset (Low Active)
+    //Test Configuration & State        
+    .CfgTestMode  ( CfgTestMode       ) , //(I)Test Mode: 1:Read Only;2:Write Only;3:Write/Read alternate
+    .CfgBurstLen  ( CfgBurstLen       ) , //(I)Config Burst Length;
+    .CfgDataSize  ( CfgDataSize       ) , //(I)Config Data Size
+    .CfgStartAddr ( CfgStartAddr      ) , //(I)Config Start Address
+    .CfgFirstAddr ( CfgFirstAddr      ) , //(I)Config First Address
+    .CfgEndAddr   ( CfgEndAddr        ) , //(I)Config End Address
+    .CfgTestLen   ( CfgTestLen        ) , //(I)Cinfig Test Length
+    .CfgDataMode  ( CfgDataMode       ) , //(I)Config Test Data Mode 0: Nomarl 1:Reverse
+    .TestStart    ( TestStart         ) , //(I)Test Start Control
+    //Test State  & Result              
+    .TestBusy     ( TestBusy          ) , //(O)Test Busy State
+    .TestErr      ( TestErr           ) , //(O)Test Data Error
+    .TestRight    ( TestRight         ) , //(O)Test Data Right
+    //AXI4 Operate                      
+    .AxiWrStartA  ( AxiWrStartA       ) , //Axi4 Write Start Address
+    .AxiWrEn      ( AxiWrEn           ) , //Axi4 Write Enable
+    .AxiWrAddr    ( AxiWrAddr         ) , //Axi4 Write Address
+    .AxiWrMask    ( AxiWrMask         ) , //Axi4 Write Mask
+    .AxiWrData    ( AxiWrData         ) , //Axi4 Write Data
+    .AxiRdStartA  ( AxiRdStartA       ) , //Axi4 Read Start Address
+    .AxiRdAva     ( AxiRdAva          ) , //Axi4 Read Available
+    .AxiRdAddr    ( AxiRdAddr         ) , //Axi4 Read Address
+    .AxiRdData    ( AxiRdData         ) , //Axi4 Read Data
+    .AxiWrDMode   ( AxiWrDMode        ) , //Axi4 Write DDR End
+    .AxiRdDMode   ( AxiRdDMode        ) , //Axi4 Read DDR End
+    //Axi Interfac Signal
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`ifdef  AXI_FULL_DEPLEX
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    .AWID       ( Axi_AWID          ) , //(I)[WrAddr]Write address ID. This signal is the identification tag for the write address group of signals.
+    .AWADDR     ( Axi_AWADDR        ) , //(I)[WrAddr]Write address. The write address gives the address of the first transfer in a write burst transaction.
+    .AWLEN      ( Axi_AWLEN         ) , //(I)[WrAddr]Burst length. The burst length gives the exact number of transfers in a burst. This information determines the number of data transfers associated with the address.
+    .AWSIZE     ( Axi_AWSIZE        ) , //(I)[WrAddr]Burst size. This signal indicates the size of each transfer in the burst.
+    .AWBURST    ( Axi_AWBURST       ) , //(I)[WrAddr]Burst type. The burst type and the size information, determine how the address for each transfer within the burst is calculated.
+    .AWLOCK     ( Axi_AWLOCK        ) , //(I)[WrAddr]Lock type. Provides additional information about the atomic characteristics of the transfer.
+    .AWVALID    ( Axi_AWVALID       ) , //(I)[WrAddr]Write address valid. This signal indicates that the channel is signaling valid write address and control information.
+    .AWREADY    ( Axi_AWREADY       ) , //(O)[WrAddr]Write address ready. This signal indicates that the slave is ready to accept an address and associated control signals.
+    /////////////   
+    .ARID       ( Axi_ARID          ) , //(I)[RdAddr]Read address ID. This signal is the identification tag for the read address group of signals.
+    .ARADDR     ( Axi_ARADDR        ) , //(I)[RdAddr]Read address. The read address gives the address of the first transfer in a read burst transaction.
+    .ARLEN      ( Axi_ARLEN         ) , //(I)[RdAddr]Burst length. This signal indicates the exact number of transfers in a burst.
+    .ARSIZE     ( Axi_ARSIZE        ) , //(I)[RdAddr]Burst size. This signal indicates the size of each transfer in the burst.
+    .ARBURST    ( Axi_ARBURST       ) , //(I)[RdAddr]Burst type. The burst type and the size information determine how the address for each transfer within the burst is calculated.
+    .ARLOCK     ( Axi_ARLOCK        ) , //(I)[RdAddr]Lock type. This signal provides additional information about the atomic characteristics of the transfer.
+    .ARVALID    ( Axi_ARVALID       ) , //(I)[RdAddr]Read address valid. This signal indicates that the channel is signaling valid read address and control information.
+    .ARREADY    ( Axi_ARREADY       ) , //(O)[RdAddr]Read address ready. This signal indicates that the slave is ready to accept an address and associated control signals.
+    /////////////
+    .WID        ( Axi_WID           ) , //(I)[WrData]Write ID tag. This signal is the ID tag of the write data transfer.
+    .WSTRB      ( Axi_WSTRB         ) , //(I)[WrData]Write strobes. This signal indicates which byte lanes hold valid data. There is one write strobe bit for each eight bits of the write data bus.
+    .WLAST      ( Axi_WLAST         ) , //(I)[WrData]Write last. This signal indicates the last transfer in a write burst.
+    .WVALID     ( Axi_WVALID        ) , //(I)[WrData]Write valid. This signal indicates that valid write data and strobes are available.
+    .WDATA      ( Axi_WDATA         ) , //(O)[WrData]Write data.
+    .WREADY     ( Axi_WREADY        ) , //(I)[WrData]Write ready. This signal indicates that the slave can accept the write data.
+    /////////////
+    .BID        ( Axi_BID           ) , //(O)[WrResp]Response ID tag. This signal is the ID tag of the write response.
+    .BVALID     ( Axi_BVALID        ) , //(O)[WrResp]Write response valid. This signal indicates that the channel is signaling a valid write response.
+    .BREADY     ( Axi_BREADY        ) , //(I)[WrResp]Response ready. This signal indicates that the master can accept a write response.
+    /////////////
+    .RID        ( Axi_RID           ) , //(O)[RdData]Read ID tag. This signal is the identification tag for the read data group of signals generated by the slave.
+    .RRESP      ( Axi_RRESP         ) , //(O)[RdData]Read response. This signal indicates the status of the read transfer.
+    .RLAST      ( Axi_RLAST         ) , //(O)[RdData]Read last. This signal indicates the last transfer in a read burst.
+    .RVALID     ( Axi_RVALID        ) , //(O)[RdData]Read valid. This signal indicates that the channel is signaling the required read data.
+    .RREADY     ( Axi_RREADY        ) , //(I)[RdData]Read ready. This signal indicates that the master can accept the read data and response information.
+    .RDATA      ( Axi_RDATA         )   //(O)[RdData]Read data.
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`else
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    .avalid       ( DdrCtrl_AVALID    ) , //(O)[Addres] Address Valid
+    .aready       ( DdrCtrl_AREADY    ) , //(I)[Addres] Address Ready
+    .aaddr        ( DdrCtrl_AADDR     ) , //(O)[Addres] Address
+    .aid          ( DdrCtrl_AID       ) , //(O)[Addres] Address ID
+    .alen         ( DdrCtrl_ALEN      ) , //(O)[Addres] Address Brust Length
+    .asize        ( DdrCtrl_ASIZE     ) , //(O)[Addres] Address Burst size
+    .aburst       ( DdrCtrl_ABURST    ) , //(O)[Addres] Address Burst type
+    .alock        ( DdrCtrl_ALOCK     ) , //(O)[Addres] Address Lock type
+    .atype        ( DdrCtrl_ATYPE     ) , //(O)[Addres] Operate Type 0=Read, 1=Write
+    /////////////
+    .wid          ( DdrCtrl_WID       ) , //(O)[Write]  ID
+    .wvalid       ( DdrCtrl_WVALID    ) , //(O)[Write]  Data Valid
+    .wready       ( DdrCtrl_WREADY    ) , //(I)[Write]  Data Ready
+    .wdata        ( DdrCtrl_WDATA     ) , //(O)[Write]  Data
+    .wstrb        ( DdrCtrl_WSTRB     ) , //(O)[Write]  Data Strobes(Byte valid)
+    .wlast        ( DdrCtrl_WLAST     ) , //(O)[Write]  Data Last
+    /////////////
+    .rvalid       ( DdrCtrl_RVALID    ) , //(I)[Read]   Data Valid
+    .rready       ( DdrCtrl_RREADY    ) , //(O)[Read]   Data Ready
+    .rdata        ( DdrCtrl_RDATA     ) , //(I)[Read]   Data
+    .rid          ( DdrCtrl_RID       ) , //(I)[Read]   ID
+    .rresp        ( DdrCtrl_RRESP     ) , //(I)[Read]   Response
+    .rlast        ( DdrCtrl_RLAST     ) , //(I)[Read]   Data Last
+    /////////////
+    .bvalid       ( DdrCtrl_BVALID    ) , //(I)[Answer] Response valid
+    .bready       ( DdrCtrl_BREADY    ) , //(O)[Answer] Response Ready  
+    .bid          ( DdrCtrl_BID       )   //(I)[Answer] Response Write ID
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+`endif 
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  );
+  
+  DdrTestStatic
+  # (
+      .DDR_CLK_PERIOD ( DDR_CLK_PERIOD  ),
+      .DDR_DATA_WIDTH ( DDR_DATA_WIDTH  ),
+      .AXI_CLK_PERIOD ( AXI_CLK_PERIOD ),
+      .AXI_DATA_WIDTH ( AXI_DATA_WIDTH )
+    )
+  U2_DdrTestStatis
+  ( 
+    //System Signal
+    .SysClk     ( sys_clk           ) , //(O)System Clock
+    .Reset_N    ( Ddr_Ready         ) , //(I)System Reset (Low Active)
+    //DDR Controner Operate Statistics Control & Result
+    .TestBusy   ( TestBusy          ) , //(I)Test Busy State
+    .TestErr    ( TestErr           ) , //(I)Test Read Data Error
+    .StatiClr   ( StatiClr          ) , //(I)Staistics Couter Clear
+    .TestTime   ( TestTime          ) , //(O)Test Time      
+    .ErrCnt     ( ErrCnt            ) , //(O)Test Error Counter   
+    .OpTotCyc   ( OpTotCyc          ) , //(O)Total Operate Cycle Counter
+    .OpActCyc   ( OpActCyc          ) , //(O)Actual Operate Cycle Counter
+    .OpEffic    ( OpEffic           ) , //(O)Operate Efficiency
+    .BandWidth  ( BandWidth         ) , //(O)BandWidth
+    .WrPeriMin  ( WrPeriMin         ) , //Write Minimum Period For One Burst
+    .WrPeriAvg  ( WrPeriAvg         ) , //Write Average Period For One Burst
+    .WrPeriMax  ( WrPeriMax         ) , //Write maximum Period For One Burst
+    .RdPeriMin  ( RdPeriMin         ) , //Read Minimum Period For One Burst
+    .RdPeriAvg  ( RdPeriAvg         ) , //Read Average Period For One Burst
+    .RdPeriMax  ( RdPeriMax         ) , //Read maximum Period For One Burst
+    .TimeOut    ( TimeOut           ) , //(O)TimeOut
+    //DDR Controner AXI4 Signal
+    .avalid     ( DdrCtrl_AVALID    ) , //(O)[Addres] Address Valid
+    .aready     ( DdrCtrl_AREADY    ) , //(I)[Addres] Address Ready
+    .atype      ( DdrCtrl_ATYPE     ) , //(O)[Addres] Operate Type 0=Read, 1=Write
+    .wlast      ( DdrCtrl_WLAST     ) , //(O)[Write]  Data Last
+    .wvalid     ( DdrCtrl_WVALID    ) , //(O)[Write]  Data Valid
+    .wready     ( DdrCtrl_WREADY    ) , //(I)[Write]  Data Ready
+    .rlast      ( DdrCtrl_RLAST     ) , //(I)[Read]   Data Last
+    .rvalid     ( DdrCtrl_RVALID    ) , //(I)[Read]   Data Valid
+    .rready     ( DdrCtrl_RREADY    )   //(O)[Read]   Data Ready
+  );
+
+//=======================================================================
+//DDR3 soft Controller
+//=======================================================================
+
+efx_ddr3_axi inst_ddr3_axi
+(	
+	.core_clk		(core_clk),
+	.tac_clk		(tac_clk),
+	.twd_clk		(twd_clk),	
+	.tdqss_clk	(tdqss_clk),
+	
+	.axi_clk	(sys_clk ),
+	.nrst			(Sys_Rst_N),
+	
+	.reset		( reset           ) ,           
+	.cs				( cs              ) ,              
+	.ras			( ras             ) ,              
+	.cas			( cas             ) ,              
+	.we				( we              ) ,              
+	.cke			( cke             ) ,              
+	.addr			( addr            ) ,              
+	.ba				( ba              ) ,              
+	.odt			( odt             ) ,              
+	.o_dm_hi	( o_dm_hi         ) ,                 
+	.o_dm_lo	( o_dm_lo         ) ,                 
+	.i_dq_hi	( i_dq_hi         ) ,                    
+	.i_dq_lo	( i_dq_lo         ) ,                    							
+	.o_dq_hi	(o_dq_hi),                  
+	.o_dq_lo	(o_dq_lo),                  
+	.o_dq_oe	(o_dq_oe),                  
+	.i_dqs_hi	( i_dqs_hi        ) ,          
+	.i_dqs_lo	( i_dqs_lo        ) ,          
+	.i_dqs_n_hi	(i_dqs_n_hi),            
+	.i_dqs_n_lo	(i_dqs_n_lo),            
+	.o_dqs_hi	(o_dqs_hi),
+	.o_dqs_lo	(o_dqs_lo),
+	.o_dqs_n_hi	(o_dqs_n_hi),
+	.o_dqs_n_lo	(o_dqs_n_lo),
+	.o_dqs_oe	(o_dqs_oe),
+	.o_dqs_n_oe	(o_dqs_n_oe),
+
+	
+	//TO Tester
+	.i_avalid	( DdrCtrl_AVALID  ) ,
+	.o_aready	( DdrCtrl_AREADY  ) ,
+	.i_aaddr	( DdrCtrl_AADDR   ) ,
+	.i_aid		( DdrCtrl_AID     ) ,
+	.i_alen		( DdrCtrl_ALEN    ) ,
+	.i_asize	( DdrCtrl_ASIZE   ) ,
+	.i_aburst	( DdrCtrl_ABURST  ) ,
+	.i_alock	( DdrCtrl_ALOCK   ) ,
+	.i_atype	( DdrCtrl_ATYPE   ) ,
+	                                                     
+	.i_wid		( DdrCtrl_WID     ) ,
+	.i_wvalid	( DdrCtrl_WVALID  ) ,
+	.o_wready	( DdrCtrl_WREADY  ) ,
+	.i_wdata	( DdrCtrl_WDATA   ) ,
+	.i_strb		( DdrCtrl_WSTRB   ) ,
+	.i_wlast	( DdrCtrl_WLAST   ) ,
+	                                                     
+	.o_bvalid	( DdrCtrl_BVALID  ) ,
+	.i_bready	( DdrCtrl_BREADY  ) ,
+	.o_bid		( DdrCtrl_BID     ) ,
+	                                                     
+	.o_rvalid	( DdrCtrl_RVALID  ) ,
+	.i_rready	( DdrCtrl_RREADY  ) ,
+	.o_rdata	( DdrCtrl_RDATA   ) ,
+	.o_rid		( DdrCtrl_RID     ) ,
+	.o_rresp	( DdrCtrl_RRESP   ) ,
+	.o_rlast	( DdrCtrl_RLAST   ) ,
+
+	.shift		(shift			),
+	.shift_sel(shift_sel	),
+	.shift_ena(shift_ena	),
+	.cal_ena	(1'b1				),
+	.cal_done(cal_done		),
+	.cal_pass(cal_pass  	)
+);
+        	  
+//=================================================================================
+//
+//=================================================================================
+
+`ifdef  Efinity_Debug  //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+  /////////////////////////////////////////////////////////
+    wire  Axi_clk  = sys_clk  ;
+
+    reg             Axi_AVALID          =  1'h0 ;
+    reg             Axi_AREADY          =  1'h0 ;
+    reg             Axi_ATYPE           =  1'h0 ;
+    reg   [ 7:0]    Axi_ALEN            =  8'h0 ;
+    reg             Axi_WVALID          =  1'h0 ;
+    reg             Axi_WREADY          =  1'h0 ;
+    reg             Axi_BVALID          =  1'h0 ;
+    reg             Axi_BREADY          =  1'h0 ;
+    reg             Axi_RVALID          =  1'h0 ;
+    reg             Axi_RREADY          =  1'h0 ;
+    reg             Axi_WLAST           =  1'h0 ;
+    reg             Axi_RLAST           =  1'h0 ;
+    reg   [31:0]    Axi_AADDR           = 32'h0 ;
+                                     
+    reg             Axi_WrEn            =  1'h0 ;
+    reg   [31:0]    Axi_WrAddr          = 32'h0 ;
+    reg   [31:0]    Axi_WDATA__31___0   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA__63__32   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA__95__64   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA_127__96   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA_159_128   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA_191_160   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA_223_192   = 32'h0 ;
+    reg   [31:0]    Axi_WDATA_255_224   = 32'h0 ;
+                                        
+    reg             Axi_RdAva           =  1'h0 ;
+    reg   [31:0]    Axi_RdAddr          = 32'h0 ;
+    reg   [31:0]    Axi_RDATA__31___0   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA__63__32   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA__95__64   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA_127__96   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA_159_128   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA_191_160   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA_223_192   = 32'h0 ;
+    reg   [31:0]    Axi_RDATA_255_224   = 32'h0 ;
+    
+    reg             Axi_TestErr         =  1'h0 ;
+    reg             Axi_WrDataMode      =  1'h0 ;
+    reg             Axi_RdDataMode      =  1'h0 ;
+    reg             Axi_TimeOut         =  1'h0 ;
+    reg   [31:0]    Axi_WrStartA        = 32'h0 ;
+    reg   [31:0]    Axi_RdStartA        = 32'h0 ;
+    
+    always @( posedge Axi_clk)    Axi_AVALID        <=  DdrCtrl_AVALID   ;
+    always @( posedge Axi_clk)    Axi_AREADY        <=  DdrCtrl_AREADY   ;
+    always @( posedge Axi_clk)    Axi_ATYPE         <=  DdrCtrl_ATYPE    ;
+    always @( posedge Axi_clk)    Axi_ALEN          <=  DdrCtrl_ALEN     ;
+    always @( posedge Axi_clk)    Axi_WVALID        <=  DdrCtrl_WVALID   ;
+    always @( posedge Axi_clk)    Axi_WREADY        <=  DdrCtrl_WREADY   ;
+    always @( posedge Axi_clk)    Axi_BVALID        <=  DdrCtrl_BVALID   ;
+    always @( posedge Axi_clk)    Axi_BREADY        <=  DdrCtrl_BREADY   ;
+    always @( posedge Axi_clk)    Axi_RVALID        <=  DdrCtrl_RVALID   ;
+    always @( posedge Axi_clk)    Axi_RREADY        <=  DdrCtrl_RREADY   ;
+    always @( posedge Axi_clk)    Axi_WLAST         <=  DdrCtrl_WLAST    ;
+    always @( posedge Axi_clk)    Axi_RLAST         <=  DdrCtrl_RLAST    ;
+    always @( posedge Axi_clk)    Axi_AADDR         <=  DdrCtrl_AADDR    ;    
+                                                                               
+    always @( posedge Axi_clk)    Axi_WrEn            <= AxiWrEn               ;
+    always @( posedge Axi_clk)    Axi_WrAddr          <= AxiWrAddr             ;       
+    always @( posedge Axi_clk)    Axi_WDATA__31___0   <= AxiWrData[ 31:  0]    ;
+    always @( posedge Axi_clk)    Axi_WDATA__63__32   <= AxiWrData[ 63: 32]    ;
+    always @( posedge Axi_clk)    Axi_WDATA__95__64   <= AxiWrData[ 95: 64]    ;
+    always @( posedge Axi_clk)    Axi_WDATA_127__96   <= AxiWrData[127: 96]    ;
+    always @( posedge Axi_clk)    Axi_WDATA_159_128   <= AxiWrData[159:128]    ;
+    always @( posedge Axi_clk)    Axi_WDATA_191_160   <= AxiWrData[191:160]    ;
+    always @( posedge Axi_clk)    Axi_WDATA_223_192   <= AxiWrData[223:192]    ;
+    always @( posedge Axi_clk)    Axi_WDATA_255_224   <= AxiWrData[255:224]    ;
+
+    always @( posedge Axi_clk)    Axi_RdAva           <= AxiRdAva              ;
+    always @( posedge Axi_clk)    Axi_RdAddr          <= AxiRdAddr             ;    
+    always @( posedge Axi_clk)    Axi_RDATA__31___0   <= AxiRdData[ 31:  0]    ;
+    always @( posedge Axi_clk)    Axi_RDATA__63__32   <= AxiRdData[ 63: 32]    ;
+    always @( posedge Axi_clk)    Axi_RDATA__95__64   <= AxiRdData[ 95: 64]    ;
+    always @( posedge Axi_clk)    Axi_RDATA_127__96   <= AxiRdData[127: 96]    ;
+    always @( posedge Axi_clk)    Axi_RDATA_159_128   <= AxiRdData[159:128]    ;
+    always @( posedge Axi_clk)    Axi_RDATA_191_160   <= AxiRdData[191:160]    ;
+    always @( posedge Axi_clk)    Axi_RDATA_223_192   <= AxiRdData[223:192]    ;
+    always @( posedge Axi_clk)    Axi_RDATA_255_224   <= AxiRdData[255:224]    ;
+
+    always @( * )                 Axi_TestErr         <= TestErr               ; 
+    always @( posedge Axi_clk)    Axi_WrDataMode      <= AxiWrDMode            ; 
+    always @( posedge Axi_clk)    Axi_RdDataMode      <= AxiRdDMode            ; 
+    always @( posedge Axi_clk)    Axi_TimeOut         <= TimeOut               ; 
+
+    always @( posedge Axi_clk)    Axi_WrStartA        <= AxiWrStartA           ;
+    always @( posedge Axi_clk)    Axi_RdStartA        <= AxiRdStartA           ;
+    
+  /////////////////////////////////////////////////////////                                              
+    wire  DdrTest_clk = sys_clk    ;
+                                                                
+    wire              DdrTest_TestBusy                = TestBusy  ;
+    wire  [23:0]      DdrTest_TestErrCnt              = ErrCnt    ;
+    wire              DdrTest_TestRight               = TestRight ;
+    wire  [47:0]      DdrTest_Operate_Total_Cycle     = OpTotCyc  ;
+    wire  [47:0]      DdrTest_Operate_Actual_Cycle    = OpActCyc  ;
+    wire  [ 9:0]      DdrTest_Operate_Efficiency_ppt  = OpEffic   ;
+    wire  [15:0]      DdrTest_BandWidth_Mbps          = BandWidth ;
+    wire  [ 9:0]      DdrTest_WrPeriod_minimun_Cycle  = WrPeriMin ;
+    wire  [ 9:0]      DdrTest_WrPeriod_Average_Cycle  = WrPeriAvg ;
+    wire  [ 9:0]      DdrTest_WrPeriod_Maximum_Cycle  = WrPeriMax ;
+    wire  [ 9:0]      DdrTest_RdPeriod_minimun_Cycle  = RdPeriMin ;
+    wire  [ 9:0]      DdrTest_RdPeriod_Average_Cycle  = RdPeriAvg ;
+    wire  [ 9:0]      DdrTest_RdPeriod_Maximum_Cycle  = RdPeriMax ;
+    wire  [23:0]      DdrTest_Test_Time_second        = TestTime  ;
+                                                      
+    wire              DdrTest_DdrReset                ;
+    wire  [ 1:0]      DdrTest_CfgDataMode             ;
+    wire  [ 1:0]      DdrTest_CfgTestMode             ;
+    wire  [ 7:0]      DdrTest_CfgBurstLen             ;
+    wire  [31:0]      DdrTest_CfgStartAddr            ;
+    wire  [31:0]      DdrTest_CfgEndAddr              ;
+    wire  [31:0]      DdrTest_CfgTestLen              ;
+    wire              DdrTest_TestStart               ;    
+    
+  edb_top edb_top_inst (
+  ////////////////
+    .bscan_CAPTURE        ( jtag_inst1_CAPTURE  ),
+    .bscan_DRCK           ( jtag_inst1_DRCK     ),
+    .bscan_RESET          ( jtag_inst1_RESET    ),
+    .bscan_RUNTEST        ( jtag_inst1_RUNTEST  ),
+    .bscan_SEL            ( jtag_inst1_SEL      ),
+    .bscan_SHIFT          ( jtag_inst1_SHIFT    ),
+    .bscan_TCK            ( jtag_inst1_TCK      ),
+    .bscan_TDI            ( jtag_inst1_TDI      ),
+    .bscan_TMS            ( jtag_inst1_TMS      ),
+    .bscan_UPDATE         ( jtag_inst1_UPDATE   ),
+    .bscan_TDO            ( jtag_inst1_TDO      ),
+  ////////////////        
+    .Axi_clk              ( Axi_clk             ),
+    
+    .Axi_AVALID           ( Axi_AVALID          ),
+    .Axi_AREADY           ( Axi_AREADY          ),
+    .Axi_ATYPE            ( Axi_ATYPE           ),
+    .Axi_ALEN             ( Axi_ALEN            ),
+    .Axi_WVALID           ( Axi_WVALID          ),
+    .Axi_WREADY           ( Axi_WREADY          ),
+    .Axi_BVALID           ( Axi_BVALID          ),
+    .Axi_BREADY           ( Axi_BREADY          ),
+    .Axi_RVALID           ( Axi_RVALID          ),
+    .Axi_RREADY           ( Axi_RREADY          ),
+    .Axi_WLAST            ( Axi_WLAST           ),
+    .Axi_RLAST            ( Axi_RLAST           ),
+    .Axi_AADDR            ( Axi_AADDR           ),
+                                                
+    .Axi_WrEn             ( Axi_WrEn            ),
+    .Axi_WrAddr           ( Axi_WrAddr          ),
+                                                
+    .Axi_RdAva            ( Axi_RdAva           ),
+    .Axi_RdAddr           ( Axi_RdAddr          ),
+                                                
+    .Axi_TestErr          ( Axi_TestErr         ),
+    .Axi_WrDataMode       ( Axi_WrDataMode      ),
+    .Axi_RdDataMode       ( Axi_RdDataMode      ),
+    .Axi_TimeOut          ( Axi_TimeOut         ),
+    .Axi_WrStartA         ( Axi_WrStartA        ),
+    .Axi_RdStartA         ( Axi_RdStartA        ),
+                                                
+    .Axi_WDATA__31___0    ( Axi_WDATA__31___0   ),
+    .Axi_WDATA__63__32    ( Axi_WDATA__63__32   ),
+    .Axi_WDATA__95__64    ( Axi_WDATA__95__64   ),
+    .Axi_WDATA_127__96    ( Axi_WDATA_127__96   ),
+    .Axi_WDATA_159_128    ( Axi_WDATA_159_128   ),
+    .Axi_WDATA_191_160    ( Axi_WDATA_191_160   ),
+    .Axi_WDATA_223_192    ( Axi_WDATA_223_192   ),
+    .Axi_WDATA_255_224    ( Axi_WDATA_255_224   ),
+                                                
+    .Axi_RDATA__31___0    ( Axi_RDATA__31___0   ),
+    .Axi_RDATA__63__32    ( Axi_RDATA__63__32   ),
+    .Axi_RDATA__95__64    ( Axi_RDATA__95__64   ),
+    .Axi_RDATA_127__96    ( Axi_RDATA_127__96   ),
+    .Axi_RDATA_159_128    ( Axi_RDATA_159_128   ),
+    .Axi_RDATA_191_160    ( Axi_RDATA_191_160   ),
+    .Axi_RDATA_223_192    ( Axi_RDATA_223_192   ),
+    .Axi_RDATA_255_224    ( Axi_RDATA_255_224   ),
+    
+  ////////////////
+    .DdrTest_clk                    ( DdrTest_clk                     ),
+    
+    .DdrTest_TestBusy               ( DdrTest_TestBusy                ),
+    .DdrTest_TestErrCnt             ( DdrTest_TestErrCnt              ),
+    .DdrTest_TestRight              ( DdrTest_TestRight               ),
+    .DdrTest_Operate_Total_Cycle    ( DdrTest_Operate_Total_Cycle     ),
+    .DdrTest_Operate_Actual_Cycle   ( DdrTest_Operate_Actual_Cycle    ),
+    .DdrTest_Operate_Efficiency_ppt ( DdrTest_Operate_Efficiency_ppt  ),
+    .DdrTest_BandWidth_Mbps         ( DdrTest_BandWidth_Mbps          ),
+    .DdrTest_WrPeriod_minimun_Cycle ( DdrTest_WrPeriod_minimun_Cycle  ),
+    .DdrTest_WrPeriod_Average_Cycle ( DdrTest_WrPeriod_Average_Cycle  ),
+    .DdrTest_WrPeriod_Maximum_Cycle ( DdrTest_WrPeriod_Maximum_Cycle  ),
+    .DdrTest_RdPeriod_minimun_Cycle ( DdrTest_RdPeriod_minimun_Cycle  ),
+    .DdrTest_RdPeriod_Average_Cycle ( DdrTest_RdPeriod_Average_Cycle  ),
+    .DdrTest_RdPeriod_Maximum_Cycle ( DdrTest_RdPeriod_Maximum_Cycle  ),
+    .DdrTest_Test_Time_second       ( DdrTest_Test_Time_second        ),
+    
+    .DdrTest_DdrReset               ( DdrTest_DdrReset                ),
+    .DdrTest_CfgDataMode            ( DdrTest_CfgDataMode             ),
+    .DdrTest_CfgTestMode            ( DdrTest_CfgTestMode             ),
+    .DdrTest_CfgBurstLen            ( DdrTest_CfgBurstLen             ),
+    .DdrTest_CfgStartAddr           ( DdrTest_CfgStartAddr            ),
+    .DdrTest_CfgEndAddr             ( DdrTest_CfgEndAddr              ),
+    .DdrTest_CfgTestLen             ( DdrTest_CfgTestLen              ),
+    .DdrTest_TestStart              ( DdrTest_TestStart               )
+ );
+
+                                              
+  /////////////////////////////////////////////////////////
+  
+  assign  TestStart     = DdrTest_TestStart     ;
+  assign  DdrResetCtrl  = DdrTest_DdrReset      ;
+  assign  CfgDataMode   = DdrTest_CfgDataMode   ;
+  assign  CfgTestMode   = DdrTest_CfgTestMode   ;
+  assign  CfgBurstLen   = DdrTest_CfgBurstLen   ;
+  assign  CfgStartAddr  = DdrTest_CfgStartAddr  ;
+  assign  CfgEndAddr    = DdrTest_CfgEndAddr    ;
+  assign  CfgTestLen    = DdrTest_CfgTestLen    ;
+
+  assign  CfgDataSize   = 3'h4;
+                                                     
+`else //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  //Use Simulation
+  /////////////////////////////////////////////////////////
+  reg   TestBusyReg = 1'h0;
+  reg   TestEndFlag = 1'h0;
+  
+  always @( posedge sys_clk)  TestBusyReg  <=  TestBusy;
+  always @( posedge sys_clk)  TestEndFlag  <=  (~TestBusy)  & TestBusyReg;
+  
+  /////////////////////////////////////////////////////////
+  reg  [3:0]  TestDlyCnt    = 4'h0;
+  reg         TestStartFlag = 1'h0;
+  
+  always @( posedge sys_clk or negedge Ddr_Ready)  
+  begin
+    if (~Ddr_Ready)         TestDlyCnt <=  4'h0;
+    else if (TestEndFlag)   TestDlyCnt <=  4'h0;
+    else                    TestDlyCnt <=  TestDlyCnt + {3'h0,(~&TestDlyCnt)};
+  end
+  always @( posedge sys_clk) TestStartFlag <=  (TestDlyCnt == 4'hf);
+  
+  /////////////////////////////////////////////////////////
+  reg [1:0] ModeSelCnt = 2'H3;
+  
+  always @( posedge sys_clk)  if (TestEndFlag)
+  begin
+    if (ModeSelCnt == 2'h1) ModeSelCnt <=2'h3;
+    else                    ModeSelCnt <=ModeSelCnt - 2'h1;
+  end
+  
+  /////////////////////////////////////////////////////////  
+  assign  CfgTestMode   = Sim_CfgTestMode   ;
+  assign  CfgBurstLen   = Sim_CfgBurstLen   ;
+  assign  CfgDataSize   = Sim_CfgDataSize   ;
+  assign  CfgTestLen    = Sim_CfgTestLen    ;
+  assign  TestStart     = Sim_TestStart     ;
+
+  assign  CfgDataMode   = Sim_CfgDataMode   ;
+  assign  DdrResetCtrl  = 1'h0              ;
+  assign  CfgStartAddr  = 32'h0             ;
+  assign  CfgEndAddr    = 32'h1f_ff_ff      ;
+
+`endif  //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+endmodule

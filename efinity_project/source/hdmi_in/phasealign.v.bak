@@ -1,0 +1,245 @@
+`timescale 1ns / 1ps
+//****************************************Copyright (c)***********************************//
+//原子哥在线教学平台：www.yuanzige.com
+//抿术支持：www.openedv.com
+//淘宝店铺：http://openedv.taobao.com 
+//关注微信公众平台微信号："正点原子"，免费获取ZYNQ & FPGA & STM32 & LINUX资料
+//版权承有，盗版必究
+//Copyright(C) 正点原子 2018-2028
+//All rights reserved
+//----------------------------------------------------------------------------------------
+// File name:           phasealign
+// Descriptions:        字对齐校准模块
+//----------------------------------------------------------------------------------------
+// Created by:          正点原子
+// Created date:        2020/5/8 9:30:00
+// Version:             V1.0
+// Descriptions:        The original version
+//
+//----------------------------------------------------------------------------------------
+//****************************************************************************************
+
+module phasealign #(
+    parameter kTimeoutMs = 50, 
+	parameter kRefClkFrqMHz = 200,
+    parameter kCtlTknCount = 300  
+)(
+
+    input                           prst          ,
+    input                           arst          ,	
+    input                           refclk        ,
+    input                           pixelclk      ,	
+    output                          pbitslip      ,
+    input   [9:0]                   pdata         ,
+    output                          paligned      ,
+    output                          perror        ,
+    output  [4:0]   								peyesize   
+    );
+	
+//parameter define  
+parameter kBitslipDelay =3; 
+parameter kTimeoutEnd = kTimeoutMs * 1000 * kRefClkFrqMHz;       
+parameter CTRLTOKEN0 = 10'h354;
+parameter CTRLTOKEN1 = 10'h0ab;
+parameter CTRLTOKEN2 = 10'h154;
+parameter CTRLTOKEN3 = 10'h2ab;      
+parameter kTapCntEnd = 0;                                
+parameter kFastTapCntEnd = 20;                           
+parameter kDelayWaitEnd = 3;                             
+parameter kEyeOpenCntMin = 3;                            
+parameter kEyeOpenCntEnough = 16;                        
+parameter ResetSt        = 11'b00000000001;              
+parameter IdleSt         = 11'b00000000010;              
+parameter TokenSt        = 11'b00000000100;              
+parameter EyeOpenSt      = 11'b00000001000;              
+parameter JtrZoneSt      = 11'b00000010000;              
+parameter DlyIncSt       = 11'b00000100000;              
+parameter DlyDecSt       = 11'b00010000000;              
+parameter DlyTstCenterSt = 11'b00100000000;              
+parameter AlignedSt      = 11'b01000000000;           
+parameter AlignErrorSt   = 11'b10000000000;              
+ 
+//reg define 
+reg             palign_rst=0; 
+reg     [1:0]   pbitslip_cnt=0; 
+reg             palign_err_q=0; 
+reg     [25:0]  rtimeout_cnt=0; 
+reg             pbitslip=0;  
+reg             ptkn_flag=0; 
+reg             ptkn_flagq=0;   
+reg             pblank_begin=0;
+reg     [9:0]   pctltkn_cnt=0;  
+reg     [9:0]   pdataq=0; 
+reg     [10:0]  pstate=0;  
+reg             paligned=0; 
+reg             perror=0;
+reg     [11:0]  pStateNxt=1; 
+reg             pctltkn_ovf=0;  
+
+//wire define 
+wire            ptimeout_rst;
+wire            pctltkn_rst;
+wire            ptkn0_flag;
+wire            ptkn1_flag;
+wire            ptkn2_flag;
+wire            ptkn3_flag;
+wire    [4:0]   peyesize;
+wire            ptimeout_ovf; 
+wire            rtimeout_rst;  
+wire            rtimeout_ovf;
+
+ //*****************************************************
+//**                    main code
+//*****************************************************   
+
+//FSM Outputs
+assign  ptimeout_rst =(pstate == IdleSt || pstate == TokenSt ) ? 1'b0 : 1'b1;                                                                       
+assign  pctltkn_rst =(pstate == TokenSt ) ? 1'b0 : 1'b1; 
+//Control Token Detection                                                                                                             
+assign ptkn0_flag = (vin_r ==  CTRLTOKEN0 ) ? 1'b1 : 1'b0;                                                      
+assign ptkn1_flag = (vin_r ==  CTRLTOKEN1 ) ? 1'b1 : 1'b0;                                                          
+assign ptkn2_flag = (vin_r ==  CTRLTOKEN2 ) ? 1'b1 : 1'b0;                                                      
+assign ptkn3_flag = (vin_r ==  CTRLTOKEN3 ) ? 1'b1 : 1'b0;  
+assign rtimeout_ovf = (rtimeout_cnt != (kTimeoutEnd - 1))? 1'b0 : 1'b1;
+
+//Bitslip when phase alignment exhausted the whole tap range and still no lock
+always@(posedge pixelclk)begin
+      palign_err_q <= perror;
+      pbitslip <= ~palign_err_q && perror; // single pulse bitslip on failed alignment attempt    
+end  
+
+always@(posedge refclk)begin
+    if(rtimeout_rst)
+        rtimeout_cnt <= 0;  
+    else if(rtimeout_ovf == 0)
+        rtimeout_cnt <= rtimeout_cnt + 1;
+    else
+         rtimeout_cnt <= rtimeout_cnt;   
+end   
+
+//Reset phase aligment module after bitslip + 3 CLKDIV cycles (ISERDESE2 requirement)
+always@(posedge pixelclk)begin
+    if(pbitslip)
+        pbitslip_cnt <= kBitslipDelay - 1;  
+    else if(pbitslip_cnt != 0 )
+        pbitslip_cnt <= pbitslip_cnt - 1;
+    else
+        pbitslip_cnt <= pbitslip_cnt;      
+end
+
+always@(posedge pixelclk)begin
+    if(arst)
+        palign_rst <= 1;  
+    else if(prst || pbitslip )
+        palign_rst <= 1;
+    else if(pbitslip_cnt == 0)
+         palign_rst <= 0;  
+    else
+         palign_rst <= palign_rst;      
+end 
+
+
+                                                                                                                                                                      
+always@(posedge pixelclk)begin
+    if(pctltkn_rst)
+        pctltkn_cnt <=0;
+    else begin
+        pctltkn_cnt <= pctltkn_cnt + 1;
+        
+        if(pctltkn_cnt == kCtlTknCount - 1)
+            pctltkn_ovf <= 1;
+        else 
+            pctltkn_ovf <= 0;   
+    end        
+end                                                           
+                                                       
+//Register pipeline                                                                                                                  
+always@(posedge pixelclk)begin
+    vin_r <= vin;
+    ptkn_flag <= ptkn0_flag || ptkn1_flag || ptkn2_flag || ptkn3_flag;
+    ptkn_flagq <= ptkn_flag;
+    pblank_begin <= ~ptkn_flagq && ptkn_flag;    
+end                                                          
+                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                                        
+//FSM                                                                         
+always@(posedge pixelclk)begin
+    if(palign_rst)
+        pstate <= ResetSt;
+    else
+        pstate <= pStateNxt;        
+end                                                                            
+                                                                        
+//FSM Registered Outputs
+always@(posedge pixelclk)begin
+    if(pstate == AlignedSt)begin
+        paligned <= 1;
+    end    
+    else begin
+        paligned <= 0; 
+    end  
+
+    if(pstate == AlignErrorSt)begin
+        perror <= 1;
+    end    
+    else begin
+        perror <= 0; 
+    end      
+end 
+
+always@(*)begin
+    case(pstate)
+        ResetSt:    begin
+                        pStateNxt <= IdleSt;                       
+                    end
+        IdleSt:     begin
+                        if( pblank_begin) //检测到blank
+                            pStateNxt <= TokenSt;
+                        else if(ptimeout_ovf) 
+                            pStateNxt <= AlignErrorSt;                                               
+                        else 
+                            pStateNxt <= IdleSt; 
+                    end
+        TokenSt:    begin
+                        if( !ptkn_flagq)
+                            pStateNxt <= IdleSt;
+                        else if(pctltkn_ovf) //blank的个数,是不是要检测主够多的blank个数呢
+                            pStateNxt <= AlignedSt;                                               
+                        else 
+                            pStateNxt <= TokenSt;                          
+                    end
+        AlignedSt:  begin
+                        pStateNxt <= AlignedSt;    
+                    end     
+        AlignErrorSt:  begin
+                        pStateNxt <= AlignErrorSt;    
+                    end   
+        default:begin
+                        pStateNxt <= IdleSt;
+                                       
+                end                 
+    endcase    
+end 
+
+ syncbase #(
+     .kResetTo (0)   
+ )u_syncbaseovf(
+    .areset     (arst),
+    .inclk      (refclk),
+    .iin        (rtimeout_ovf),
+    .outclk     (pixelclk),
+    .oout       (ptimeout_ovf)
+ );  
+         
+ syncbase #(
+     .kResetTo (1) 
+ )u_syncbaserst(
+    .areset     (arst),
+    .inclk      (pixelclk),
+    .iin        (ptimeout_rst),
+    .outclk     (refclk),
+    .oout       (rtimeout_rst)
+ );                                                                      
+                                                                           
+endmodule                                                                            
