@@ -1,4 +1,4 @@
-视频与流媒体作为最直观的信息传输形式，一直是信息技术发展的前沿，随着VR 等技术的发展，视频类文件如何高效高清的传递成为了亟待解决的问题
+(Chinese version)视频与流媒体作为最直观的信息传输形式，一直是信息技术发展的前沿，随着VR 等技术的发展，视频类文件如何高效高清的传递成为了亟待解决的问题
 基于易灵思提供的平台，Vedio-Stream-Scaler 及配套的 GUI 界面，提供高性能优体验的技术实现。
 在本工程中，若用户需要进行视频流媒体放大，则根据用户选择区域放大至全屏（1920*1080）；若用户需要将视频流媒体缩小，则根据用户选择的大小将全屏（1920*1080）缩小到指定分辨率
 
@@ -16,7 +16,7 @@ The overview of the scaler algorithm module.
 
 ![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/asynchronous%20FIFO.png)
 
-(CN version)双线性插值和最近邻插值都是需要读两行才能进行计算，比如，第一行输入到缩放模块，然后缓存，等第二行输入后就可以计算了。但第三行输入进来，就使用第二行和第三行。也就是说，实际只用了一行数据输出两行数据。放大需要读一行写两行，所以放大模块需要2倍时钟。缩小可以用1倍甚至0.5倍时钟。因此，在image_cut选定放大区域（缩小后区域）后，将指定区域内数据传到缩放具体实现模块streamScaler的过程中的异步FIFO使用一倍时钟写入，两倍时钟读取。
+(Chinese version)双线性插值和最近邻插值都是需要读两行才能进行计算，比如，第一行输入到缩放模块，然后缓存，等第二行输入后就可以计算了。但第三行输入进来，就使用第二行和第三行。也就是说，实际只用了一行数据输出两行数据。放大需要读一行写两行，所以放大模块需要2倍时钟。缩小可以用1倍甚至0.5倍时钟。因此，在image_cut选定放大区域（缩小后区域）后，将指定区域内数据传到缩放具体实现模块streamScaler的过程中的异步FIFO使用一倍时钟写入，两倍时钟读取。
 
 (English Version)Bilinear interpolation and nearest neighbor interpolation both require reading two rows to perform calculations. For example, the first row is input to the scaling module, then cached, and after the second row is input, the calculation can be performed. But when the third line is inputted, use the second and third lines. That is to say, only one row of data was actually used to output two rows of data. Amplification requires reading one line and writing two lines, so the amplification module requires twice the clock. Shrinking can be done with a clock that is 1 or even 0.5 times smaller.Therefore, after selecting the enlarged area (reduced area) in image_cut, the asynchronous FIFO in the process of transferring data within the specified area to the specific implementation module streamScaler for scaling uses double clock writing and double clock reading.
 
@@ -28,7 +28,10 @@ interpolation coefficient calculation
 
 When users choose 'scaling down' mode, the empty area in the screen would be filled with 'black'
 
+![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/RAM_FIFO.png)
 
+(Chinese version)为了后续计算插值运算所需要的系数和存储插值点周围的四个像素值，通常所采取的方法为使用两个行缓冲器来存储插值所需要的两行数据，但此方法不适用于对于实时性要求很高的视频图像的处理。另一种方法为采用帧存储器，通过“Ping-Pong”轮换的机制来实现对两行数据缓冲的方法，但这又需要设计帧存储器的控制逻辑，增加了所需的硬件成本，同时也会降低缩放模块的运行速度.最终采用一个包含多个 RAM 存储器的图像数据缓存阵列，这多个 RAM 的数据缓存顺序是通过一个 FIFO 来推进，称为 RAM_FIFO.
+(English version)In order to calculate the coefficients required for subsequent interpolation operations and store the four pixel values around the interpolation point, the usual method is to use two row buffers to store the two rows of data required for interpolation. However, this method is not suitable for processing video images that require high real-time performance. Another method is to use frame memory, which uses a "Ping Pong" rotation mechanism to buffer two rows of data. However, this requires designing the control logic of the frame memory, which increases the required hardware cost and also reduces the running speed of the scaling module. Finally, an image data caching array containing multiple RAM memories is used, and the data caching order of these multiple RAM memories is promoted through a FIFO, called RAM-FIFO.
 
 
 
