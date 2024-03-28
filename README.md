@@ -7,3 +7,8 @@ Based on the platform provided by Yilingsi, Vedio Stream Scaler and its accompan
 ![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/RTL_overview.png)
 
 The contents in this picture show the key module folders in the whole project. Following explanations mainly focus on the algorithm module.
+
+![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/algorithm_overview.png)
+
+The overview of the scaler algorithm module.
+
