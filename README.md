@@ -3,3 +3,6 @@
 
 Video and streaming media, as the most intuitive forms of information transmission, have always been at the forefront of information technology development. With the development of VR and other technologies, how to efficiently and high-definition transmit video files has become an urgent problem to be solved
 Based on the platform provided by Yilingsi, Vedio Stream Scaler and its accompanying GUI interface, a technology implementation that provides high-performance and excellent experience
+
+![image](https://github.com/ICscholar/Video-Stream-Scaler/blob/main/image/RTL_overview.png)
+The contents in this picture show the key module folders in the whole project. Following explanations mainly focus on the algorithm module.
